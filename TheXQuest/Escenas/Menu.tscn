@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Menu/Menu_Animacion/fila-3-columna-1.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/LetrasXinas.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Titulo.gd" type="Script" id=11]
-[ext_resource path="res://Assets/Menu/SNES - Tengai Makyou Zero Far East of Eden Zero JPN - Title Screen Save Menu & Splash.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Menu/luces.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
@@ -108,6 +108,7 @@ margin_bottom = 900.0
 rect_pivot_offset = Vector2( 1007.66, 586 )
 color = Color( 0, 0, 0, 1 )
 
-[node name="Snes-TengaiMakyouZeroFarEastOfEdenZeroJpn-TitleScreenSaveMenu&Splash" type="Sprite" parent="."]
-position = Vector2( 2492, 989 )
+[node name="Luces" type="Sprite" parent="."]
+position = Vector2( 2372, 383 )
+scale = Vector2( 9.39286, 9.4 )
 texture = ExtResource( 12 )
