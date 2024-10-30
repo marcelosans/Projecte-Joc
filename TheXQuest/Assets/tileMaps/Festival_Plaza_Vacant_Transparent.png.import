@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TheXQuestTransparent.png-bcf3c11c99406ab7510bb6a2c4eb9e5e.stex"
+path="res://.import/Festival_Plaza_Vacant_Transparent.png-1a5680b97e4f5ec7c1d2f595616b62e3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tileMaps/TheXQuestTransparent.png"
-dest_files=[ "res://.import/TheXQuestTransparent.png-bcf3c11c99406ab7510bb6a2c4eb9e5e.stex" ]
+source_file="res://Assets/tileMaps/Festival_Plaza_Vacant_Transparent.png"
+dest_files=[ "res://.import/Festival_Plaza_Vacant_Transparent.png-1a5680b97e4f5ec7c1d2f595616b62e3.stex" ]
 
 [params]
 
