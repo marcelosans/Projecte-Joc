@@ -64,14 +64,28 @@ points = PoolVector2Array( 460.833, 44.8334, 57.5, 44.8334, 57.5, 0, 460.833, 0 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+1/name = "Festival_Plaza_Vacant_Transparent.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 495, 15, 16, 512 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 6 )
-cell_size = Vector2( 24, 36 )
+cell_size = Vector2( 16, 36 )
 format = 1
-tile_data = PoolIntArray( 65535, 1, 0, 0, 0, 0 )
+tile_data = PoolIntArray( 65535, 1, 0, 0, 0, 0, 32, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 246, 245 )
