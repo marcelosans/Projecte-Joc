@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Escenas/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/tileMaps/Festival_Plaza_Vacant_Transparent.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Encounter.gd" type="Script" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 57.5, 352.333, 0, 352.333, 0, 0, 57.5, 0 )
@@ -17,6 +18,9 @@ points = PoolVector2Array( 512, 434.833, 461.667, 434.833, 461.667, 0, 512, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 460.833, 44.8334, 57.5, 44.8334, 57.5, 0, 460.833, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 24, 36, 0, 36, 0, 0, 24, 0 )
 
 [sub_resource type="TileSet" id=6]
 0/name = "Festival_Plaza_Vacant_Transparent.png 0"
@@ -78,18 +82,65 @@ points = PoolVector2Array( 460.833, 44.8334, 57.5, 44.8334, 57.5, 0, 460.833, 0 
 1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
+2/name = "Festival_Plaza_Vacant_Transparent.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 543, 51, 24, 36 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "Festival_Plaza_Vacant_Transparent.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 543, 51, 24, 36 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 12 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 203.75, 56.25 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 6 )
-cell_size = Vector2( 16, 36 )
+cell_size = Vector2( 24, 36 )
+show_collision = true
 format = 1
 tile_data = PoolIntArray( 65535, 1, 0, 0, 0, 0, 32, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 246, 245 )
+speed = 128
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-zoom = Vector2( 0.3, 0.3 )
+[node name="Encounter" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionEncounter" type="CollisionShape2D" parent="Encounter"]
+position = Vector2( 260, 101 )
+shape = SubResource( 13 )
+
+[connection signal="body_exited" from="Player" to="Player" method="_on_Player_body_exited"]
+[connection signal="body_entered" from="Encounter" to="Encounter" method="_on_Encounter_body_entered"]
+[connection signal="body_exited" from="Encounter" to="Encounter" method="_on_Encounter_body_exited"]
