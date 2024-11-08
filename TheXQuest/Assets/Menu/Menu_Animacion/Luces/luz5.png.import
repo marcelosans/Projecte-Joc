@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/luces.png-fec82b3830b5bdf2a62c515f3fc31ab1.stex"
+path="res://.import/luz5.png-a41f7e063ab42fadccfdf222af2d61b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/luces.png"
-dest_files=[ "res://.import/luces.png-fec82b3830b5bdf2a62c515f3fc31ab1.stex" ]
+source_file="res://Assets/Menu/Menu_Animacion/Luces/luz5.png"
+dest_files=[ "res://.import/luz5.png-a41f7e063ab42fadccfdf222af2d61b9.stex" ]
 
 [params]
 

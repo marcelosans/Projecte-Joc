@@ -3,8 +3,10 @@ extends Sprite
 onready var tween = $Tween
 onready var black_rect = $"../../NegroBonito" 
 onready var LetrasXinas = $LetrasXinas
+onready var Luces = $Luces
 onready var timer = $Timer 
-onready var Titulo = $Titulo  
+onready var Titulo = $Titulo
+
 
 func zoom_out():
 	var original_scale = scale
@@ -21,11 +23,13 @@ func _on_tween_completed(_obj, _key):
 	timer.start(0.8) 
 
 func delay_letras_xinas():
-	letras_xinas()
+	Animaciones()
 	timer.disconnect("timeout", self, "delay_letras_xinas")	
 
-func letras_xinas():
+func Animaciones():
 	LetrasXinas.visible = true
 	LetrasXinas.fade_in() 
 	Titulo.visible = true
 	Titulo._ready()
+	
+	
