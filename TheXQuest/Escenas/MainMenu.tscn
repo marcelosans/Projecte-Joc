@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb672ganto0xn"]
-
-[ext_resource type="Texture2D" uid="uid://8y8nioop821c" path="res://Assets/Menu/Menu_Animacion/Zero-Rojo.png" id="1_skav3"]
-
-[node name="Zero-rojo" type="Sprite2D"]
-position = Vector2(548, 305)
-texture = ExtResource("1_skav3")

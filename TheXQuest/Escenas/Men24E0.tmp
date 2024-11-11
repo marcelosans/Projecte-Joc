@@ -1,0 +1,180 @@
+[gd_scene load_steps=19 format=3 uid="uid://d35rbncro5o6g"]
+
+[ext_resource type="Script" path="res://Scripts/RayasGira_Intro.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cybsiloeen3js" path="res://Assets/Menu/Menu_Animacion/fila-4-columna-2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://8y8nioop821c" path="res://Assets/Menu/Menu_Animacion/Zero-Rojo.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dwcrka534q6xf" path="res://Assets/Menu/Menu_Animacion/fila-3-columna-3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://rapg7b5hhxki" path="res://Assets/Menu/Menu_Animacion/fila-4-columna-1.png" id="6"]
+[ext_resource type="Script" path="res://Scripts/ZeroNegro_Intro.gd" id="7"]
+[ext_resource type="Script" path="res://Scripts/Zero-Rojo.gd" id="8"]
+[ext_resource type="Texture2D" uid="uid://djlpwnflcp8m3" path="res://Assets/Menu/Menu_Animacion/fila-3-columna-1.png" id="9"]
+[ext_resource type="Script" path="res://Scripts/LetrasXinas.gd" id="10"]
+[ext_resource type="Script" path="res://Scripts/Titulo.tres.gd" id="11"]
+[ext_resource type="Texture2D" uid="uid://bn2to0unyk3ee" path="res://Assets/Menu/Menu_Animacion/Luces/luz4.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://c1whksvspf2hm" path="res://Assets/Menu/Menu_Animacion/Luces/luz5.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://n00qwhjd24at" path="res://Assets/Menu/Menu_Animacion/Luces/luz3.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://v7fgkchg07au" path="res://Assets/Menu/Menu_Animacion/Luces/luz6.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://b6asl1ma75hle" path="res://Assets/Menu/Menu_Animacion/Luces/luz2.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://dwin4wluu8u88" path="res://Assets/Menu/Menu_Animacion/Luces/luz1.png" id="17"]
+[ext_resource type="Script" path="res://Scripts/Luces.gd" id="18"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15")
+}],
+"loop": true,
+"name": &"MovimienteGiratorio",
+"speed": 5.0
+}]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchor_left = 0.011
+anchor_right = 1.0
+anchor_bottom = 0.987
+
+[node name="FondoAzul_Intro" type="Sprite2D" parent="."]
+position = Vector2(793, 450)
+scale = Vector2(4.72089, 3.89617)
+texture = ExtResource("6")
+
+[node name="RayasGira_Intro" type="Sprite2D" parent="."]
+position = Vector2(791, 438)
+scale = Vector2(8.72397, 6.09045)
+texture = ExtResource("2")
+script = ExtResource("1")
+
+[node name="NegroBonito" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Zero-Rojo" type="Sprite2D" parent="."]
+position = Vector2(756, 525)
+scale = Vector2(4.721, 3.687)
+texture = ExtResource("4")
+script = ExtResource("8")
+
+[node name="Tween" type="Tween" parent="Zero-Rojo"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="Timer" type="Timer" parent="Zero-Rojo"]
+
+[node name="ZeroNegro_Intro" type="Sprite2D" parent="Zero-Rojo"]
+position = Vector2(7.6255, -35.259)
+scale = Vector2(1, 1.00003)
+texture = ExtResource("5")
+script = ExtResource("7")
+
+[node name="Tween" type="Tween" parent="Zero-Rojo/ZeroNegro_Intro"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="Timer" type="Timer" parent="Zero-Rojo/ZeroNegro_Intro"]
+wait_time = 1.25
+
+[node name="LetrasXinas" type="Sprite2D" parent="Zero-Rojo/ZeroNegro_Intro"]
+visible = false
+position = Vector2(-4.23639, -31.7322)
+scale = Vector2(0.855386, 0.989072)
+texture = ExtResource("9")
+script = ExtResource("10")
+
+[node name="Tween" type="Tween" parent="Zero-Rojo/ZeroNegro_Intro/LetrasXinas"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="Titulo" type="Label" parent="Zero-Rojo/ZeroNegro_Intro"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.189
+anchor_top = 0.205
+anchor_right = 0.777
+anchor_bottom = 0.33
+text = "The X Quest"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("11")
+
+[node name="Tween" type="Tween" parent="Zero-Rojo/ZeroNegro_Intro/Titulo"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="Luces" type="AnimatedSprite2D" parent="Zero-Rojo/ZeroNegro_Intro"]
+visible = false
+position = Vector2(-73.2896, -75.1266)
+scale = Vector2(0.971254, 1.23391)
+sprite_frames = SubResource("3")
+animation = &"MovimienteGiratorio"
+script = ExtResource("18")
+
+[node name="Tween" type="Tween" parent="Zero-Rojo/ZeroNegro_Intro/Luces"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
+
+[node name="BarraNegraIzq" type="ColorRect" parent="."]
+layout_mode = 0
+color = Color(0, 0, 0, 1)
+
+[node name="BarraNegraDer" type="ColorRect" parent="."]
+layout_mode = 0
+color = Color(0, 0, 0, 1)
