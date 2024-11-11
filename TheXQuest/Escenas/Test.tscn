@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://btv5x2juxejbm"]
+
+[ext_resource type="Texture2D" uid="uid://clwmj8lgs2xa0" path="res://Assets/tileMaps/Festival_Plaza_Vacant_Transparent.png" id="1_nw6j4"]
+[ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_gjifd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xec67"]
+resource_name = "testMap"
+texture = ExtResource("1_nw6j4")
+margins = Vector2i(16, 17)
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(16, 16)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bq24s"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_xec67")
+
+[node name="Test" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_bq24s")
+
+[node name="Player" parent="." instance=ExtResource("2_gjifd")]
+position = Vector2(270, 268)
