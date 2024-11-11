@@ -89,14 +89,15 @@ script = ExtResource( 10 )
 [node name="Tween" type="Tween" parent="Zero-Rojo/ZeroNegro_Intro/LetrasXinas"]
 
 [node name="Titulo" type="Label" parent="Zero-Rojo/ZeroNegro_Intro"]
+visible = false
 anchor_left = 0.189
 anchor_top = 0.205
 anchor_right = 0.777
 anchor_bottom = 0.33
-margin_left = -127.195
-margin_top = -147.68
-margin_right = -129.135
-margin_bottom = -147.68
+margin_left = -127.204
+margin_top = -151.266
+margin_right = -129.144
+margin_bottom = -151.266
 custom_fonts/font = SubResource( 2 )
 text = "The X Quest"
 align = 1
@@ -108,12 +109,15 @@ script = ExtResource( 11 )
 [node name="Tween" type="Tween" parent="Zero-Rojo/ZeroNegro_Intro/Titulo"]
 
 [node name="Luces" type="AnimatedSprite" parent="Zero-Rojo/ZeroNegro_Intro"]
-position = Vector2( -76.255, -76.2114 )
+visible = false
+position = Vector2( -73.2896, -75.1266 )
 scale = Vector2( 0.971254, 1.23391 )
 frames = SubResource( 3 )
 animation = "MovimienteGiratorio"
-frame = 1
+playing = true
 script = ExtResource( 18 )
+
+[node name="Tween" type="Tween" parent="Zero-Rojo/ZeroNegro_Intro/Luces"]
 
 [node name="BarraNegraIzq" type="ColorRect" parent="."]
 margin_left = -7.0

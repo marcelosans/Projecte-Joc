@@ -24,12 +24,12 @@ func _on_tween_completed(_obj, _key):
 
 func delay_letras_xinas():
 	Animaciones()
-	timer.disconnect("timeout", self, "delay_letras_xinas")	
+	timer.disconnect("timeout", self, "delay_letras_xinas")
 
 func Animaciones():
 	LetrasXinas.visible = true
 	LetrasXinas.fade_in() 
 	Titulo.visible = true
 	Titulo._ready()
-	
-	
+	Luces.visible = true
+	Luces._ready()
