@@ -119,7 +119,7 @@ points = PoolVector2Array( 24, 36, 0, 36, 0, 0, 24, 0 )
 3/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 203.75, 56.25 )
+extents = Vector2( 183.375, 56.25 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -131,16 +131,15 @@ format = 1
 tile_data = PoolIntArray( 65535, 1, 0, 0, 0, 0, 32, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 246, 245 )
-speed = 128
+position = Vector2( 267, 312 )
 
 [node name="Encounter" type="Area2D" parent="."]
+position = Vector2( 255, 99 )
 script = ExtResource( 3 )
 
 [node name="CollisionEncounter" type="CollisionShape2D" parent="Encounter"]
-position = Vector2( 260, 101 )
+position = Vector2( 4, 22 )
 shape = SubResource( 13 )
 
-[connection signal="body_exited" from="Player" to="Player" method="_on_Player_body_exited"]
 [connection signal="body_entered" from="Encounter" to="Encounter" method="_on_Encounter_body_entered"]
 [connection signal="body_exited" from="Encounter" to="Encounter" method="_on_Encounter_body_exited"]

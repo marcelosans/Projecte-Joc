@@ -2,13 +2,6 @@
 
 [ext_resource path="res://Assets/tileMaps/TheXQuestTransparent.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> cc9223544cfa5f53f71d4f83bedbdf530d668355
->>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 1 )
