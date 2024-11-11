@@ -3,3 +3,14 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 577.0
+margin_top = 135.0
+margin_right = 660.0
+margin_bottom = 246.0
+rect_scale = Vector2( 5, 5 )
+text = "TEXT
+"
+align = 1
+valign = 1
