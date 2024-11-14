@@ -1,26 +1,67 @@
-[gd_scene load_steps=5 format=3 uid="uid://btv5x2juxejbm"]
+[gd_scene load_steps=7 format=3 uid="uid://btv5x2juxejbm"]
 
 [ext_resource type="Texture2D" uid="uid://clwmj8lgs2xa0" path="res://Assets/tileMaps/Festival_Plaza_Vacant_Transparent.png" id="1_nw6j4"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_gjifd"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xec67"]
-resource_name = "testMap"
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dgn8e"]
+resource_name = "ground"
 texture = ExtResource("1_nw6j4")
-margins = Vector2i(16, 17)
-texture_region_size = Vector2i(32, 32)
-0:0/size_in_atlas = Vector2i(16, 16)
-0:0/0 = 0
+margins = Vector2i(52, 16)
+texture_region_size = Vector2i(510, 510)
+2:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_bq24s"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_xec67")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gh3st"]
+resource_name = "trees"
+texture = ExtResource("1_nw6j4")
+margins = Vector2i(34, 16)
+texture_region_size = Vector2i(510, 510)
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3hxx5"]
+tile_size = Vector2i(510, 510)
+sources/0 = SubResource("TileSetAtlasSource_dgn8e")
+sources/1 = SubResource("TileSetAtlasSource_gh3st")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58424"]
+size = Vector2(389, 123.5)
 
 [node name="Test" type="Node2D"]
+y_sort_enabled = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_bq24s")
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_3hxx5")
+format = 2
+layer_0/name = "1"
+layer_0/tile_data = PackedInt32Array(0, 131072, 0)
+layer_1/name = "2"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(0, 65537, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_gjifd")]
-position = Vector2(270, 268)
+position = Vector2(247, 269)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, 2)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 510
+limit_bottom = 510
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+editor_draw_limits = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(273, 112)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-17.5, -13.25)
+shape = SubResource("RectangleShape2D_58424")
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+visible = false
+polygon = PackedVector2Array(0, 400, 48, 400, 48, 464, 464, 464, 462, 23, 48, 22, 48, 327, 1, 327, -1, 57, 0, 0, 149, -1, 416, 1, 510, 0, 511, 134, 510, 396, 511, 510, 428, 510, 20, 511, 0, 509, 0, 413)
