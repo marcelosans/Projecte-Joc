@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwy38cqrc7rsl"]
+
+[ext_resource type="Texture2D" uid="uid://cmicnxg8ianu2" path="res://Assets/FondosCombate/Fondos_01.jpg" id="1_n2dku"]
+
+[node name="Combate" type="Node2D"]
+position = Vector2(332, 149)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -327.0
+offset_top = -146.0
+offset_right = 1310.0
+offset_bottom = 804.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_n2dku")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AttackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Attack
+
+"
+
+[node name="ItemButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Items
+"
+
+[node name="RunButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Run
+"

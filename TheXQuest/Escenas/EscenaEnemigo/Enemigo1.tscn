@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cyenjlfp4rwcq"]
+
+[node name="Enemigo1" type="CharacterBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
