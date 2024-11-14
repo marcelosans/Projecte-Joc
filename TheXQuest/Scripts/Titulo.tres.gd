@@ -1,8 +1,12 @@
 extends Label
 
 func _ready():
-	# Create a tween instance if it doesn't exist as a child node
-	var tween = $Tween if has_node("Tween") else get_tree().create_tween()
-
-	# Use `tween_property` instead of `interpolate_property`
-	tween.tween_property(self, "percent_visible", 1.0, 5.0).set_trans(Tween.TransitionType.TRANS_CUBIC).set_ease(Tween.EaseType.EASE_IN)
+	# Comprobar si el nodo Tween existe y usarlo, si no, crear uno nuevo
+	var tween : Tween
+	if has_node("Tween"):
+		tween = $Tween
+	else:
+		tween = get_tree().create_tween()
+	
+	# Animar la propiedad `percent_visible` de 0 a 1.0 en 5 segundos
+	tween.tween_property(self, "percent_visible", 1.0, 5.0, Tween.TransitionType.TRANS_CUBIC, Tween.EaseType.EASE_IN)
