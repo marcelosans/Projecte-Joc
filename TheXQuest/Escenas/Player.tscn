@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bh0fvmle13y04"]
 
 [ext_resource type="Texture2D" uid="uid://dndtqh0ojg13n" path="res://Assets/tileMaps/TheXQuestTransparent.png" id="1_pvsai"]
-[ext_resource type="Script" path="res://Escenas/player.gd" id="1_tme05"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_tme05"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa01u"]
 atlas = ExtResource("1_pvsai")
