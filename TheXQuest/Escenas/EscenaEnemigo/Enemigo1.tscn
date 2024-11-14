@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyenjlfp4rwcq"]
-
-[ext_resource type="Texture2D" uid="uid://dfcwko1so78xj" path="res://Assets/Sprites/SNES - Tengai Makyou Zero Far East of Eden Zero JPN - Monster Pets 1 Manto.png" id="1_obvk3"]
+[gd_scene format=3 uid="uid://cyenjlfp4rwcq"]
 
 [node name="Enemigo1" type="CharacterBody2D"]
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_obvk3")
