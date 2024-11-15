@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwy38cqrc7rsl"]
+[gd_scene load_steps=3 format=3 uid="uid://cwy38cqrc7rsl"]
 
 [ext_resource type="Texture2D" uid="uid://cmicnxg8ianu2" path="res://Assets/FondosCombate/Fondos_01.jpg" id="1_n2dku"]
+[ext_resource type="PackedScene" uid="uid://bggqx7fbt4kah" path="res://Escenas/EscenaEnemigo/GruposEnemigo.tscn" id="2_6qkbc"]
 
 [node name="Combate" type="Node2D"]
 position = Vector2(332, 149)
@@ -35,3 +36,13 @@ text = "Items
 layout_mode = 2
 text = "Run
 "
+
+[node name="GruposEnemigo" parent="." instance=ExtResource("2_6qkbc")]
+position = Vector2(53, -193)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 293.0
+offset_top = 618.0
+offset_right = 683.0
+offset_bottom = 751.0
+color = Color(0.462291, 0.462291, 0.462291, 1)
