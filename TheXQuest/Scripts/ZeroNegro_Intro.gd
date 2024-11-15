@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@onready var black_rect = $"../../NegroBonito"
+@onready var black_rect = "../../NegroBonito"
 @onready var letras_xinas = $Timer/LetrasXinas
 @onready var luces = $Timer/Luces
 @onready var timer = $Timer
