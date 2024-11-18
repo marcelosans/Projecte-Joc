@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnyg1gfdch2s"
-path="res://.godot/imported/Canine_Shrine_Exterior.png-5b4f961092a89dac322b72ab48a91225.ctex"
+uid="uid://chn5m8a8xfyit"
+path="res://.godot/imported/SNES - Tengai Makyou Zero Far East of Eden Zero JPN - Title Screen Save Menu & Splash.png-8ade4526a327c555ee18b99f4a3e4cfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tileMaps/Canine_Shrine_Exterior.png"
-dest_files=["res://.godot/imported/Canine_Shrine_Exterior.png-5b4f961092a89dac322b72ab48a91225.ctex"]
+source_file="res://Assets/Sprites/SNES - Tengai Makyou Zero Far East of Eden Zero JPN - Title Screen Save Menu & Splash.png"
+dest_files=["res://.godot/imported/SNES - Tengai Makyou Zero Far East of Eden Zero JPN - Title Screen Save Menu & Splash.png-8ade4526a327c555ee18b99f4a3e4cfc.ctex"]
 
 [params]
 

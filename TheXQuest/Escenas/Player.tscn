@@ -111,7 +111,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvfj"]
-size = Vector2(16, 30)
+size = Vector2(16, 29)
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -122,5 +122,5 @@ sprite_frames = SubResource("SpriteFrames_md5v5")
 animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_ytvfj")
