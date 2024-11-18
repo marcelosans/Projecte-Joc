@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chn5m8a8xfyit"
-path="res://.godot/imported/SNES - Tengai Makyou Zero Far East of Eden Zero JPN - Title Screen Save Menu & Splash.png-27f502d953653bea94d3c0de36dec5e1.ctex"
+uid="uid://bmbd3s8u8kel6"
+path="res://.godot/imported/SNES_-_Tengai_Makyou_Zero_Far_East_of_Eden_Zero_JPN_-_Monster_Pets_1_Manto-removebg-preview.png-9afc6f526feb81b4aab755ca6bb91730.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/SNES - Tengai Makyou Zero Far East of Eden Zero JPN - Title Screen Save Menu & Splash.png"
-dest_files=["res://.godot/imported/SNES - Tengai Makyou Zero Far East of Eden Zero JPN - Title Screen Save Menu & Splash.png-27f502d953653bea94d3c0de36dec5e1.ctex"]
+source_file="res://Assets/Sprites/SNES_-_Tengai_Makyou_Zero_Far_East_of_Eden_Zero_JPN_-_Monster_Pets_1_Manto-removebg-preview.png"
+dest_files=["res://.godot/imported/SNES_-_Tengai_Makyou_Zero_Far_East_of_Eden_Zero_JPN_-_Monster_Pets_1_Manto-removebg-preview.png-9afc6f526feb81b4aab755ca6bb91730.ctex"]
 
 [params]
 

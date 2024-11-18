@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+
+var health = 100
+
 @export var speed = 100
 @onready var animated_sprite = $AnimatedSprite2D
 

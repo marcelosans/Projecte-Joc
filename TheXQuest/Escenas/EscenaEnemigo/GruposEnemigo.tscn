@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bggqx7fbt4kah"]
+
+[ext_resource type="PackedScene" uid="uid://cyenjlfp4rwcq" path="res://Escenas/EscenaEnemigo/Enemigo1.tscn" id="1_5trnq"]
+[ext_resource type="Script" path="res://Escenas/EscenaEnemigo/grupos_enemigo.gd" id="1_ts7xk"]
+
+[node name="GruposEnemigo" type="Node2D"]
+script = ExtResource("1_ts7xk")
+
+[node name="Enemigo1" parent="." instance=ExtResource("1_5trnq")]
+
+[node name="Enemigo2" parent="." instance=ExtResource("1_5trnq")]
+
+[node name="Enemigo3" parent="." instance=ExtResource("1_5trnq")]
+
+[node name="Enemigo4" parent="." instance=ExtResource("1_5trnq")]
