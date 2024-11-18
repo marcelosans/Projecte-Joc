@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8s65lx7wsf2m"]
+
+[ext_resource type="TileSet" uid="uid://cid1s04so2yhj" path="res://Assets/tileMaps/Templo.tres" id="1_ubusa"]
+[ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_jmi31"]
+
+[node name="Templo" type="Node2D"]
+
+[node name="Templo" type="TileMap" parent="."]
+format = 2
+
+[node name="TemploLayer1" type="TileMapLayer" parent="Templo"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_ubusa")
+
+[node name="TemploLayer2" type="TileMapLayer" parent="Templo"]
+z_index = 1
+y_sort_enabled = true
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_ubusa")
+
+[node name="Player" parent="." instance=ExtResource("2_jmi31")]
+position = Vector2(537, 92)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 768
+limit_bottom = 768
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+editor_draw_limits = true

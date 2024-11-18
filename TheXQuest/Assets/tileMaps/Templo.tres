@@ -1,0 +1,25 @@
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cid1s04so2yhj"]
+
+[ext_resource type="Texture2D" uid="uid://cagvgnm66gkdn" path="res://Assets/tileMaps/Canine_Shrine_Exterior.png" id="1_vorxv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsdu3"]
+resource_name = "HideBehind"
+texture = ExtResource("1_vorxv")
+margins = Vector2i(32, 16)
+texture_region_size = Vector2i(768, 768)
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1m80"]
+resource_name = "hitboxes"
+texture = ExtResource("1_vorxv")
+margins = Vector2i(48, 16)
+texture_region_size = Vector2i(768, 768)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -272, -128, -304, 144, -304, 144, -272)
+2:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-128, -272, -272, -272, -272, -256, 288, -256, 288, -272)
+
+[resource]
+tile_size = Vector2i(768, 768)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_jsdu3")
+sources/1 = SubResource("TileSetAtlasSource_j1m80")
