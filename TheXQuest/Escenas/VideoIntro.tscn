@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn4wq7qulsyy8"]
+
+[ext_resource type="Script" path="res://Scripts/SecuenciaVideos.gd" id="1_mhhvl"]
+[ext_resource type="VideoStream" path="res://Assets/VideosIntro/Intro1.ogv" id="2_ctvjq"]
+[ext_resource type="VideoStream" path="res://Assets/VideosIntro/Intro2.ogv" id="3_botdr"]
+[ext_resource type="VideoStream" path="res://Assets/VideosIntro/Intro3.ogv" id="4_w36d3"]
+[ext_resource type="VideoStream" path="res://Assets/VideosIntro/Intro4.ogv" id="5_65ivt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mhhvl")
+
+[node name="Video1" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.833, 0.833)
+stream = ExtResource("2_ctvjq")
+autoplay = true
+
+[node name="Video2" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.833, 0.833)
+stream = ExtResource("3_botdr")
+autoplay = true
+
+[node name="Video3" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.833, 0.833)
+stream = ExtResource("4_w36d3")
+autoplay = true
+
+[node name="Video4" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.833, 0.833)
+stream = ExtResource("5_65ivt")
+autoplay = true
+
+[node name="BarraNegraIzq" type="ColorRect" parent="."]
+offset_right = 200.0
+offset_bottom = 900.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="BarraNegraDer" type="ColorRect" parent="."]
+offset_left = 1400.0
+offset_right = 1600.0
+offset_bottom = 900.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
