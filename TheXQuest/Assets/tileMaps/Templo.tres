@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cid1s04so2yhj"]
 
-[ext_resource type="Texture2D" uid="uid://cagvgnm66gkdn" path="res://Assets/tileMaps/Canine_Shrine_Exterior.png" id="1_vorxv"]
+[ext_resource type="Texture2D" uid="uid://bnyg1gfdch2s" path="res://Assets/tileMaps/Canine_Shrine_Exterior.png" id="1_vorxv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsdu3"]
 resource_name = "HideBehind"
@@ -91,6 +91,14 @@ texture_region_size = Vector2i(768, 768)
 1:0/0/physics_layer_0/polygon_80/points = PackedVector2Array(-48, 352, -48, 368, -64, 368, -64, 352)
 1:0/0/physics_layer_0/polygon_81/points = PackedVector2Array(-60, 320, -25.6, 320, -25.6, 307.2, -60, 307.5)
 1:0/0/physics_layer_0/polygon_82/points = PackedVector2Array(38.4, 307.2, 69.5, 307, 71, 307, 71, 307, 71, 320, 38.4, 320)
+1:0/0/physics_layer_0/polygon_83/points = PackedVector2Array(112, 304, 112, 288, 80, 288, 80, 304)
+1:0/0/physics_layer_0/polygon_84/points = PackedVector2Array(-112, 288, -112, 304, -64, 304, -64, 288)
+1:0/0/physics_layer_0/polygon_85/points = PackedVector2Array(-21.9428, 252.343, -2.5, 252.5, -2.5, 271.5, -22, 271.5)
+1:0/0/physics_layer_0/polygon_86/points = PackedVector2Array(18.5, 253, 38, 253, 38, 271.5, 18.5, 271.5)
+1:0/0/physics_layer_0/polygon_87/points = PackedVector2Array(-16, 104, -21, 102, -25.5, 99.5, -29.5, 97, -31.5, 93.5, -31.5, 80.5, -16, 80.5)
+1:0/0/physics_layer_0/polygon_88/points = PackedVector2Array(32.5, 103.5, 36, 103, 38.5, 101.5, 42.5, 99.5, 47, 97, 47.5, 94, 47.5, 80, 32, 80)
+1:0/0/physics_layer_0/polygon_89/points = PackedVector2Array(-16.6956, -166.957, -16.6956, -75.1304, -25.0435, -75.1304, -25.0435, -166.957)
+1:0/0/physics_layer_0/polygon_90/points = PackedVector2Array(32, -176, 32, -80, 48, -80, 48, -176)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1m80"]
 resource_name = "hitboxes"
