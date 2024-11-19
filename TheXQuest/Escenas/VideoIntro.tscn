@@ -76,12 +76,14 @@ stream = ExtResource("5_65ivt")
 autoplay = true
 
 [node name="BarraNegraIzq" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 200.0
 offset_bottom = 900.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="BarraNegraDer" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 1400.0
 offset_right = 1600.0
 offset_bottom = 900.0
