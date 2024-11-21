@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwy38cqrc7rsl"]
+[gd_scene load_steps=9 format=3 uid="uid://cwy38cqrc7rsl"]
 
+[ext_resource type="Script" path="res://Scripts/combate.gd" id="1_2t4ih"]
 [ext_resource type="Texture2D" uid="uid://b5w3sor3wlpc1" path="res://Assets/New Piskel.png" id="1_fsj3y"]
 [ext_resource type="Texture2D" uid="uid://cmicnxg8ianu2" path="res://Assets/FondosCombate/Fondos_01.jpg" id="1_wbrgd"]
 [ext_resource type="Texture2D" uid="uid://dervqf85smpre" path="res://Assets/ninepatch8x8.png" id="2_2y0nu"]
+[ext_resource type="PackedScene" uid="uid://cyenjlfp4rwcq" path="res://Escenas/EscenaEnemigo/Enemigo1.tscn" id="5_3fr44"]
 
 [sub_resource type="Theme" id="Theme_cc36j"]
 VBoxContainer/constants/separation = 20
@@ -23,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cc36j")
+script = ExtResource("1_2t4ih")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -103,3 +106,8 @@ layout_mode = 2
 theme = SubResource("Theme_wyiqs")
 text = "Run
 "
+
+[node name="Enemigo1" parent="." instance=ExtResource("5_3fr44")]
+position = Vector2(808, 315)
+
+[connection signal="pressed" from="Player2/VBoxContainer/btnFight" to="Enemigo1" method="_on_btn_fight_pressed"]

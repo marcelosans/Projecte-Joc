@@ -18,13 +18,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemigo1" type="CharacterBody2D"]
-position = Vector2(67, 202)
+[node name="Enemigo1" type="Node2D"]
+position = Vector2(234, 421)
 script = ExtResource("1_b3161")
-metadata/_edit_group_ = true
+
+[node name="mi_label" type="Label" parent="."]
+offset_left = -28.0
+offset_top = -166.0
+offset_right = 97.0
+offset_bottom = -100.0
+text = "100hp
+"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(80.875, 223.875)
+position = Vector2(-3.99999, -3.00001)
 scale = Vector2(8.57, 7.52273)
 sprite_frames = SubResource("SpriteFrames_jlbi1")
 animation = &"idle"
