@@ -17,6 +17,7 @@ var health = 100
 
 func _ready():
 	verify_save_directory(save_file_path)
+	animated_sprite.play("walk_down")
 	
 func verify_save_directory(path : String):
 	DirAccess.make_dir_absolute(path)

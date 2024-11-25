@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bh0fvmle13y04"]
+[gd_scene load_steps=18 format=3 uid="uid://bh0fvmle13y04"]
 
 [ext_resource type="Texture2D" uid="uid://dndtqh0ojg13n" path="res://Assets/tileMaps/TheXQuestTransparent.png" id="1_pvsai"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_tme05"]
@@ -6,14 +6,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_0f81i"]
 atlas = ExtResource("1_pvsai")
 region = Rect2(0, 49, 66, 49)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v64gd"]
-atlas = ExtResource("1_pvsai")
-region = Rect2(66, 49, 66, 49)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wuhpq"]
-atlas = ExtResource("1_pvsai")
-region = Rect2(132, 49, 66, 49)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa01u"]
 atlas = ExtResource("1_pvsai")
@@ -68,12 +60,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0f81i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v64gd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wuhpq")
 }],
 "loop": true,
 "name": &"combat",
@@ -145,7 +131,8 @@ script = ExtResource("1_tme05")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_md5v5")
-animation = &"walk_left"
+animation = &"combat"
+frame_progress = 0.452382
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)

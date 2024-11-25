@@ -1,0 +1,145 @@
+[gd_scene load_steps=20 format=3 uid="uid://cnl1rnadyf0x5"]
+
+[ext_resource type="Script" path="res://Scripts/RayasGira_Intro.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cybsiloeen3js" path="res://Assets/Menu/Menu_Animacion/fila-4-columna-2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://8y8nioop821c" path="res://Assets/Menu/Menu_Animacion/Zero-Rojo.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dwcrka534q6xf" path="res://Assets/Menu/Menu_Animacion/fila-3-columna-3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://rapg7b5hhxki" path="res://Assets/Menu/Menu_Animacion/fila-4-columna-1.png" id="6"]
+[ext_resource type="Script" path="res://Scripts/ZeroNegro_Intro.gd" id="7"]
+[ext_resource type="Script" path="res://Scripts/Zero-Rojo.gd" id="8"]
+[ext_resource type="Texture2D" uid="uid://djlpwnflcp8m3" path="res://Assets/Menu/Menu_Animacion/fila-3-columna-1.png" id="9"]
+[ext_resource type="Script" path="res://Scripts/LetrasXinas.gd" id="10"]
+[ext_resource type="FontFile" uid="uid://xhdtpiafrf80" path="res://Assets/Fonts/10817-fontps.ttf" id="10_ge2tr"]
+[ext_resource type="Script" path="res://Scripts/Titulo.tres.gd" id="11"]
+[ext_resource type="Texture2D" uid="uid://bn2to0unyk3ee" path="res://Assets/Menu/Menu_Animacion/Luces/luz4.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://c1whksvspf2hm" path="res://Assets/Menu/Menu_Animacion/Luces/luz5.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://n00qwhjd24at" path="res://Assets/Menu/Menu_Animacion/Luces/luz3.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://v7fgkchg07au" path="res://Assets/Menu/Menu_Animacion/Luces/luz6.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://b6asl1ma75hle" path="res://Assets/Menu/Menu_Animacion/Luces/luz2.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://dwin4wluu8u88" path="res://Assets/Menu/Menu_Animacion/Luces/luz1.png" id="17"]
+[ext_resource type="Script" path="res://Scripts/Luces.gd" id="18"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15")
+}],
+"loop": true,
+"name": &"MovimienteGiratorio",
+"speed": 5.0
+}]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchor_left = 0.011
+anchor_right = 1.0
+anchor_bottom = 0.987
+offset_left = -199.672
+offset_top = -75.0
+offset_right = -199.672
+offset_bottom = -75.0
+
+[node name="FondoAzul_Intro" type="Sprite2D" parent="."]
+position = Vector2(982.072, 525)
+scale = Vector2(4.72441, 3.8961)
+texture = ExtResource("6")
+
+[node name="RayasGira_Intro" type="Sprite2D" parent="."]
+position = Vector2(1018.07, 550)
+scale = Vector2(8.72397, 6.09045)
+texture = ExtResource("2")
+script = ExtResource("1")
+
+[node name="NegroBonito" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1000, 900)
+layout_mode = 0
+offset_left = 382.072
+offset_top = 75.0
+offset_right = 1582.07
+offset_bottom = 975.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Zero-Rojo" type="Sprite2D" parent="."]
+position = Vector2(946.072, 623)
+scale = Vector2(4.5583, 3.50508)
+texture = ExtResource("4")
+script = ExtResource("8")
+
+[node name="Timer" type="Timer" parent="Zero-Rojo"]
+
+[node name="ZeroNegro_Intro" type="Sprite2D" parent="Zero-Rojo/Timer"]
+position = Vector2(799.768, 418.154)
+scale = Vector2(4.818, 3.803)
+texture = ExtResource("5")
+script = ExtResource("7")
+
+[node name="Timer" type="Timer" parent="Zero-Rojo/Timer/ZeroNegro_Intro"]
+wait_time = 1.25
+
+[node name="LetrasXinas" type="Sprite2D" parent="Zero-Rojo/Timer/ZeroNegro_Intro/Timer"]
+position = Vector2(795, 289)
+scale = Vector2(4.0269, 3.76146)
+texture = ExtResource("9")
+script = ExtResource("10")
+
+[node name="Titulo" type="Label" parent="Zero-Rojo/Timer/ZeroNegro_Intro/Timer"]
+anchors_preset = -1
+anchor_left = 0.189
+anchor_top = 0.098
+anchor_right = 0.782
+anchor_bottom = 0.223
+offset_left = 7.60001
+offset_top = -0.200005
+offset_right = -0.400024
+offset_bottom = -0.199997
+theme_override_fonts/font = ExtResource("10_ge2tr")
+theme_override_font_sizes/font_size = 78
+text = "The X Quest"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("11")
+metadata/_edit_use_anchors_ = true
+
+[node name="Luces" type="AnimatedSprite2D" parent="Zero-Rojo/Timer/ZeroNegro_Intro/Timer"]
+position = Vector2(531, 118)
+scale = Vector2(4.57237, 4.69258)
+sprite_frames = SubResource("3")
+animation = &"MovimienteGiratorio"
+script = ExtResource("18")
+
+[node name="BarraNegraIzq" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 182.072
+offset_top = 75.0
+offset_right = 382.072
+offset_bottom = 975.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="BarraNegraDer" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1582.07
+offset_top = 75.0
+offset_right = 1782.07
+offset_bottom = 975.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
