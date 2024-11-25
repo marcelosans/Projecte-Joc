@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://4rdl3eswweii"]
+[gd_scene load_steps=5 format=3 uid="uid://4rdl3eswweii"]
+
+[ext_resource type="Texture2D" uid="uid://b418x7uudi3k0" path="res://Assets/Menu/Menu_Animacion/fila-3-columna-4.png" id="1_5j4h8"]
+[ext_resource type="FontFile" uid="uid://xhdtpiafrf80" path="res://Assets/Fonts/10817-fontps.ttf" id="2_htjsp"]
+[ext_resource type="Texture2D" uid="uid://b5w3sor3wlpc1" path="res://Assets/New Piskel.png" id="3_2fcy6"]
+[ext_resource type="Texture2D" uid="uid://cjsxgn3i3s7qf" path="res://Assets/PortraitsCharacters/McPortrait.png" id="4_omvak"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +12,93 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Fila-3-columna-4" type="Sprite2D" parent="."]
+position = Vector2(800, 450)
+scale = Vector2(4.6875, 3.7037)
+texture = ExtResource("1_5j4h8")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.262
+offset_left = 611.0
+offset_top = 103.0
+offset_right = 762.8
+offset_bottom = 150.0
+
+[node name="Salir" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0.764706, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0.764706, 1)
+theme_override_fonts/font = ExtResource("2_htjsp")
+theme_override_font_sizes/font_size = 40
+text = "Salir"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.822222
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_top = -110.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="InformacionPlayer" type="NinePatchRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_2fcy6")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="LvlActual" type="Label" parent="HBoxContainer/InformacionPlayer"]
+layout_mode = 2
+offset_left = 60.0
+offset_top = 137.0
+offset_right = 153.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("2_htjsp")
+theme_override_font_sizes/font_size = 26
+text = "Rank 10
+"
+horizontal_alignment = 1
+
+[node name="MapaActual" type="Label" parent="HBoxContainer/InformacionPlayer"]
+layout_mode = 2
+offset_left = 594.0
+offset_top = 39.0
+offset_right = 771.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("2_htjsp")
+theme_override_font_sizes/font_size = 26
+text = "Entrada Bosque
+"
+horizontal_alignment = 2
+
+[node name="Imagenportait" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(106, 79)
+scale = Vector2(3, 3)
+texture = ExtResource("4_omvak")
+
+[node name="BarraNegraIzq" type="ColorRect" parent="."]
+offset_right = 200.0
+offset_bottom = 900.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="BarraNegraDer" type="ColorRect" parent="."]
+offset_left = 1400.0
+offset_right = 1600.0
+offset_bottom = 900.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
