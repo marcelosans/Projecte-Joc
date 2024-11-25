@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://bgtohsdnyx1rn"]
+[gd_scene load_steps=13 format=4 uid="uid://bgtohsdnyx1rn"]
 
 [ext_resource type="Texture2D" uid="uid://cbwmkvu4nbn0o" path="res://Assets/tileMaps/forest1.png" id="1_n4j7b"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_64t46"]
+[ext_resource type="Script" path="res://Scripts/up.gd" id="3_hvgc1"]
+[ext_resource type="Script" path="res://Scripts/down.gd" id="4_s17y4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52d7i"]
 resource_name = "1"
@@ -2100,6 +2102,9 @@ size = Vector2(49, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1bsm"]
 size = Vector2(48, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbtin"]
+size = Vector2(16, 7.5)
+
 [node name="Forest1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2152,3 +2157,24 @@ shape = SubResource("RectangleShape2D_mnxft")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bridge3"]
 position = Vector2(296, 48.5)
 shape = SubResource("RectangleShape2D_x1bsm")
+
+[node name="up" type="Area2D" parent="."]
+script = ExtResource("3_hvgc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="up"]
+position = Vector2(216, 140)
+shape = SubResource("RectangleShape2D_qbtin")
+
+[node name="down" type="Area2D" parent="."]
+script = ExtResource("4_s17y4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down"]
+position = Vector2(216, 210)
+shape = SubResource("RectangleShape2D_qbtin")
+
+[connection signal="body_entered" from="up" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="up" to="up" method="_on_body_entered"]
+[connection signal="body_exited" from="up" to="up" method="_on_body_exited"]
+[connection signal="body_entered" from="down" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="down" to="down" method="_on_body_entered"]
+[connection signal="body_exited" from="down" to="down" method="_on_body_exited"]
