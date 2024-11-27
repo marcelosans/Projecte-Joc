@@ -8,7 +8,7 @@ var enemigo: Node
 
 func _ready():
 	# Instanciar el enemigo
-	$Player.animated_sprite.play("combat");
+	$Jugador/AnimatedSprite2D.play("idle")
 	var enemigo_scene = preload("res://Escenas/EscenaEnemigo/Enemigo1.tscn")
 	enemigo = enemigo_scene.instantiate()
 	add_child(enemigo)  # Añadir el enemigo a Combate
@@ -25,11 +25,10 @@ func atacar_enemigo():
 		enemigo.recibir_daño(15)
 	if enemigo.vida <= 0:
 		get_tree().change_scene_to_file("res://Escenas/Test.tscn")
-		
 
 # Función para mostrar el diálogo
 func apareceDialogo(dialogo: String):  
-	$Player2/VBoxContainer/btnFight.disabled = true;   
+	$Player2/VBoxContainer/btnFight.disabled = true
 	$Dialogo.visible = true
 	$Dialogo/Label.text = dialogo
 	dialogo_visible = true
@@ -39,13 +38,16 @@ func apareceDialogo(dialogo: String):
 func ocultarDialogo():
 	$Dialogo.visible = false
 	dialogo_visible = false
-	$Player2/VBoxContainer/btnFight.disabled = false;  
+	$Player2/VBoxContainer/btnFight.disabled = false
 
 # Botón de ataque
 func _on_btn_fight_pressed() -> void:
 	apareceDialogo("Has usado Ataque")
-	$DialogoTimer.start()
-	atacar_enemigo()
+	$Jugador/AnimatedSprite2D.play("attack")
+
+	# Esperar a que termine la animación de ataque
+	$Jugador/AnimatedSprite2D.connect("animation_finished", self, "_on_animation_finished")
+	$Jugador/AnimatedSprite2D.connect("animation_finished",$Jugador/AnimatedSprite2D,)
 
 # Botón de huida
 func _on_btn_run_pressed() -> void:
@@ -54,9 +56,13 @@ func _on_btn_run_pressed() -> void:
 	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
 
 # Método que se llama cuando el temporizador termina
-
-	
-
-
 func _on_dialogo_timer_timeout() -> void:
-	ocultarDialogo();
+	ocultarDialogo()
+
+# Método que se ejecuta al finalizar la animación
+
+func _on_animated_sprite_2d_animation_finished(anim_name: String) -> void:
+	if anim_name == "attack":
+		$Jugador/AnimatedSprite2D.play("idle")
+		atacar_enemigo()  # Atacar al enemigo después de que termine la animación
+		$Jugador/AnimatedSprite2D.disconnect("animation_finished",$Combate, "_on_animation_finished")
