@@ -18,6 +18,15 @@ var health = 100
 func _ready():
 	verify_save_directory(save_file_path)
 	animated_sprite.play("walk_down")
+
+func recibir_daño(cantidad: int):
+	health -= cantidad
+	health = max(health, 0)  # No permitir valores negativos
+	
+	
+# Llama a la función para iniciar el juego
+
+
 	
 func verify_save_directory(path : String):
 	DirAccess.make_dir_absolute(path)
