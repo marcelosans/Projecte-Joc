@@ -227,7 +227,7 @@ text = "Un enemigo salvaje aparecio
 "
 
 [node name="DialogoTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 1.5
 
 [node name="Jugador" type="CharacterBody2D" parent="."]
 
@@ -237,7 +237,11 @@ scale = Vector2(4.633, 2.86493)
 sprite_frames = SubResource("SpriteFrames_6p7fn")
 animation = &"runAway"
 
+[node name="SalirTImeOut" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="pressed" from="Player2/VBoxContainer/btnFight" to="." method="_on_btn_fight_pressed"]
 [connection signal="pressed" from="Player2/VBoxContainer/btnRun" to="." method="_on_btn_run_pressed"]
 [connection signal="timeout" from="DialogoTimer" to="." method="_on_dialogo_timer_timeout"]
 [connection signal="animation_finished" from="Jugador/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="SalirTImeOut" to="." method="_on_salir_t_ime_out_timeout"]

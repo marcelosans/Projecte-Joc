@@ -1,6 +1,7 @@
 extends Control
 
 @onready var Enemigo = preload("res://Escenas/EscenaEnemigo/enemigo1.gd")
+
 @onready var dialogo_timer: Timer = $DialogoTimer  # Timer desde la escena
 var dialogo_visible: bool = false
 
@@ -11,6 +12,10 @@ func _ready():
 	$Jugador/AnimatedSprite2D.play("idle")
 	var enemigo_scene = preload("res://Escenas/EscenaEnemigo/Enemigo1.tscn")
 	enemigo = enemigo_scene.instantiate()
+	# Pasar la referencia de la función apareceDialogo al enemigo
+	enemigo.set_aparece_dialogo(func(dialogo: String) -> void:
+		apareceDialogo(dialogo)
+	)
 	add_child(enemigo)  # Añadir el enemigo a Combate
 	apareceDialogo("¡Un enemigo salvaje apareció!")
 	$DialogoTimer.start()
@@ -48,16 +53,22 @@ func _on_btn_fight_pressed() -> void:
 	$DialogoTimer.start()
 	#$Jugador/AnimatedSprite2D.play("idle")
 	atacar_enemigo()
+	enemigo.escogeMovimiento()
 
 # Botón de huida
 func _on_btn_run_pressed() -> void:
 	apareceDialogo("Has huido del combate")
-	$Jugador/AnimatedSprite2D.play("runAway")
+	$DialogoTimer.wait_time = 2
 	$DialogoTimer.start()
-	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+	$Jugador/AnimatedSprite2D.play("runAway")
+	$SalirTImeOut.start()
 
 # Método que se llama cuando el temporizador termina
 
 func _on_dialogo_timer_timeout() -> void:
 	ocultarDialogo();
 	$Jugador/AnimatedSprite2D.play("idle");
+
+
+func _on_salir_t_ime_out_timeout() -> void:
+	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
