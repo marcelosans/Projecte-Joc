@@ -1,6 +1,7 @@
 extends Control
 
 @onready var Enemigo = preload("res://Escenas/EscenaEnemigo/enemigo1.gd")
+
 @onready var dialogo_timer: Timer = $DialogoTimer  # Timer desde la escena
 var dialogo_visible: bool = false
 
@@ -11,6 +12,10 @@ func _ready():
 	$Jugador/AnimatedSprite2D.play("idle")
 	var enemigo_scene = preload("res://Escenas/EscenaEnemigo/Enemigo1.tscn")
 	enemigo = enemigo_scene.instantiate()
+	# Pasar la referencia de la función apareceDialogo al enemigo
+	enemigo.set_aparece_dialogo(func(dialogo: String) -> void:
+		apareceDialogo(dialogo)
+	)
 	add_child(enemigo)  # Añadir el enemigo a Combate
 	apareceDialogo("¡Un enemigo salvaje apareció!")
 	$DialogoTimer.start()
@@ -25,10 +30,11 @@ func atacar_enemigo():
 		enemigo.recibir_daño(15)
 	if enemigo.vida <= 0:
 		get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+		
 
 # Función para mostrar el diálogo
 func apareceDialogo(dialogo: String):  
-	$Player2/VBoxContainer/btnFight.disabled = true
+	$Player2/VBoxContainer/btnFight.disabled = true;   
 	$Dialogo.visible = true
 	$Dialogo/Label.text = dialogo
 	dialogo_visible = true
@@ -38,31 +44,31 @@ func apareceDialogo(dialogo: String):
 func ocultarDialogo():
 	$Dialogo.visible = false
 	dialogo_visible = false
-	$Player2/VBoxContainer/btnFight.disabled = false
+	$Player2/VBoxContainer/btnFight.disabled = false;  
 
 # Botón de ataque
 func _on_btn_fight_pressed() -> void:
 	apareceDialogo("Has usado Ataque")
-	$Jugador/AnimatedSprite2D.play("attack")
-
-	# Esperar a que termine la animación de ataque
-	$Jugador/AnimatedSprite2D.connect("animation_finished", self, "_on_animation_finished")
-	$Jugador/AnimatedSprite2D.connect("animation_finished",$Jugador/AnimatedSprite2D,)
+	$Jugador/AnimatedSprite2D.play("attack");
+	$DialogoTimer.start()
+	#$Jugador/AnimatedSprite2D.play("idle")
+	atacar_enemigo()
+	enemigo.escogeMovimiento()
 
 # Botón de huida
 func _on_btn_run_pressed() -> void:
 	apareceDialogo("Has huido del combate")
+	$DialogoTimer.wait_time = 2
 	$DialogoTimer.start()
-	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+	$Jugador/AnimatedSprite2D.play("runAway")
+	$SalirTImeOut.start()
 
 # Método que se llama cuando el temporizador termina
+
 func _on_dialogo_timer_timeout() -> void:
-	ocultarDialogo()
+	ocultarDialogo();
+	$Jugador/AnimatedSprite2D.play("idle");
 
-# Método que se ejecuta al finalizar la animación
 
-func _on_animated_sprite_2d_animation_finished(anim_name: String) -> void:
-	if anim_name == "attack":
-		$Jugador/AnimatedSprite2D.play("idle")
-		atacar_enemigo()  # Atacar al enemigo después de que termine la animación
-		$Jugador/AnimatedSprite2D.disconnect("animation_finished",$Combate, "_on_animation_finished")
+func _on_salir_t_ime_out_timeout() -> void:
+	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
