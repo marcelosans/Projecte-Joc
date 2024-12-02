@@ -16,6 +16,11 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"recibido_Ataque",
+"speed": 5.0
 }]
 
 [node name="Enemigo1" type="Node2D"]
