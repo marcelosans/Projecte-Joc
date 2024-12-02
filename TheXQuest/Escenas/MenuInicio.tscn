@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://4rdl3eswweii"]
+[gd_scene load_steps=7 format=3 uid="uid://4rdl3eswweii"]
 
 [ext_resource type="Texture2D" uid="uid://b418x7uudi3k0" path="res://Assets/Menu/Menu_Animacion/fila-3-columna-4.png" id="1_5j4h8"]
 [ext_resource type="FontFile" uid="uid://xhdtpiafrf80" path="res://Assets/Fonts/10817-fontps.ttf" id="2_htjsp"]
+[ext_resource type="FontFile" uid="uid://cnfktl43mbq4p" path="res://Assets/Fonts/VPPixel-Simplified.otf" id="2_n878a"]
 [ext_resource type="Texture2D" uid="uid://b5w3sor3wlpc1" path="res://Assets/New Piskel.png" id="3_2fcy6"]
 [ext_resource type="Texture2D" uid="uid://cjsxgn3i3s7qf" path="res://Assets/PortraitsCharacters/McPortrait.png" id="4_omvak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0olsu"]
+bg_color = Color(0, 0, 0.764706, 0.666667)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,37 +25,32 @@ metadata/_edit_lock_ = true
 
 [node name="ContainerBotones" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.314063
-anchor_top = 0.0666667
-anchor_right = 0.685938
-anchor_bottom = 0.128889
-offset_left = 22.0
-offset_right = -22.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -379.5
+offset_top = 80.0
+offset_right = 379.5
+offset_bottom = 136.0
 grow_horizontal = 2
 theme_override_constants/separation = 300
-metadata/_edit_use_anchors_ = true
 
 [node name="Salir" type="Button" parent="ContainerBotones"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0.764706, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0.764706, 1)
-theme_override_fonts/font = ExtResource("2_htjsp")
+theme_override_fonts/font = ExtResource("2_n878a")
 theme_override_font_sizes/font_size = 40
-text = "Salir    "
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0olsu")
+text = " Salir del Juego "
 
 [node name="Opciones" type="Button" parent="ContainerBotones"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0.764706, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0.764706, 1)
-theme_override_fonts/font = ExtResource("2_htjsp")
+theme_override_fonts/font = ExtResource("2_n878a")
 theme_override_font_sizes/font_size = 40
-text = "Opciones       
-"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0olsu")
+text = " Opciones "
+icon_alignment = 1
 
 [node name="ContainerInfoPlayer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -82,7 +81,7 @@ offset_left = 60.0
 offset_top = 137.0
 offset_right = 153.0
 offset_bottom = 169.0
-theme_override_fonts/font = ExtResource("2_htjsp")
+theme_override_fonts/font = ExtResource("2_n878a")
 theme_override_font_sizes/font_size = 26
 text = "Rank 10
 "
@@ -94,7 +93,7 @@ offset_left = 594.0
 offset_top = 39.0
 offset_right = 771.0
 offset_bottom = 71.0
-theme_override_fonts/font = ExtResource("2_htjsp")
+theme_override_fonts/font = ExtResource("2_n878a")
 theme_override_font_sizes/font_size = 26
 text = "Entrada Bosque
 "
@@ -119,3 +118,19 @@ offset_right = 1600.0
 offset_bottom = 900.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 427.0
+offset_top = 262.0
+offset_right = 507.0
+offset_bottom = 557.0
+
+[node name="Num1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_htjsp")
+theme_override_font_sizes/font_size = 26
+text = "1
+
+"
+horizontal_alignment = 1
