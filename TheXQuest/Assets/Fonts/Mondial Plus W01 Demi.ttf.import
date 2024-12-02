@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://djq2m8cmyrcay"
-path="res://.godot/imported/VPPixel-Simplified.otf-3b04740ff233c1860bdd893340c8ef2d.fontdata"
+uid="uid://cd53mcxbnjuyv"
+path="res://.godot/imported/Mondial Plus W01 Demi.ttf-9a28841c37a9f51a346873e88adf4909.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/VPPixel-Simplified.otf"
-dest_files=["res://.godot/imported/VPPixel-Simplified.otf-3b04740ff233c1860bdd893340c8ef2d.fontdata"]
+source_file="res://Assets/Fonts/Mondial Plus W01 Demi.ttf"
+dest_files=["res://.godot/imported/Mondial Plus W01 Demi.ttf-9a28841c37a9f51a346873e88adf4909.fontdata"]
 
 [params]
 
