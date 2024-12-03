@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://lrs1lbdik0ol"]
+
+[ext_resource type="Script" path="res://Scripts/down.gd" id="1_2lrqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbtin"]
+size = Vector2(16, 7.5)
+
+[node name="down" type="Area2D"]
+script = ExtResource("1_2lrqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(216, 210)
+shape = SubResource("RectangleShape2D_qbtin")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
