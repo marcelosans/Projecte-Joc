@@ -8,11 +8,6 @@ var playerData = PlayerData.new()
 
 # Fin variables
 
-class jugador:
-	var health = 100
-	var maxHealth = 100
-	var attack = 15
-
 var health = 100
 
 @export var speed = 100

@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://cwy38cqrc7rsl"]
+[gd_scene load_steps=21 format=3 uid="uid://cwy38cqrc7rsl"]
 
 [ext_resource type="Script" path="res://Scripts/combate.gd" id="1_2t4ih"]
 [ext_resource type="Texture2D" uid="uid://cmicnxg8ianu2" path="res://Assets/FondosCombate/Fondos_01.jpg" id="1_wbrgd"]
 [ext_resource type="Texture2D" uid="uid://dervqf85smpre" path="res://Assets/ninepatch8x8.png" id="2_2y0nu"]
 [ext_resource type="Texture2D" uid="uid://dndtqh0ojg13n" path="res://Assets/tileMaps/TheXQuestTransparent.png" id="4_8g312"]
-[ext_resource type="Script" path="res://Escenas/jugador_Combate.gd" id="4_v46i2"]
 [ext_resource type="Texture2D" uid="uid://4dlosta525j0" path="res://Assets/Sprites/RunAwayAnimation2-Photoroom.png" id="5_khqsa"]
 
 [sub_resource type="Theme" id="Theme_cc36j"]
@@ -231,7 +230,6 @@ text = "Un enemigo salvaje aparecio
 wait_time = 1.5
 
 [node name="Jugador" type="CharacterBody2D" parent="."]
-script = ExtResource("4_v46i2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jugador"]
 position = Vector2(813, 576.84)
