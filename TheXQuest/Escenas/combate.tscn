@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://cwy38cqrc7rsl"]
+[gd_scene load_steps=25 format=3 uid="uid://cwy38cqrc7rsl"]
 
 [ext_resource type="Script" path="res://Scripts/combate.gd" id="1_2t4ih"]
 [ext_resource type="Texture2D" uid="uid://cmicnxg8ianu2" path="res://Assets/FondosCombate/Fondos_01.jpg" id="1_wbrgd"]
 [ext_resource type="Texture2D" uid="uid://dervqf85smpre" path="res://Assets/ninepatch8x8.png" id="2_2y0nu"]
 [ext_resource type="Texture2D" uid="uid://dndtqh0ojg13n" path="res://Assets/tileMaps/TheXQuestTransparent.png" id="4_8g312"]
 [ext_resource type="Texture2D" uid="uid://4dlosta525j0" path="res://Assets/Sprites/RunAwayAnimation2-Photoroom.png" id="5_khqsa"]
+[ext_resource type="PackedScene" uid="uid://cyenjlfp4rwcq" path="res://Escenas/EscenaEnemigo/Enemigo1.tscn" id="6_3hvs5"]
 
 [sub_resource type="Theme" id="Theme_cc36j"]
 VBoxContainer/constants/separation = 20
@@ -61,6 +62,18 @@ region = Rect2(113, 0, 55, 62)
 atlas = ExtResource("5_khqsa")
 region = Rect2(168, 0, 55, 62)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dseg"]
+atlas = ExtResource("4_8g312")
+region = Rect2(0, 245, 61, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfmww"]
+atlas = ExtResource("4_8g312")
+region = Rect2(61, 245, 61, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d18iy"]
+atlas = ExtResource("4_8g312")
+region = Rect2(122, 245, 61, 77)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6p7fn"]
 animations = [{
 "frames": [{
@@ -109,6 +122,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"runAway",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dseg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfmww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d18iy")
+}],
+"loop": true,
+"name": &"victory",
 "speed": 5.0
 }]
 
@@ -161,6 +188,14 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
+[node name="LabelVidaJugador" type="Label" parent="HBoxContainer/Player"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 28.0
+offset_right = 135.0
+offset_bottom = 54.0
+text = "Jugador1 :  "
+
 [node name="Player2" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
@@ -203,6 +238,7 @@ text = "Run
 "
 
 [node name="Dialogo" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.555
@@ -232,15 +268,49 @@ wait_time = 1.5
 [node name="Jugador" type="CharacterBody2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jugador"]
-position = Vector2(813, 576.84)
+position = Vector2(811, 561)
 scale = Vector2(4.633, 2.86493)
 sprite_frames = SubResource("SpriteFrames_6p7fn")
-animation = &"runAway"
+animation = &"victory"
+frame_progress = 0.298809
 
 [node name="SalirTImeOut" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="Enemigo1" parent="." instance=ExtResource("6_3hvs5")]
+position = Vector2(798, 294)
+
+[node name="LabelEnemigo" type="Label" parent="Enemigo1"]
+offset_left = -19.0
+offset_top = -152.0
+offset_right = 21.0
+offset_bottom = -129.0
+text = "100
+"
+
+[node name="TiempoVictoria" type="Timer" parent="."]
+wait_time = 17.058
+
+[node name="Inventario" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 783.0
+offset_top = 682.0
+offset_right = 1420.0
+offset_bottom = 897.0
+texture = ExtResource("2_2y0nu")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inventario"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="Player2/VBoxContainer/btnFight" to="." method="_on_btn_fight_pressed"]
+[connection signal="pressed" from="Player2/VBoxContainer/btnItem" to="." method="_on_btn_item_pressed"]
 [connection signal="pressed" from="Player2/VBoxContainer/btnRun" to="." method="_on_btn_run_pressed"]
 [connection signal="timeout" from="DialogoTimer" to="." method="_on_dialogo_timer_timeout"]
 [connection signal="animation_finished" from="Jugador/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

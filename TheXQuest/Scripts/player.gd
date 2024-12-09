@@ -10,6 +10,8 @@ var playerData = PlayerData.new()
 
 var health = 100
 
+@export var inv: Inv
+
 @export var speed = 100
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -17,11 +19,16 @@ var health = 100
 
 func _ready():
 	verify_save_directory(save_file_path)
+	# Inicializar inventario si no está configurado
+	
 	animated_sprite.play("walk_down")
 
-func recibir_daño(cantidad: int):
-	health -= cantidad
-	health = max(health, 0)  # No permitir valores negativos
+
+var area : String = "":
+	set(value):
+		area = value
+		$Label.text = value
+
 	
 	
 # Llama a la función para iniciar el juego

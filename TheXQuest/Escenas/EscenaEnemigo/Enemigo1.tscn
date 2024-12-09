@@ -27,14 +27,6 @@ animations = [{
 position = Vector2(234, 421)
 script = ExtResource("1_b3161")
 
-[node name="mi_label" type="Label" parent="."]
-offset_left = -28.0
-offset_top = -166.0
-offset_right = 97.0
-offset_bottom = -100.0
-text = "100hp
-"
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3.99999, -3.00001)
 scale = Vector2(8.57, 7.52273)

@@ -1,74 +1,96 @@
 extends Control
 
 @onready var Enemigo = preload("res://Escenas/EscenaEnemigo/enemigo1.gd")
-
 @onready var dialogo_timer: Timer = $DialogoTimer  # Timer desde la escena
-var dialogo_visible: bool = false
+
+@onready var inventario_vbox = $Inventario/VBoxContainer  # Referencia al VBoxContainer del inventario
+@export var inventario: Inv  # Recurso que contiene los ítems del inventario
 
 var enemigo: Node
 
+var vidaInicial = Enemigo1.vida
+
 func _ready():
 	# Instanciar el enemigo
+	PlayerStats.get_player_stats()
+	actualizar_label_jugador()
+	actualizar_label_enemigo()
 	$Jugador/AnimatedSprite2D.play("idle")
 	var enemigo_scene = preload("res://Escenas/EscenaEnemigo/Enemigo1.tscn")
-	enemigo = enemigo_scene.instantiate()
-	# Pasar la referencia de la función apareceDialogo al enemigo
-	enemigo.set_aparece_dialogo(func(dialogo: String) -> void:
-		apareceDialogo(dialogo)
-	)
-	add_child(enemigo)  # Añadir el enemigo a Combate
+	enemigo = enemigo_scene.instantiate()  # Instanciamos el enemigo
 	apareceDialogo("¡Un enemigo salvaje apareció!")
-	$DialogoTimer.start()
-	
-	# Posicionar al enemigo (si es Node2D)
-	if enemigo is Node2D:
-		enemigo.position = Vector2(800, 300)  # Posición relativa a la ventana
+	await get_tree().create_timer(2).timeout  # Esperar a que se muestre el diálogo
+	ocultarDialogo()
 
 # Función para atacar al enemigo
 func atacar_enemigo():
-	if enemigo:
-		enemigo.recibir_daño(15)
-	if enemigo.vida <= 0:
+	Enemigo1.recibir_daño(15)
+	if Enemigo1.vida <= 0:
+		$Enemigo1.visible = false
+		apareceDialogo("Has ganado")
+		$Jugador/AnimatedSprite2D.play("victory")
+		await get_tree().create_timer(2.5).timeout
+		PlayerStats.add_exp(Enemigo1.vida/3)
+		apareceDialogo("Has ganado" +" "+str(vidaInicial/3)+"exp")
+		await get_tree().create_timer(2.5).timeout
 		get_tree().change_scene_to_file("res://Escenas/Test.tscn")
-		
+	else:
+		await get_tree().create_timer(1).timeout  # Esperar un poco antes de la respuesta del enemigo
+		enemigo_decision_combate()
+		actualizar_label_enemigo()
+		actualizar_label_jugador()
 
 # Función para mostrar el diálogo
-func apareceDialogo(dialogo: String):  
-	$Player2/VBoxContainer/btnFight.disabled = true;   
+func apareceDialogo(dialogo: String):
+	$Player2/VBoxContainer/btnFight.disabled = true
 	$Dialogo.visible = true
 	$Dialogo/Label.text = dialogo
-	dialogo_visible = true
 	dialogo_timer.start()  # Inicia el temporizador para ocultar el diálogo automáticamente
 
 # Función para ocultar el diálogo
 func ocultarDialogo():
 	$Dialogo.visible = false
-	dialogo_visible = false
-	$Player2/VBoxContainer/btnFight.disabled = false;  
+	$Player2/VBoxContainer/btnFight.disabled = false
 
 # Botón de ataque
 func _on_btn_fight_pressed() -> void:
 	apareceDialogo("Has usado Ataque")
-	$Jugador/AnimatedSprite2D.play("attack");
-	$DialogoTimer.start()
-	#$Jugador/AnimatedSprite2D.play("idle")
+	$Jugador/AnimatedSprite2D.play("attack")
+	await get_tree().create_timer(1).timeout  # Esperar a que el diálogo se muestre
 	atacar_enemigo()
-	enemigo.escogeMovimiento()
 
 # Botón de huida
 func _on_btn_run_pressed() -> void:
 	apareceDialogo("Has huido del combate")
-	$DialogoTimer.wait_time = 2
-	$DialogoTimer.start()
 	$Jugador/AnimatedSprite2D.play("runAway")
-	$SalirTImeOut.start()
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
 
 # Método que se llama cuando el temporizador termina
-
 func _on_dialogo_timer_timeout() -> void:
-	ocultarDialogo();
-	$Jugador/AnimatedSprite2D.play("idle");
+	ocultarDialogo()
+	$Jugador/AnimatedSprite2D.play("idle")
 
+func actualizar_label_jugador():
+	$HBoxContainer/Player/LabelVidaJugador.text = "Nivel: " + str(PlayerStats.level) + " " + "Jugador 1 " + str(PlayerStats.health) + "/" + str(PlayerStats.maxHealth)
+	
+func enemigo_decision_combate():
+	var opcio = randi() % 3
+	var opcio2 = randi() % 100
 
-func _on_salir_t_ime_out_timeout() -> void:
-	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+	if (opcio == 0):
+		apareceDialogo("El enemigo ha usado Ataque")
+		PlayerStats.recibir_daño(15)
+	elif (opcio == 1 and Enemigo1.vida < 10):
+		apareceDialogo("El enemigo ha usado Curación")
+		Enemigo1.curar(10)
+	elif (opcio == 2 && opcio2 == 89):
+		apareceDialogo("El enemigo ha huido")
+		get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+
+	# Esperar a que el diálogo del enemigo se muestre
+	await get_tree().create_timer(1).timeout  # Esperar a que el diálogo se muestre
+	ocultarDialogo()  # Ocultar el diálogo del enemigo
+
+func actualizar_label_enemigo():
+	$Enemigo1/LabelEnemigo.text = str(Enemigo1.vida)
