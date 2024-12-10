@@ -23,7 +23,7 @@ Enemigo1="*res://Escenas/EscenaEnemigo/enemigo1.gd"
 
 [display]
 
-window/size/viewport_width=1600
+window/size/viewport_width=1016
 window/size/viewport_height=900
 window/size/mode=3
 window/size/borderless=true
