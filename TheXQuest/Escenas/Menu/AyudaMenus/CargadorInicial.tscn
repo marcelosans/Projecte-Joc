@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://do2jxhl0xd81g"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/AyudaMenu/CargadorInicial.gd" id="1_qf52l"]
+
+[node name="CargadorInicial" type="Node"]
+script = ExtResource("1_qf52l")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://rtwwwoc72ofx"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/AyudaMenu/ManagerDeMenu.gd" id="1_l2b7b"]
+[ext_resource type="PackedScene" uid="uid://do2jxhl0xd81g" path="res://Escenas/Menu/AyudaMenus/CargadorInicial.tscn" id="2_rl8q8"]
+[ext_resource type="PackedScene" uid="uid://bpx1wflbc62es" path="res://Escenas/Menu/AyudaMenus/ControladorInputGeneral.tscn" id="3_4auoy"]
+
+[node name="ManagerDeMenu" type="Node"]
+process_mode = 3
+script = ExtResource("1_l2b7b")
+
+[node name="CargadorInicial" parent="." instance=ExtResource("2_rl8q8")]
+
+[node name="ControladorInputGeneral" parent="." instance=ExtResource("3_4auoy")]
