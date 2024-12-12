@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://m0f1yeev1dyd"]
+[gd_scene load_steps=12 format=4 uid="uid://m0f1yeev1dyd"]
 
 [ext_resource type="Texture2D" uid="uid://m315w731w24i" path="res://Assets/tileMaps/forest4.png" id="1_28lvh"]
+[ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_daxsk"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_aydpt"]
 [ext_resource type="PackedScene" uid="uid://c1r6d0ib8ojig" path="res://Escenas/forest/up.tscn" id="3_ftjw3"]
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="4_a41a6"]
@@ -4484,6 +4485,7 @@ texture = ExtResource("1_28lvh")
 sources/0 = SubResource("TileSetAtlasSource_j8jpt")
 
 [node name="Forest4" type="Node2D"]
+script = ExtResource("1_daxsk")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2

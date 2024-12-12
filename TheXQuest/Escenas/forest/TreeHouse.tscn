@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://r5jgllk5h6n4"]
+[gd_scene load_steps=8 format=4 uid="uid://r5jgllk5h6n4"]
 
+[ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_4mebd"]
 [ext_resource type="Texture2D" uid="uid://cpl1ovom780c6" path="res://Assets/tileMaps/treeHouse.png" id="1_85g2a"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_lhxl8"]
 
@@ -1070,6 +1071,7 @@ texture = ExtResource("1_85g2a")
 sources/0 = SubResource("TileSetAtlasSource_ca122")
 
 [node name="TreeHouse" type="Node2D"]
+script = ExtResource("1_4mebd")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2

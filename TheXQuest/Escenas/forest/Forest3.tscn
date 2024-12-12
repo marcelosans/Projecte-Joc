@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://83v4r4se40r0"]
+[gd_scene load_steps=14 format=4 uid="uid://83v4r4se40r0"]
 
 [ext_resource type="Texture2D" uid="uid://daepwluninrvt" path="res://Assets/tileMaps/forest3.png" id="1_qkjva"]
+[ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_vaxx0"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_q1p63"]
 [ext_resource type="PackedScene" uid="uid://c1r6d0ib8ojig" path="res://Escenas/forest/up.tscn" id="3_50lo3"]
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="4_sg7ai"]
@@ -2237,6 +2238,7 @@ size = Vector2(47, 3)
 size = Vector2(48, 2.5)
 
 [node name="Forest3" type="Node2D"]
+script = ExtResource("1_vaxx0")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -2278,7 +2280,7 @@ position = Vector2(328, 316)
 shape = SubResource("RectangleShape2D_3w1ss")
 
 [node name="Player" parent="." instance=ExtResource("2_q1p63")]
-position = Vector2(341, 206)
+position = Vector2(491, 200)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
