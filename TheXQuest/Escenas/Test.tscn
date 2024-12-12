@@ -40,7 +40,7 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(0, 65537, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_gjifd")]
-position = Vector2(247, 269)
+position = Vector2(245, 280)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1, 2)

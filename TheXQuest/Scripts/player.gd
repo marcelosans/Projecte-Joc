@@ -20,8 +20,8 @@ var health = 100
 func _ready():
 	verify_save_directory(save_file_path)
 	# Inicializar inventario si no está configurado
-	
 	animated_sprite.play("walk_down")
+	
 
 
 var area : String = "":

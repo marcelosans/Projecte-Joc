@@ -1,10 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://bgtohsdnyx1rn"]
+[gd_scene load_steps=20 format=4 uid="uid://bgtohsdnyx1rn"]
 
 [ext_resource type="Texture2D" uid="uid://cbwmkvu4nbn0o" path="res://Assets/tileMaps/forest1.png" id="1_n4j7b"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_64t46"]
 [ext_resource type="PackedScene" uid="uid://c1r6d0ib8ojig" path="res://Escenas/forest/up.tscn" id="3_64lvv"]
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="4_uslbi"]
-[ext_resource type="Script" path="res://Scripts/Teleports/teleportsForest1.gd" id="5_txo1n"]
+[ext_resource type="Script" path="res://Scripts/teleport.gd" id="5_3oy5k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52d7i"]
 resource_name = "1"
@@ -2193,12 +2193,6 @@ size = Vector2(32, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppjvs"]
 size = Vector2(8, 29.4375)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyqmf"]
-size = Vector2(5, 62)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5ytb"]
-size = Vector2(38, 4)
-
 [node name="Forest1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2223,7 +2217,7 @@ tile_map_data = PackedByteArray("AADx//v/AAAgAAsAAADx//z/AAAgAAwAAADx//3/AAAgAA0
 tile_set = SubResource("TileSet_2tiu8")
 
 [node name="Player" parent="." instance=ExtResource("2_64t46")]
-position = Vector2(249, 267)
+position = Vector2(216, 479)
 collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -2400,35 +2394,11 @@ polygon = PackedVector2Array(271, 80, 271, 111, 268, 125, 272, 139, 272, 176, 26
 [node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="worldColisionMask1and2"]
 polygon = PackedVector2Array(321, 80, 321, 112, 325, 124, 321, 130, 324, 142, 322, 147, 320, 155, 321, 161, 324, 172, 322, 178, 321, 183, 321, 178, 323, 172, 320, 161, 319, 155, 322, 145, 323, 142, 320, 130, 324, 124, 320, 112, 320, 80)
 
-[node name="teleports" type="Node2D" parent="."]
-script = ExtResource("5_txo1n")
+[node name="teleport" type="Area2D" parent="."]
+script = ExtResource("5_3oy5k")
 
-[node name="teleportSecondRight" type="Area2D" parent="teleports"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportSecondRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleport"]
 position = Vector2(508, 400.719)
 shape = SubResource("RectangleShape2D_ppjvs")
 
-[node name="teleportFirstRight" type="Area2D" parent="teleports"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstRight"]
-position = Vector2(509.5, 254)
-shape = SubResource("RectangleShape2D_lyqmf")
-
-[node name="teleportFirstUp" type="Area2D" parent="teleports"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstUp"]
-position = Vector2(295, 2)
-shape = SubResource("RectangleShape2D_g5ytb")
-
-[node name="teleportFirstLeft" type="Area2D" parent="teleports"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstLeft"]
-
-[connection signal="body_entered" from="teleports/teleportSecondRight" to="teleports" method="_on_teleport_second_right_body_entered"]
-[connection signal="body_entered" from="teleports/teleportSecondRight" to="teleports/teleportSecondRight" method="_on_body_entered"]
-[connection signal="body_entered" from="teleports/teleportFirstRight" to="teleports" method="_on_teleport_first_right_body_entered"]
-[connection signal="body_entered" from="teleports/teleportFirstUp" to="teleports" method="_on_teleport_first_up_body_entered"]
-[connection signal="body_entered" from="teleports/teleportFirstLeft" to="teleports" method="_on_teleport_first_left_body_entered"]
+[connection signal="body_entered" from="teleport" to="teleport" method="_on_body_entered"]

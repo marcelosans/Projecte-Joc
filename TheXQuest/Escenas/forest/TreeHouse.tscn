@@ -1106,9 +1106,21 @@ polygon = PackedVector2Array(255, 302, 242, 302, 238, 309, 238, 323, 229, 334, 2
 position = Vector2(128, 489)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(4, 4)
-limit_left = 0
+zoom = Vector2(5, 5)
+limit_left = -31
 limit_top = 0
-limit_right = 256
+limit_right = 287
 limit_bottom = 512
 editor_draw_limits = true
+
+[node name="BarraNegraIzq" type="ColorRect" parent="."]
+offset_left = -34.0
+offset_top = -2.0
+offset_bottom = 514.0
+color = Color(0, 0, 0, 1)
+
+[node name="BarraNegraDer" type="ColorRect" parent="."]
+offset_left = 256.0
+offset_right = 288.0
+offset_bottom = 513.0
+color = Color(0, 0, 0, 1)

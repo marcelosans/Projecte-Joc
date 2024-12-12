@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://dx25bkgc1qrab"]
+[gd_scene load_steps=14 format=4 uid="uid://dx25bkgc1qrab"]
 
 [ext_resource type="Texture2D" uid="uid://c7d8kv4d3ari8" path="res://Assets/tileMaps/forest2.png" id="1_u5cx6"]
+[ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_wgttg"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_oong3"]
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="3_5jbhe"]
 [ext_resource type="PackedScene" uid="uid://c1r6d0ib8ojig" path="res://Escenas/forest/up.tscn" id="4_j07wi"]
@@ -177,7 +178,6 @@ texture = ExtResource("1_u5cx6")
 71:17/0 = 0
 71:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 71:18/0 = 0
-71:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 71:19/0 = 0
 71:20/0 = 0
 71:21/0 = 0
@@ -217,9 +217,7 @@ texture = ExtResource("1_u5cx6")
 72:18/0 = 0
 72:19/0 = 0
 72:20/0 = 0
-72:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 72:21/0 = 0
-72:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 72:22/0 = 0
 72:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -6.85714, 8, -6.85714, 8, -8)
 72:23/0 = 0
@@ -253,9 +251,7 @@ texture = ExtResource("1_u5cx6")
 73:16/0 = 0
 73:17/0 = 0
 73:18/0 = 0
-73:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 73:19/0 = 0
-73:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 73:20/0 = 0
 73:21/0 = 0
 73:22/0 = 0
@@ -2309,7 +2305,11 @@ sources/0 = SubResource("TileSetAtlasSource_g115d")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxrnr"]
 size = Vector2(49, 2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylgpl"]
+size = Vector2(4.375, 44.5)
+
 [node name="Forest2" type="Node2D"]
+script = ExtResource("1_wgttg")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -2359,3 +2359,9 @@ position = Vector2(-64, 49)
 
 [node name="up" parent="." instance=ExtResource("4_j07wi")]
 position = Vector2(-63, 65)
+
+[node name="teleport" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleport"]
+position = Vector2(2.8125, 439.75)
+shape = SubResource("RectangleShape2D_ylgpl")
