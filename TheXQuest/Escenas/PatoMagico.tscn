@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv7s3uogl30hg"]
+
+[ext_resource type="Script" path="res://Escenas/pato_magico.gd" id="1_5rhdf"]
+[ext_resource type="Texture2D" uid="uid://bf7p5bmvvraee" path="res://Assets/Sprites/patoMagico.png" id="1_wmeys"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bw8df"]
+radius = 17.0
+
+[node name="PatoMagico" type="Area2D"]
+position = Vector2(3, 2)
+script = ExtResource("1_5rhdf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.25, -1)
+scale = Vector2(0.205078, 0.210937)
+texture = ExtResource("1_wmeys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bw8df")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

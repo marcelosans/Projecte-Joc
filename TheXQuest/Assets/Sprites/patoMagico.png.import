@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0vjx2r1adakc"
-path="res://.godot/imported/LogoJuego.svg-6d89063f29f1eb5f043ddb262135049d.ctex"
+uid="uid://bf7p5bmvvraee"
+path="res://.godot/imported/patoMagico.png-113654af3b5da5abe8d4e449ffa4e81e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LogoJuego.svg"
-dest_files=["res://.godot/imported/LogoJuego.svg-6d89063f29f1eb5f043ddb262135049d.ctex"]
+source_file="res://Assets/Sprites/patoMagico.png"
+dest_files=["res://.godot/imported/patoMagico.png-113654af3b5da5abe8d4e449ffa4e81e.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
