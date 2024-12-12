@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpvbn2wlymfql"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/AyudaMenu/cerrar_gamepad.gd" id="1_1xt7k"]
+
+[node name="CerrarGamepad" type="Node"]
+editor_description = "Add this node as a child of a OptionButton.
+This node makes the Popup closeable by using a Gamepad.
+"
+script = ExtResource("1_1xt7k")

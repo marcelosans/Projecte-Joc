@@ -13,19 +13,19 @@ config_version=5
 config/name="TheXQuest"
 run/main_scene="res://Escenas/Menu/MenuInicio.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://LogoJuego.svg"
 
 [autoload]
 
 ConfigFileHandler="*res://Scripts/ConfigFileHandler.gd"
 PlayerStats="*res://Scripts/player_stats.gd"
 Enemigo1="*res://Escenas/EscenaEnemigo/enemigo1.gd"
+ManagerDeMenu="*res://Nodes/ManagerDeMenu.tscn"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-window/size/mode=3
 window/size/borderless=true
 window/stretch/mode="viewport"
 

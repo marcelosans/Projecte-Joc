@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://4rdl3eswweii"]
+[gd_scene load_steps=14 format=4 uid="uid://4rdl3eswweii"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/menu_inicio.gd" id="1_v8dm3"]
 [ext_resource type="Texture2D" uid="uid://b418x7uudi3k0" path="res://Assets/Menu/Menu_Animacion/fila-3-columna-4.png" id="2_0bkr4"]
 [ext_resource type="Texture2D" uid="uid://b5w3sor3wlpc1" path="res://Assets/New Piskel.png" id="3_2mrhw"]
+[ext_resource type="PackedScene" uid="uid://vegxgrfqg6h8" path="res://Escenas/Menu/MenuOpciones.tscn" id="3_diu3y"]
 [ext_resource type="FontFile" uid="uid://djq2m8cmyrcay" path="res://Assets/Fonts/VPPixel-Simplified.otf" id="4_oqnne"]
 [ext_resource type="Texture2D" uid="uid://cjsxgn3i3s7qf" path="res://Assets/PortraitsCharacters/McPortrait.png" id="5_s4x76"]
 [ext_resource type="FontFile" uid="uid://cd53mcxbnjuyv" path="res://Assets/Fonts/Mondial Plus W01 Demi.ttf" id="6_al1iq"]
@@ -328,29 +329,23 @@ script = ExtResource("1_v8dm3")
 position = Vector2(800, 450)
 scale = Vector2(4.6875, 3.7037)
 texture = ExtResource("2_0bkr4")
-metadata/_edit_lock_ = true
 
-[node name="ContainerBotones" type="HBoxContainer" parent="."]
+[node name="Content" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -379.5
-offset_top = 80.0
-offset_right = 379.5
+offset_left = -432.0
+offset_top = 70.0
+offset_right = 432.0
 offset_bottom = 136.0
 grow_horizontal = 2
-theme_override_constants/separation = 300
+theme_override_constants/separation = 100
+alignment = 1
+metadata/_edit_group_ = true
 
-[node name="Salir" type="Button" parent="ContainerBotones"]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = SubResource("FontFile_phe4c")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0olsu")
-text = " Salir del Juego "
-
-[node name="Opciones" type="Button" parent="ContainerBotones"]
+[node name="Opciones" type="Button" parent="Content"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_fonts/font = SubResource("FontFile_phe4c")
@@ -358,6 +353,31 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0olsu")
 text = " Opciones "
 icon_alignment = 1
+
+[node name="Salir" type="Button" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontFile_phe4c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0olsu")
+text = " Salir del Juego "
+
+[node name="Iniciar" type="Button" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontFile_phe4c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0olsu")
+text = " Empezar "
+icon_alignment = 1
+
+[node name="OptionsMenu" parent="." instance=ExtResource("3_diu3y")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_top = 30.0
+offset_bottom = 30.0
 
 [node name="ContainerInfoPlayer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -416,7 +436,6 @@ layout_mode = 0
 offset_right = 200.0
 offset_bottom = 900.0
 color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
 
 [node name="BarraNegraDer" type="ColorRect" parent="."]
 layout_mode = 0
@@ -426,27 +445,14 @@ offset_bottom = 900.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Iniciar" type="Button" parent="."]
-layout_mode = 2
-offset_left = 529.0
-offset_top = 231.0
-offset_right = 1183.0
-offset_bottom = 297.0
-size_flags_vertical = 6
-theme_override_fonts/font = SubResource("FontFile_phe4c")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0olsu")
-text = "Empezar"
-icon_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ContainerNum" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = 427.0
 offset_top = 213.0
 offset_right = 507.0
 offset_bottom = 554.0
 
-[node name="Num1" type="Label" parent="VBoxContainer"]
+[node name="Num1" type="Label" parent="ContainerNum"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_al1iq")
 theme_override_font_sizes/font_size = 30
@@ -456,7 +462,7 @@ text = "
 "
 horizontal_alignment = 1
 
-[node name="Num2" type="Label" parent="VBoxContainer"]
+[node name="Num2" type="Label" parent="ContainerNum"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_al1iq")
 theme_override_font_sizes/font_size = 30
@@ -466,7 +472,7 @@ text = "
 "
 horizontal_alignment = 1
 
-[node name="Num3" type="Label" parent="VBoxContainer"]
+[node name="Num3" type="Label" parent="ContainerNum"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_al1iq")
 theme_override_font_sizes/font_size = 30
@@ -476,14 +482,7 @@ text = "
 "
 horizontal_alignment = 1
 
-[node name="OptionsMenu" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_left = 532.0
-offset_top = 242.0
-offset_right = 572.0
-offset_bottom = 282.0
-
-[connection signal="pressed" from="ContainerBotones/Salir" to="." method="quit"]
-[connection signal="pressed" from="ContainerBotones/Opciones" to="." method="open_options"]
-[connection signal="pressed" from="Iniciar" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="Content/Opciones" to="." method="open_options"]
+[connection signal="pressed" from="Content/Salir" to="." method="quit"]
+[connection signal="pressed" from="Content/Iniciar" to="." method="_on_start_game_button_pressed"]
+[connection signal="close" from="OptionsMenu" to="." method="close_options"]
