@@ -1,9 +1,9 @@
 extends Node
-const OptionConstants = preload("res://Scripts/Menu/AyudaMenu/OpcionesConstantes.gd")
-const InputMapUpdater = preload("res://Scripts/Menu/AyudaMenu/ControlesMapa.gd")
+const OptionConstants = preload("res://addons/EasyMenus/Scripts/options_constants.gd")
+const InputMapUpdater = preload("res://addons/EasyMenus/Scripts/input_map_updater.gd")
 
-@onready var ControllerEchoInputGenerator = $ControladorInputGeneral
-@onready var startup_loader = $CargadorInicial
+@onready var ControllerEchoInputGenerator = $ControllerEchoInputGenerator
+@onready var startup_loader = $StartupLoader
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

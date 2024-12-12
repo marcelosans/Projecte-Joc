@@ -1,11 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://vegxgrfqg6h8"]
-
-[ext_resource type="Script" path="res://Scripts/Menu/MenuOpciones.gd" id="1_aa1ks"]
-[ext_resource type="Script" path="res://Scripts/Menu/SeguirFocusCentrado.gd" id="2_w5a88"]
-[ext_resource type="FontFile" uid="uid://djq2m8cmyrcay" path="res://Assets/Fonts/VPPixel-Simplified.otf" id="3_hlpso"]
-[ext_resource type="PackedScene" uid="uid://r8m5gy0fybug" path="res://Nodes/SlidersConLabels.tscn" id="4_p453b"]
-[ext_resource type="Script" path="res://Scripts/Menu/MenuOpcionesBotonPropagado.gd" id="5_qiktp"]
-[ext_resource type="PackedScene" uid="uid://dpvbn2wlymfql" path="res://Nodes/CerrarGamepad.tscn" id="6_hqrca"]
+[gd_scene format=3 uid="uid://vegxgrfqg6h8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,159 +7,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_aa1ks")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 1600.0
-offset_bottom = 900.0
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
-metadata/_edit_lock_ = true
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43125
+anchor_top = 0.0888889
+anchor_right = 0.573125
+anchor_bottom = 0.14
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+[node name="Label" type="Label" parent="PanelContainer"]
 layout_mode = 2
-script = ExtResource("2_w5a88")
-transition_time = 0.1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TitulOpcions" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("3_hlpso")
-theme_override_font_sizes/font_size = 100
-text = "Opciones"
+text = "OPCIONES"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20375
+anchor_top = 0.116111
+anchor_right = 0.79625
+anchor_bottom = 0.883889
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_right = 300
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="SFX" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_p453b")]
-unique_name_in_owner = true
-layout_mode = 2
-title = "Efectos de Sonido"
-
-[node name="Titulo" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFX" index="0"]
-text = "Efectos de Sonido"
-
-[node name="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFX" index="1"]
-max_value = 1.0
-step = 0.1
-
-[node name="Musica" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_p453b")]
-unique_name_in_owner = true
-layout_mode = 2
-title = "Musica"
-
-[node name="Titulo" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Musica" index="0"]
-text = "Musica"
-
-[node name="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Musica" index="1"]
-max_value = 1.0
-step = 0.1
-
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="FullScreenCheck" type="CheckButton" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_hlpso")
-theme_override_font_sizes/font_size = 50
-text = "Fullscreen    "
-
-[node name="VsyncChecked" type="CheckButton" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_hlpso")
-theme_override_font_sizes/font_size = 50
-text = "V-sync        "
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 300
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
 layout_mode = 2
 
-[node name="AntiAliasing2DLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/MarginContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_hlpso")
-theme_override_font_sizes/font_size = 50
-text = "2D Anti Alising"
-horizontal_alignment = 1
-
-[node name="AntiAliasing2DOptionButton" type="OptionButton" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-tooltip_text = "Smooth out edges of 2D objects
-"
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_hlpso")
-theme_override_font_sizes/font_size = 30
-selected = 0
-item_count = 4
-popup/item_0/text = "Off"
-popup/item_1/text = "2x"
-popup/item_1/id = 1
-popup/item_2/text = "4x"
-popup/item_2/id = 2
-popup/item_3/text = "8x"
-popup/item_3/id = 3
-script = ExtResource("5_qiktp")
-
-[node name="CerrarGamepad" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/AntiAliasing2DOptionButton" instance=ExtResource("6_hqrca")]
-
-[node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 500
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 500
-
-[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3"]
-layout_mode = 2
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_hlpso")
-theme_override_font_sizes/font_size = 50
-text = "Salir
-"
-icon_alignment = 1
-
-[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFX" to="." method="_on_sfx_volume_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Musica" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/FullScreenCheck" to="." method="_on_fullscreen_check_button_toggled"]
-[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/VsyncChecked" to="." method="_on_v_sync_check_button_toggled"]
-[connection signal="item_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/AntiAliasing2DOptionButton" to="." method="_on_anti_aliasing_2d_option_button_item_selected"]
-[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/Button" to="." method="go_back"]
-
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFX"]
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Musica"]
