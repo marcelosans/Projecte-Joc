@@ -27,6 +27,7 @@ PlayerPosition="*res://Scripts/global.gd"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+window/size/mode=2
 window/size/borderless=true
 window/stretch/mode="viewport"
 
