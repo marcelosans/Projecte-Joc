@@ -4,7 +4,7 @@ extends Control
 @onready var dialogo_timer: Timer = $DialogoTimer  # Timer desde la escena
 
 @onready var inventario_vbox = $Inventario/VBoxContainer  # Referencia al VBoxContainer del inventario
-@export var inventario: Inv  # Recurso que contiene los ítems del inventario
+ # Recurso que contiene los ítems del inventario
 
 var enemigo: Node
 
@@ -12,6 +12,7 @@ var vidaInicial = Enemigo1.vida
 
 func _ready():
 	# Instanciar el enemigo
+	Enemigo1._ready()
 	PlayerStats.get_player_stats()
 	actualizar_label_jugador()
 	actualizar_label_enemigo()
@@ -78,19 +79,23 @@ func enemigo_decision_combate():
 	var opcio = randi() % 3
 	var opcio2 = randi() % 100
 
-	if (opcio == 0):
-		apareceDialogo("El enemigo ha usado Ataque")
-		PlayerStats.recibir_daño(15)
-	elif (opcio == 1 and Enemigo1.vida < 10):
+	
+	if (opcio == 1 and Enemigo1.vida < 10):
 		apareceDialogo("El enemigo ha usado Curación")
 		Enemigo1.curar(10)
 	elif (opcio == 2 && opcio2 == 89):
 		apareceDialogo("El enemigo ha huido")
 		get_tree().change_scene_to_file("res://Escenas/Test.tscn")
-
+	else:
+		apareceDialogo("El enemigo ha usado Ataque")
+		PlayerStats.recibir_daño(Enemigo1.ataque)
 	# Esperar a que el diálogo del enemigo se muestre
 	await get_tree().create_timer(1).timeout  # Esperar a que el diálogo se muestre
 	ocultarDialogo()  # Ocultar el diálogo del enemigo
 
 func actualizar_label_enemigo():
 	$Enemigo1/LabelEnemigo.text = str(Enemigo1.vida)
+
+
+func _on_btn_item_pressed() -> void:
+	apareceDialogo("Avanza en la historia para poder usarlo")
