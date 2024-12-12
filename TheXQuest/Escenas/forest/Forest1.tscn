@@ -2232,7 +2232,7 @@ tile_map_data = PackedByteArray("AADx//v/AAAgAAsAAADx//z/AAAgAAwAAADx//3/AAAgAA0
 tile_set = SubResource("TileSet_2tiu8")
 
 [node name="Player" parent="." instance=ExtResource("2_64t46")]
-position = Vector2(438, 23)
+position = Vector2(487, 244)
 collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -2441,6 +2441,8 @@ position = Vector2(295, 2)
 shape = SubResource("RectangleShape2D_g5ytb")
 
 [node name="teleportSecondUp" type="Area2D" parent="teleports"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportSecondUp"]
 position = Vector2(437.5, 2)
