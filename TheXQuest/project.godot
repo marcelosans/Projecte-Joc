@@ -20,7 +20,10 @@ config/icon="res://LogoJuego.svg"
 ConfigFileHandler="*res://Scripts/ConfigFileHandler.gd"
 PlayerStats="*res://Scripts/player_stats.gd"
 Enemigo1="*res://Escenas/EscenaEnemigo/enemigo1.gd"
+
 ManagerDeMenu="*res://Nodes/ManagerDeMenu.tscn"
+PlayerPosition="*res://Scripts/global.gd"
+
 
 [display]
 
