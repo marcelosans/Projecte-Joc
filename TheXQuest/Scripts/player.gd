@@ -20,15 +20,12 @@ var steps_taken: int = 0  # Contador de pasos
 # Funciones guardar datos
 func _ready():
 	verify_save_directory(save_file_path)
-<<<<<<< Updated upstream
 	# Inicializar inventario si no está configurado
 	animated_sprite.play("walk_down")
 	
 
-=======
 	steps_taken = 0
 	$AnimatedSprite2D.play("walk_down")
->>>>>>> Stashed changes
 
 var area : String = "":
 		set(value):
