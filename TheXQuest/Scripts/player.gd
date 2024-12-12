@@ -28,12 +28,6 @@ var area : String = "":
 	set(value):
 		area = value
 		$Label.text = value
-
-	
-	
-# Llama a la función para iniciar el juego
-
-
 	
 func verify_save_directory(path : String):
 	DirAccess.make_dir_absolute(path)
@@ -58,11 +52,9 @@ func _process(_delta):
 		save()
 	if Input.is_action_just_pressed("load"):
 		load_data()
-		
+
 	playerData.UpdatePos(self.position)
 	
-# Fin funciones
-
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed

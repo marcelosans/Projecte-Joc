@@ -79,6 +79,14 @@ text = "Menú Principal
 "
 icon_alignment = 1
 
+[node name="GuardarDatos" type="Button" parent="Container/MarginContainer3/Nada"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_82imk")
+theme_override_font_sizes/font_size = 50
+text = "Guardar Datos"
+icon_alignment = 1
+
 [node name="QuitButton" type="Button" parent="Container/MarginContainer3/Nada"]
 layout_mode = 2
 theme_override_constants/outline_size = 10
@@ -95,5 +103,6 @@ layout_mode = 1
 [connection signal="pressed" from="Container/MarginContainer3/Nada/ResumeGame" to="." method="_on_resume_game_button_pressed"]
 [connection signal="pressed" from="Container/MarginContainer3/Nada/Opciones" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Container/MarginContainer3/Nada/BackToMenu" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="Container/MarginContainer3/Nada/GuardarDatos" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Container/MarginContainer3/Nada/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="close" from="OptionsMenu" to="." method="_on_options_menu_close"]
