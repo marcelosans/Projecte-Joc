@@ -29,7 +29,6 @@ metadata/_edit_lock_ = true
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
 script = ExtResource("2_w5a88")
-transition_time = 0.1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
@@ -38,7 +37,6 @@ size_flags_vertical = 3
 
 [node name="TitulOpcions" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("3_hlpso")
 theme_override_font_sizes/font_size = 100
 text = "Opciones"
@@ -89,7 +87,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_hlpso")
 theme_override_font_sizes/font_size = 50
 text = "Fullscreen    "
@@ -99,7 +96,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_hlpso")
 theme_override_font_sizes/font_size = 50
 text = "V-sync        "
@@ -115,7 +111,6 @@ layout_mode = 2
 
 [node name="AntiAliasing2DLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_hlpso")
 theme_override_font_sizes/font_size = 50
 text = "2D Anti Alising"
@@ -126,7 +121,6 @@ unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Smooth out edges of 2D objects
 "
-theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_hlpso")
 theme_override_font_sizes/font_size = 30
 selected = 0
@@ -139,6 +133,24 @@ popup/item_2/id = 2
 popup/item_3/text = "8x"
 popup/item_3/id = 3
 script = ExtResource("5_qiktp")
+popup/item_0/text = "Off"
+popup/item_0/icon = null
+popup/item_0/id = 0
+popup/item_0/disabled = false
+popup/item_0/separator = false
+popup/item_1/text = "2x"
+popup/item_1/icon = null
+popup/item_1/id = 1
+popup/item_1/disabled = false
+popup/item_1/separator = false
+popup/item_2/text = "4x"
+popup/item_2/icon = null
+popup/item_2/id = 2
+popup/item_2/disabled = false
+popup/item_2/separator = false
+popup/item_3/text = "8x"
+theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_hlpso")
 
 [node name="CerrarGamepad" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/AntiAliasing2DOptionButton" instance=ExtResource("6_hqrca")]
 
@@ -146,27 +158,14 @@ script = ExtResource("5_qiktp")
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 500
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 500
 
-[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3"]
-layout_mode = 2
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_hlpso")
-theme_override_font_sizes/font_size = 50
-text = "Salir
-"
-icon_alignment = 1
-
-[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFX" to="." method="_on_sfx_volume_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Musica" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/FullScreenCheck" to="." method="_on_fullscreen_check_button_toggled"]
-[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/VsyncChecked" to="." method="_on_v_sync_check_button_toggled"]
+[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Musica" to="." method="_on_musica_value_changed"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/FullScreenCheck" to="." method="_on_full_screen_check_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/VsyncChecked" to="." method="_on_vsync_checked_toggled"]
 [connection signal="item_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/AntiAliasing2DOptionButton" to="." method="_on_anti_aliasing_2d_option_button_item_selected"]
-[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/Button" to="." method="go_back"]
 
 [editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFX"]
 [editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/Musica"]

@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_oenn3"]
 [ext_resource type="Texture2D" uid="uid://clwmj8lgs2xa0" path="res://Assets/tileMaps/Festival_Plaza_Vacant_Transparent.png" id="1_pa7xl"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_qygkm"]
-[ext_resource type="PackedScene" uid="uid://cv7s3uogl30hg" path="res://Escenas/PatoMagico.tscn" id="3_dalt6"]
 [ext_resource type="Script" path="res://Scripts/Teleports/teleportTest.gd" id="4_3n2s0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dgn8e"]
@@ -80,6 +79,3 @@ position = Vector2(1, 365)
 shape = SubResource("RectangleShape2D_pwy5m")
 
 [connection signal="body_entered" from="teleport" to="teleport" method="_on_body_entered"]
-
-[node name="PatoMagico" parent="." instance=ExtResource("3_dalt6")]
-position = Vector2(93, 275)

@@ -4,18 +4,12 @@ var vida: int = 75
 var ataque: int = 20
 var defensa: int = 5
 
-const VIDA_ENEMIGO = 75
-const ATAQUE_ENEMIGO = 20
-const DEFENSA_ENEMIGO = 5
-
 @onready var combate = preload("res://Escenas/combate.tscn")
 
 @onready var sprite = $AnimatedSprite2D  # Asegúrate de que el nodo sprite está nombrado correctamente
 
 func _ready():
-	vida = VIDA_ENEMIGO
-	ataque = ATAQUE_ENEMIGO
-	defensa = DEFENSA_ENEMIGO
+	pass
 	
 
 func recibir_daño(cantidad):
