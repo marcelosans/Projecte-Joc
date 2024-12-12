@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba1mwaae2rug0"]
+
+[ext_resource type="FontFile" uid="uid://djq2m8cmyrcay" path="res://Assets/Fonts/VPPixel-Simplified.otf" id="1_82imk"]
+[ext_resource type="Script" path="res://Escenas/Menu/menu_pausa.gd" id="1_lawdm"]
+[ext_resource type="PackedScene" uid="uid://vegxgrfqg6h8" path="res://Escenas/Menu/MenuOpciones.tscn" id="3_02q0j"]
+
+[node name="MenuPausa" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lawdm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+anchor_left = -0.03
+anchor_top = -0.0333333
+anchor_right = 1.09438
+anchor_bottom = 1.15333
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitolPausa" type="Label" parent="Container"]
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_82imk")
+theme_override_font_sizes/font_size = 100
+text = "Menu Pausa"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Container"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer3" type="MarginContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 500
+
+[node name="Nada" type="VBoxContainer" parent="Container/MarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ResumeGame" type="Button" parent="Container/MarginContainer3/Nada"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_82imk")
+theme_override_font_sizes/font_size = 50
+text = "Reanudar"
+icon_alignment = 1
+
+[node name="Opciones" type="Button" parent="Container/MarginContainer3/Nada"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_82imk")
+theme_override_font_sizes/font_size = 50
+text = "Opciones
+"
+icon_alignment = 1
+
+[node name="BackToMenu" type="Button" parent="Container/MarginContainer3/Nada"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_82imk")
+theme_override_font_sizes/font_size = 50
+text = "Menú Principal
+"
+icon_alignment = 1
+
+[node name="QuitButton" type="Button" parent="Container/MarginContainer3/Nada"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_82imk")
+theme_override_font_sizes/font_size = 50
+text = "Salir"
+icon_alignment = 1
+
+[node name="OptionsMenu" parent="." instance=ExtResource("3_02q0j")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Container/MarginContainer3/Nada/ResumeGame" to="." method="_on_resume_game_button_pressed"]
+[connection signal="pressed" from="Container/MarginContainer3/Nada/Opciones" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Container/MarginContainer3/Nada/BackToMenu" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="Container/MarginContainer3/Nada/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="close" from="OptionsMenu" to="." method="_on_options_menu_close"]
