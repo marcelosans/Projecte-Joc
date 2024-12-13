@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://83v4r4se40r0"]
+[gd_scene load_steps=15 format=4 uid="uid://83v4r4se40r0"]
 
 [ext_resource type="Texture2D" uid="uid://daepwluninrvt" path="res://Assets/tileMaps/forest3.png" id="1_qkjva"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_vaxx0"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_q1p63"]
 [ext_resource type="PackedScene" uid="uid://c1r6d0ib8ojig" path="res://Escenas/forest/up.tscn" id="3_50lo3"]
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="4_sg7ai"]
+[ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="6_q8c2w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1ji0"]
 texture = ExtResource("1_qkjva")
@@ -2295,3 +2296,9 @@ position = Vector2(160, -32)
 
 [node name="down" parent="." instance=ExtResource("4_sg7ai")]
 position = Vector2(160, -40)
+
+[node name="TransicionAnimacion" parent="." instance=ExtResource("6_q8c2w")]
+visible = false
+z_index = 5
+
+[editable path="TransicionAnimacion"]

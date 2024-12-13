@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://m0f1yeev1dyd"]
+[gd_scene load_steps=13 format=4 uid="uid://m0f1yeev1dyd"]
 
 [ext_resource type="Texture2D" uid="uid://m315w731w24i" path="res://Assets/tileMaps/forest4.png" id="1_28lvh"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_daxsk"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_aydpt"]
 [ext_resource type="PackedScene" uid="uid://c1r6d0ib8ojig" path="res://Escenas/forest/up.tscn" id="3_ftjw3"]
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="4_a41a6"]
+[ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="6_hl7yj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rn2i"]
 texture = ExtResource("1_28lvh")
@@ -4542,3 +4543,9 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="border"]
 polygon = PackedVector2Array(0, 1024, 512, 1024, 512, 0, 0, 0, 0, 1023, -2, 1024, -6, 1016, -166, 534, -200, 150, -159, -166, 211, -186, 715, -172, 675, 393, 648, 985, 554, 1112, 103, 1112)
+
+[node name="TransicionAnimacion" parent="." instance=ExtResource("6_hl7yj")]
+visible = false
+z_index = 5
+
+[editable path="TransicionAnimacion"]

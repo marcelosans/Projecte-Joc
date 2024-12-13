@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://btv5x2juxejbm"]
+[gd_scene load_steps=12 format=3 uid="uid://btv5x2juxejbm"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_oenn3"]
 [ext_resource type="Texture2D" uid="uid://clwmj8lgs2xa0" path="res://Assets/tileMaps/Festival_Plaza_Vacant_Transparent.png" id="1_pa7xl"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_qygkm"]
 [ext_resource type="Script" path="res://Scripts/Teleports/teleportTest.gd" id="4_3n2s0"]
+[ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="5_ytuw5"]
+[ext_resource type="PackedScene" uid="uid://ba1mwaae2rug0" path="res://Escenas/Menu/MenuPausa.tscn" id="6_0xlv4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dgn8e"]
 resource_name = "ground"
@@ -47,6 +49,7 @@ layer_1/tile_data = PackedInt32Array(0, 65537, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_qygkm")]
 position = Vector2(254, 240)
+inv = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1, 2)
@@ -78,4 +81,13 @@ script = ExtResource("4_3n2s0")
 position = Vector2(1, 365)
 shape = SubResource("RectangleShape2D_pwy5m")
 
+[node name="TransicionAnimacion" parent="." instance=ExtResource("5_ytuw5")]
+visible = false
+z_index = 4
+
+[node name="MenuPausa" parent="." instance=ExtResource("6_0xlv4")]
+visible = false
+
 [connection signal="body_entered" from="teleport" to="teleport" method="_on_body_entered"]
+
+[editable path="TransicionAnimacion"]
