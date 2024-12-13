@@ -6,7 +6,6 @@ var defensa: int = 5
 
 @onready var combate = preload("res://Escenas/combate.tscn")
 
-@onready var sprite = $AnimatedSprite2D  # Asegúrate de que el nodo sprite está nombrado correctamente
 
 func _ready():
 	pass

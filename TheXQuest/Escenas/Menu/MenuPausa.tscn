@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://vegxgrfqg6h8" path="res://Escenas/Menu/MenuOpciones.tscn" id="3_02q0j"]
 
 [node name="MenuPausa" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,6 +104,6 @@ layout_mode = 1
 [connection signal="pressed" from="Container/MarginContainer3/Nada/ResumeGame" to="." method="_on_resume_game_button_pressed"]
 [connection signal="pressed" from="Container/MarginContainer3/Nada/Opciones" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Container/MarginContainer3/Nada/BackToMenu" to="." method="_on_back_to_menu_button_pressed"]
-[connection signal="pressed" from="Container/MarginContainer3/Nada/GuardarDatos" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Container/MarginContainer3/Nada/GuardarDatos" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Container/MarginContainer3/Nada/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="close" from="OptionsMenu" to="." method="_on_options_menu_close"]

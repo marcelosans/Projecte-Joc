@@ -5,7 +5,7 @@ signal back_to_main_pressed
 @onready var content : VBoxContainer = $%Container
 @onready var options_menu : Control = $%OptionsMenu
 @onready var resume_game_button: Button = $%ResumeGame
-	
+
 func open_pause_menu():
 	#Stops game and shows pause menu
 	get_tree().paused = true
@@ -39,6 +39,9 @@ func _on_quit_button_pressed():
 func _on_back_to_menu_button_pressed():
 	close_pause_menu()
 	get_tree().change_scene_to_file("res://Escenas/Menu/MenuInicio.tscn")
+
+
+
 
 func _input(event):
 	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and visible and !options_menu.visible:
