@@ -22,9 +22,9 @@ func _on_teleport_second_down_body_entered(body: CharacterBody2D) -> void:
 	teleportPlace(481,88,false,false,"res://Escenas/forest/Forest3.tscn");
 
 
-func _on_teleport_second_right_body_entered(body: Node2D) -> void:
+func _on_teleport_second_right_body_entered(body: CharacterBody2D) -> void:
 	teleportPlace(23,379,true,true,"res://Escenas/forest/Forest4.tscn");
 
 
-func _on_teleport_first_left_body_entered(body: Node2D) -> void:
+func _on_teleport_first_left_body_entered(body: CharacterBody2D) -> void:
 	teleportPlace(487,244,true,true,"res://Escenas/forest/Forest1.tscn");

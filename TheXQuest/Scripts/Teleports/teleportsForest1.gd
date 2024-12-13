@@ -11,7 +11,7 @@ func _on_teleport_second_right_body_entered(body: CharacterBody2D) -> void:
 
 
 func _on_teleport_first_right_body_entered(body: CharacterBody2D) -> void:
-	teleportPlace(20,315,true,true,"res://Escenas/forest/Forest2.tscn")
+	teleportPlace(21,296,true,true,"res://Escenas/forest/Forest2.tscn")
 
 func _on_teleport_second_up_body_entered(body: CharacterBody2D) -> void:
 	body.position = Vector2(376, 479)
