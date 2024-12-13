@@ -4,10 +4,8 @@ extends Node2D
 @onready var MainTrans = $TransicionAnimacion
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	AudioPlayer.play_music_forest()
 func _ready():
-	
+	AudioPlayer.play_music_forest()
 	var player = $Player
 	player.position = PlayerPosition.spawn_position
 	if (PlayerPosition.firstCollisionLayer != true && PlayerPosition.firstCollisionMask != true):
