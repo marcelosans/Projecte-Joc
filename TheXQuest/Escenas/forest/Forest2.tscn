@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dx25bkgc1qrab"]
+[gd_scene load_steps=21 format=4 uid="uid://dx25bkgc1qrab"]
 
 [ext_resource type="Texture2D" uid="uid://c7d8kv4d3ari8" path="res://Assets/tileMaps/forest2.png" id="1_u5cx6"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_wgttg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="3_5jbhe"]
 [ext_resource type="PackedScene" uid="uid://c1r6d0ib8ojig" path="res://Escenas/forest/up.tscn" id="4_j07wi"]
 [ext_resource type="Script" path="res://Scripts/Teleports/teleportsForest2.gd" id="6_iwbpe"]
+[ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="7_uucdd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1iv7k"]
 texture = ExtResource("1_u5cx6")
@@ -2417,9 +2418,15 @@ shape = SubResource("RectangleShape2D_yoy8s")
 position = Vector2(1, 297)
 shape = SubResource("RectangleShape2D_ve4h4")
 
+[node name="TransicionAnimacion" parent="." instance=ExtResource("7_uucdd")]
+visible = false
+z_index = 5
+
 [connection signal="body_entered" from="teleports/teleportFirstUp" to="teleports" method="_on_teleport_first_up_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondUp" to="teleports" method="_on_teleport_second_up_body_entered"]
 [connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondDown" to="teleports" method="_on_teleport_second_down_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondRight" to="teleports" method="_on_teleport_second_right_body_entered"]
 [connection signal="body_entered" from="teleports/teleportFirstLeft" to="teleports" method="_on_teleport_first_left_body_entered"]
+
+[editable path="TransicionAnimacion"]

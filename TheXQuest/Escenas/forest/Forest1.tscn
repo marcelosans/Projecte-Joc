@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bgtohsdnyx1rn"]
+[gd_scene load_steps=27 format=4 uid="uid://bgtohsdnyx1rn"]
 
 [ext_resource type="Texture2D" uid="uid://cbwmkvu4nbn0o" path="res://Assets/tileMaps/forest1.png" id="1_n4j7b"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_qltx8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1r6d0ib8ojig" path="res://Escenas/forest/up.tscn" id="3_64lvv"]
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="4_uslbi"]
 [ext_resource type="Script" path="res://Scripts/Teleports/teleportsForest1.gd" id="5_txo1n"]
+[ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="7_bi647"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52d7i"]
 resource_name = "1"
@@ -2462,6 +2463,10 @@ collision_mask = 2
 position = Vector2(378, 511)
 shape = SubResource("RectangleShape2D_gtef2")
 
+[node name="TransicionAnimacion" parent="." instance=ExtResource("7_bi647")]
+visible = false
+z_index = 4
+
 [connection signal="body_entered" from="teleports/teleportSecondRight" to="teleports" method="_on_teleport_second_right_body_entered"]
 [connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]
 [connection signal="body_entered" from="teleports/teleportFirstRight" to="teleports" method="_on_teleport_first_right_body_entered"]
@@ -2469,3 +2474,5 @@ shape = SubResource("RectangleShape2D_gtef2")
 [connection signal="body_entered" from="teleports/teleportSecondUp" to="teleports" method="_on_teleport_second_up_body_entered"]
 [connection signal="body_entered" from="teleports/teleportFirstLeft" to="teleports" method="_on_teleport_first_left_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondDown" to="teleports" method="_on_teleport_second_down_body_entered"]
+
+[editable path="TransicionAnimacion"]

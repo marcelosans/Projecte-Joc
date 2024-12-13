@@ -9,7 +9,7 @@ var playerData = PlayerData.new()
 # Fin variables
 
 var health = 100
-
+var escena = ""
 @export var inv: Inv
 
 @export var speed = 100
@@ -46,6 +46,8 @@ func on_start_load():
 func save():
 	ResourceSaver.save(playerData, save_file_path + save_file_name)
 	print("guardado")
+	playerData.UpdatePos(self.position)
+	escena = get_tree().current_scene.filename 
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("save"):
@@ -53,7 +55,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("load"):
 		load_data()
 
-	playerData.UpdatePos(self.position)
 	
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
