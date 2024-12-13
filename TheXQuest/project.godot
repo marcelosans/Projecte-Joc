@@ -23,6 +23,7 @@ Enemigo1="*res://Escenas/EscenaEnemigo/enemigo1.gd"
 ManagerDeMenu="*res://Nodes/ManagerDeMenu.tscn"
 PlayerPosition="*res://Scripts/global.gd"
 AudioPlayer="*res://Escenas/music_forest.tscn"
+GameState="*res://Scripts/gameState.gd"
 
 [display]
 

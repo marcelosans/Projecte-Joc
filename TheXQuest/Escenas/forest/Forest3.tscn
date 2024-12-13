@@ -451,7 +451,6 @@ texture = ExtResource("1_qkjva")
 79:3/0/physics_layer_2/polygon_0/points = PackedVector2Array(8, -8, 8, 8, 8, 8, 8, 8, 6.85714, 8, 6.85714, -8)
 79:4/0 = 0
 79:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -3.42857, 8, -8, 6.85714, -8, 6.85714, 8, 8, 8)
-79:4/0/physics_layer_2/polygon_0/points = PackedVector2Array(8, 8, 8, 8, 8, 8, 6.85714, 8)
 79:5/0 = 0
 79:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 79:6/0 = 0
@@ -2281,7 +2280,11 @@ position = Vector2(328, 316)
 shape = SubResource("RectangleShape2D_3w1ss")
 
 [node name="Player" parent="." instance=ExtResource("2_q1p63")]
-position = Vector2(481, 88)
+position = Vector2(377, 192)
+steps_before_encounter = null
+encounter_chance = null
+encounter_scene_path = null
+speed = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)

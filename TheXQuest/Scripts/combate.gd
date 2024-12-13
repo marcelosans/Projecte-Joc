@@ -12,6 +12,9 @@ var vidaInicial = Enemigo1.vida
 
 func _ready():
 	# Instanciar el enemigo
+	Enemigo1._ready()
+	print(GameState.player_x)
+	print(GameState.player_y)
 	PlayerStats.get_player_stats()
 	actualizar_label_jugador()
 	actualizar_label_enemigo()
@@ -33,7 +36,8 @@ func atacar_enemigo():
 		PlayerStats.add_exp(Enemigo1.vida/3)
 		apareceDialogo("Has ganado" +" "+str(vidaInicial/3)+"exp")
 		await get_tree().create_timer(2.5).timeout
-		get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+		get_tree().change_scene_to_file(GameState.previous_scene_path)  # Regresa a la escena previa
+		 # Restaura la posición
 	else:
 		await get_tree().create_timer(1).timeout  # Esperar un poco antes de la respuesta del enemigo
 		enemigo_decision_combate()
@@ -64,7 +68,8 @@ func _on_btn_run_pressed() -> void:
 	apareceDialogo("Has huido del combate")
 	$Jugador/AnimatedSprite2D.play("runAway")
 	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+	get_tree().change_scene_to_file(GameState.previous_scene_path)  # Regresa a la escena previa
+	
 
 # Método que se llama cuando el temporizador termina
 func _on_dialogo_timer_timeout() -> void:
@@ -78,15 +83,16 @@ func enemigo_decision_combate():
 	var opcio = randi() % 3
 	var opcio2 = randi() % 100
 
-	if (opcio == 0):
-		apareceDialogo("El enemigo ha usado Ataque")
-		PlayerStats.recibir_daño(15)
-	elif (opcio == 1 and Enemigo1.vida < 10):
+	
+	if (opcio == 1 and Enemigo1.vida < 10):
 		apareceDialogo("El enemigo ha usado Curación")
 		Enemigo1.curar(10)
 	elif (opcio == 2 && opcio2 == 89):
 		apareceDialogo("El enemigo ha huido")
 		get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+	else:
+		apareceDialogo("El enemigo ha usado Ataque")
+		PlayerStats.recibir_daño(Enemigo1.defensa)
 
 	# Esperar a que el diálogo del enemigo se muestre
 	await get_tree().create_timer(1).timeout  # Esperar a que el diálogo se muestre

@@ -1,22 +1,30 @@
 extends CharacterBody2D
 
-# Variables guardar datos
+# Variables para guardar datos
+@export var steps_before_encounter: int = 40  # Número promedio de pasos antes de un encuentro
+@export var encounter_chance: float = 0.25  # Probabilidad de encuentro por paso extra
+@export var encounter_scene_path: String = "res://Escenas/Combate.tscn"  # Ruta de la escena de combate
 
 var save_file_path = "res://DatosGuardados/"
 var save_file_name = "PlayerSave.tres"
+var save_file_position = "res://DatosGuardados/PlayerPosition.tres"
+
+
+
 var playerData = PlayerData.new()
 
-# Fin variables
+var playerPos = PlayerPositionCombat.new()
 
 var health = 100
-var escena = ""
 @export var inv: Inv
-
 @export var speed = 100
 @onready var animated_sprite = $AnimatedSprite2D
 
-# Funciones guardar datos
+# Variables para los encuentros aleatorios
+var steps_taken: int = 0  # Contador de pasos
 
+# Funciones guardar datos
+# me quedé aqui mientras pasaba codigo
 func _ready():
 	verify_save_directory(save_file_path)
 	# Inicializar inventario si no está configurado

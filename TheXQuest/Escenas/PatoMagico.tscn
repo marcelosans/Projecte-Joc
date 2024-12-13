@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cok5sx7en54fw"]
+
+[ext_resource type="Script" path="res://Escenas/pato_magico.gd" id="1_5rhdf"]
+[ext_resource type="Texture2D" uid="uid://dpcwb6adjrreo" path="res://Assets/Sprites/patoMagico.png" id="2_nbroe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qtqo"]
+radius = 23.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2ij1"]
+radius = 18.0
+
+[node name="PatoMagico" type="Area2D" groups=["Objeto"]]
+position = Vector2(3, 2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5rhdf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.148437, 0.179688)
+texture = ExtResource("2_nbroe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0qtqo")
+one_way_collision_margin = 0.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_l2ij1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -37.0
+offset_right = 65.0
+offset_bottom = -21.0
+theme_override_font_sizes/font_size = 10
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
