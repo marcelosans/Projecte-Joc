@@ -7,15 +7,23 @@ signal resume
 
 var player: Node = null
 
+# Guardar la escena actual antes de cambiar al menú de pausa
 func open_pause_menu():
 	if player and player.has_method("save"):
 		player.save()
+	
+	# Guardar la ruta de la escena actual
+	GameState.previous_scene_path = get_tree().current_scene.scene_file_path
+	
+	# Abrir la escena del menú de pausa
 	get_tree().change_scene_to_file("res://Escenas/Menu/MenuPausa.tscn")
+
 
 func close_pause_menu():
 	get_tree().paused = false
 	hide()
-	emit_signal("resume")
+
+
 
 func _on_resume_game_button_pressed():
 	if player and player.has_method("load_data"):
