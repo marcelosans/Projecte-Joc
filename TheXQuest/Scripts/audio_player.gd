@@ -11,8 +11,10 @@ func _play_music(music: AudioStream, volume = 0.0):
 	volume_db = volume
 	play()
 	
-func play_music_forest():
-	_play_music(forest_music)
-	
+func play_music_forest(scene):
+	if (scene not in PlayerPosition.FOREST_SCENES):
+		stop()
+	else:
+		_play_music(forest_music)
 func play_music_battle():
 	_play_music(battle_music)

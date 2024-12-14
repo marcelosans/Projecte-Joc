@@ -5,7 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	AudioPlayer.play_music_forest()
+	AudioPlayer.play_music_forest(get_tree().current_scene.scene_file_path)
 	var player = $Player
 	player.position = PlayerPosition.spawn_position
 	if (PlayerPosition.firstCollisionLayer != true && PlayerPosition.firstCollisionMask != true):

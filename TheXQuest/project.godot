@@ -36,6 +36,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 Player=""
+forest_map="group for the maps belonging to forest"
 
 [input]
 
