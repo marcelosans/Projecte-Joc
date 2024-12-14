@@ -62,18 +62,17 @@ autoplay = true
 
 [node name="Video4" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 200.0
-offset_top = -3.0
-offset_right = 43.0
-offset_bottom = 185.0
+anchors_preset = -1
+anchor_left = 0.125
+anchor_right = 0.879075
+anchor_bottom = 1.007
+offset_right = 240.48
+offset_bottom = 181.696
 grow_horizontal = 2
-grow_vertical = 2
 scale = Vector2(0.833, 0.833)
 stream = ExtResource("5_65ivt")
 autoplay = true
+metadata/_edit_use_anchors_ = true
 
 [node name="BarraNegraIzq" type="ColorRect" parent="."]
 layout_mode = 0
@@ -84,7 +83,7 @@ metadata/_edit_lock_ = true
 
 [node name="BarraNegraDer" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 1400.0
+offset_left = 1394.0
 offset_right = 1600.0
 offset_bottom = 900.0
 color = Color(0, 0, 0, 1)

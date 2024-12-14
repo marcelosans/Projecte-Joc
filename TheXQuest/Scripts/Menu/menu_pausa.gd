@@ -1,5 +1,5 @@
 extends Control
- 
+signal resume
 
 @onready var content: VBoxContainer = $%Container
 @onready var options_menu: Control = $%OptionsMenu
@@ -20,7 +20,8 @@ func close_pause_menu():
 func _on_resume_game_button_pressed():
 	if player and player.has_method("load_data"):
 		player.load_data()
-	close_pause_menu()
+	get_tree().change_scene_to_file(GameState.previous_scene_path)  # Regresa a la escena previa
+
 
 func _on_options_button_pressed():
 	content.hide()
@@ -47,7 +48,3 @@ func _input(event):
 func _process(_delta):
 	if Input.is_action_just_pressed("Escape") and !get_tree().paused:
 		open_pause_menu()
-
-func _ready():
-	player = get_tree().current_scene.get_parent()
-	print(player)
