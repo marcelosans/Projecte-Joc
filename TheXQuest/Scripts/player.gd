@@ -40,9 +40,24 @@ func verify_save_directory(path : String):
 	DirAccess.make_dir_absolute(path)
 	
 func load_data():
-	playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
-	on_start_load()
-	print("cargado")
+	var loaded_data = ResourceLoader.load(save_file_path + save_file_name)
+	if loaded_data:
+		playerData = loaded_data.duplicate(true)  # Duplica los datos para evitar modificar el archivo original
+		print("Cargando datos...")
+		print("Escena guardada:", playerData.CurrentArea)
+		print("Posición guardada:", playerData.SavePos)
+		
+		# Cambia de escena si es diferente a la actual
+		if playerData.CurrentArea != get_tree().current_scene.scene_file_path:
+			print("Cambiando a la escena guardada...")
+			get_tree().change_scene_to_file(playerData.CurrentArea)
+			return  # Salir porque la escena cambiará
+		
+		# Si ya estás en la escena correcta, restaura la posición
+		self.position = playerData.SavePos
+		print("Posición restaurada:", self.position)
+	else:
+		print("No se encontraron datos guardados")
 	
 	
 func on_start_load():
@@ -52,6 +67,8 @@ func on_start_load():
 
 
 func save():
+	playerData.EscenaActual(get_tree().current_scene.scene_file_path)
+	print(playerData.CurrentArea)
 	playerData.UpdatePos(self.position)
 	print(self.position)
 	ResourceSaver.save(playerData, save_file_path + save_file_name)
@@ -59,9 +76,9 @@ func save():
 	#escena = get_tree().current_scene.filename 
 	
 func _process(_delta):
-	#if not is_position_restored:  # Solo restaura si no se ha hecho antes
-		#load_data()
-		#is_position_restored = true  # Marca como restaurado
+	if not is_position_restored:  # Solo restaura si no se ha hecho antes
+		load_data()
+		is_position_restored = true  # Marca como restaurado
 	if Input.is_action_just_pressed("save"):
 		save()
 	if Input.is_action_just_pressed("load"):
@@ -72,10 +89,15 @@ func handle_step():
 
 	# Verificar si se supera el número de pasos promedio
 	if steps_taken >= steps_before_encounter:
+		# Reducir la probabilidad de encuentro con cada paso adicional
+		var steps_over = steps_taken - steps_before_encounter
+		var adjusted_chance = encounter_chance / (1 + steps_over * 0.1)  # Reduce la probabilidad con cada paso adicional
+
 		var random_chance = randf()  # Número aleatorio entre 0 y 1
-		if random_chance < encounter_chance:
+		if random_chance < adjusted_chance:
 			save()
-			GameState.previous_scene_path = get_tree().current_scene.scene_file_path # Guarda la ruta de la escena
+			playerData.EscenaActual(get_tree().current_scene.scene_file_path)
+			GameState.previous_scene_path = get_tree().current_scene.scene_file_path  # Guarda la ruta de la escena
 			trigger_encounter()
 			return  # Reinicia los pasos después del encuentro
 		else:

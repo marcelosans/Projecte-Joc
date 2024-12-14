@@ -8,10 +8,11 @@ var save_file_name = "PlayerSave.tres"
 func teleportPlace(x,y, layer, mask, fileName):
 	PlayerPosition.spawn_position = Vector2(x, y)
 	playerData.UpdatePos(PlayerPosition.spawn_position)
+	playerData.EscenaActual(fileName)
 	ResourceSaver.save(playerData, save_file_path + save_file_name)
 	PlayerPosition.firstCollisionLayer = layer
 	PlayerPosition.firstCollisionMask = mask
-	get_tree().change_scene_to_file(fileName)
+	get_tree().change_scene_to_file(playerData.CurrentArea)
 
 
 
