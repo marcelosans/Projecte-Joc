@@ -9,7 +9,7 @@ var save_file_path = "res://DatosGuardados/"
 var save_file_name = "PlayerSave.tres"
 var save_file_position = "res://DatosGuardados/PlayerPosition.tres"
 
-
+var is_position_restored: bool = false
 var playerData = PlayerData.new()
 
 var playerPos = PlayerPositionCombat.new()
@@ -26,10 +26,9 @@ var steps_taken: int = 0  # Contador de pasos
 # me quedé aqui mientras pasaba codigo
 func _ready():
 	verify_save_directory(save_file_path)
-	# Inicializar inventario si no está configurado
-	
 	steps_taken = 0
 	$AnimatedSprite2D.play("walk_down")
+	
 
 
 var area : String = "":
@@ -48,16 +47,21 @@ func load_data():
 	
 func on_start_load():
 	self.position = playerData.SavePos
+	print(self.position)
 	
 
 
 func save():
+	playerData.UpdatePos(self.position)
+	print(self.position)
 	ResourceSaver.save(playerData, save_file_path + save_file_name)
 	print("guardado")
-	playerData.UpdatePos(self.position)
 	#escena = get_tree().current_scene.filename 
 	
 func _process(_delta):
+	if not is_position_restored:  # Solo restaura si no se ha hecho antes
+		load_data()
+		is_position_restored = true  # Marca como restaurado
 	if Input.is_action_just_pressed("save"):
 		save()
 	if Input.is_action_just_pressed("load"):
@@ -70,6 +74,8 @@ func handle_step():
 	if steps_taken >= steps_before_encounter:
 		var random_chance = randf()  # Número aleatorio entre 0 y 1
 		if random_chance < encounter_chance:
+			save()
+			GameState.previous_scene_path = get_tree().current_scene.scene_file_path # Guarda la ruta de la escena
 			trigger_encounter()
 			return  # Reinicia los pasos después del encuentro
 		else:
@@ -80,7 +86,6 @@ func trigger_encounter():
 	save()
 	steps_taken = 0  # Reiniciar contador de pasos
 	if encounter_scene_path != "":
-		GameState.previous_scene_path = get_tree().current_scene.scene_file_path # Guarda la ruta de la escena
 		get_tree().change_scene_to_file(encounter_scene_path)
 
 	

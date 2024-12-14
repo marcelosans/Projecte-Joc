@@ -1,5 +1,11 @@
 extends Node2D
 
+var playerData = PlayerData.new()
+var save_file_path = "res://DatosGuardados/"
+var save_file_name = "PlayerSave.tres"
+
+
+
 func teleportPlace(x,y, layer, mask, fileName):
 	PlayerPosition.spawn_position = Vector2(x, y)
 	PlayerPosition.firstCollisionLayer = layer

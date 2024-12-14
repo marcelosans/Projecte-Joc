@@ -68,7 +68,8 @@ func _on_btn_run_pressed() -> void:
 	apareceDialogo("Has huido del combate")
 	$Jugador/AnimatedSprite2D.play("runAway")
 	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file(GameState.previous_scene_path)  # Regresa a la escena previa
+	get_tree().change_scene_to_file(GameState.previous_scene_path)
+	  # Regresa a la escena previa
 	
 
 # Método que se llama cuando el temporizador termina
