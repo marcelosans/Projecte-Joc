@@ -16,5 +16,7 @@ func play_music_forest(scene):
 		stop()
 	else:
 		_play_music(forest_music)
+		if !playing:
+			play()
 func play_music_battle():
 	_play_music(battle_music)

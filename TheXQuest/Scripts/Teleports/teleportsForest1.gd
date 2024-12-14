@@ -18,8 +18,6 @@ func teleportPlace(x,y, layer, mask, fileName):
 func _on_teleport_second_right_body_entered(body: CharacterBody2D) -> void:
 	teleportPlace(20,425,false,false,"res://Escenas/forest/Forest2.tscn")
 
-
-
 func _on_teleport_second_up_body_entered(body: CharacterBody2D) -> void:
 	body.position = Vector2(376, 479)
 

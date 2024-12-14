@@ -2206,8 +2206,8 @@ size = Vector2(6, 42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtef2"]
 size = Vector2(35.5, 2.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3kad"]
-size = Vector2(3, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isavw"]
+size = Vector2(3, 22)
 
 [node name="Forest1" type="Node2D"]
 script = ExtResource("1_qltx8")
@@ -2234,7 +2234,7 @@ tile_map_data = PackedByteArray("AADx//v/AAAgAAsAAADx//z/AAAgAAwAAADx//3/AAAgAA0
 tile_set = SubResource("TileSet_2tiu8")
 
 [node name="Player" parent="." instance=ExtResource("2_64t46")]
-position = Vector2(489, 243)
+position = Vector2(309, 243)
 collision_layer = 3
 collision_mask = 1
 
@@ -2467,7 +2467,7 @@ shape = SubResource("RectangleShape2D_gtef2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstRight"]
 position = Vector2(510.5, 243)
-shape = SubResource("RectangleShape2D_s3kad")
+shape = SubResource("RectangleShape2D_isavw")
 
 [node name="TransicionAnimacion" parent="." instance=ExtResource("7_bi647")]
 visible = false

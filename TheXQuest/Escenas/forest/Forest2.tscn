@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dx25bkgc1qrab"]
+[gd_scene load_steps=23 format=4 uid="uid://dx25bkgc1qrab"]
 
 [ext_resource type="Texture2D" uid="uid://c7d8kv4d3ari8" path="res://Assets/tileMaps/forest2.png" id="1_u5cx6"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_wgttg"]
@@ -2323,11 +2323,11 @@ size = Vector2(50, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoy8s"]
 size = Vector2(2, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve4h4"]
-size = Vector2(3, 38)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw0ep"]
 size = Vector2(1.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixfg"]
+size = Vector2(5, 35)
 
 [node name="Forest2" type="Node2D"]
 script = ExtResource("1_wgttg")
@@ -2365,7 +2365,7 @@ position = Vector2(344, 61)
 shape = SubResource("RectangleShape2D_hxrnr")
 
 [node name="Player" parent="." instance=ExtResource("2_oong3")]
-position = Vector2(22, 295)
+position = Vector2(21, 295)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -2428,19 +2428,19 @@ collision_mask = 3
 position = Vector2(511, 371.5)
 shape = SubResource("RectangleShape2D_yoy8s")
 
-[node name="teleportFirstLeft" type="Area2D" parent="teleports"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstLeft"]
-position = Vector2(1.5, 297)
-shape = SubResource("RectangleShape2D_ve4h4")
-
 [node name="teleportSecondLeft" type="Area2D" parent="teleports"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportSecondLeft"]
 position = Vector2(1.25, 424)
 shape = SubResource("RectangleShape2D_fw0ep")
+
+[node name="teleportFirstLeft" type="Area2D" parent="teleports"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstLeft"]
+position = Vector2(2.5, 298)
+shape = SubResource("RectangleShape2D_8ixfg")
 
 [node name="TransicionAnimacion" parent="." instance=ExtResource("7_uucdd")]
 visible = false
@@ -2454,7 +2454,7 @@ visible = false
 [connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondDown" to="teleports" method="_on_teleport_second_down_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondRight" to="teleports" method="_on_teleport_second_right_body_entered"]
-[connection signal="body_entered" from="teleports/teleportFirstLeft" to="teleports" method="_on_teleport_first_left_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondLeft" to="teleports" method="_on_teleport_second_left_body_entered"]
+[connection signal="body_entered" from="teleports/teleportFirstLeft" to="teleports" method="_on_teleport_first_left_body_entered"]
 
 [editable path="TransicionAnimacion"]
