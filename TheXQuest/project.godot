@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TheXQuest"
-run/main_scene="res://Escenas/Menu/MenuInicio.tscn"
+run/main_scene="res://Escenas/VideoIntro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://LogoJuego.svg"
 
@@ -24,6 +24,7 @@ ManagerDeMenu="*res://Nodes/ManagerDeMenu.tscn"
 PlayerPosition="*res://Scripts/global.gd"
 AudioPlayer="*res://Escenas/music_forest.tscn"
 GameState="*res://Scripts/gameState.gd"
+Test="*res://Escenas/forest/Test.tscn"
 
 [display]
 

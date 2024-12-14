@@ -49,6 +49,12 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Escape") and !get_tree().paused:
 		open_pause_menu()
 
-func _ready():
-	player = get_tree().current_scene.get_parent()
-	print(player)
+
+	
+func _BackButton():
+	var TheRoot = get_node("/root")
+	var ThisScene = get_node("/root/SecondScene")
+	TheRoot.remove_child(ThisScene)
+	ThisScene.call_deferred("free")
+	var NextScene = AutoloadScirpt.previous_scene
+	TheRoot.add_child(NextScene)

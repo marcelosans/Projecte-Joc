@@ -27,4 +27,4 @@ func close_options():
 	options_menu.hide()
 
 func _on_start_game_button_pressed():
-	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+	get_tree().change_scene_to_file("res://Escenas/forest/Test.tscn")
