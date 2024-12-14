@@ -1107,6 +1107,7 @@ polygon = PackedVector2Array(0, 268, 11, 269, 17, 275, 18, 294, 26, 304, 37, 305
 polygon = PackedVector2Array(255, 302, 242, 302, 238, 309, 238, 323, 229, 334, 203, 358, 207, 371, 207, 384, 224, 384, 224, 399, 256, 399)
 
 [node name="Player" parent="." instance=ExtResource("2_lhxl8")]
+z_index = 2
 position = Vector2(128, 489)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -1116,8 +1117,6 @@ limit_top = 0
 limit_right = 287
 limit_bottom = 512
 editor_draw_limits = true
-
-[node name="MenuPausa" parent="Player/Camera2D" instance=ExtResource("4_33eoh")]
 
 [node name="BarraNegraIzq" type="ColorRect" parent="."]
 offset_left = -34.0
@@ -1133,5 +1132,13 @@ color = Color(0, 0, 0, 1)
 
 [node name="TransicionAnimacion" parent="." instance=ExtResource("4_pciiw")]
 visible = false
+z_index = 6
+
+[node name="MenuPausa" parent="." instance=ExtResource("4_33eoh")]
+visible = false
+offset_left = 128.0
+offset_top = 489.0
+offset_right = 128.0
+offset_bottom = 489.0
 
 [editable path="TransicionAnimacion"]

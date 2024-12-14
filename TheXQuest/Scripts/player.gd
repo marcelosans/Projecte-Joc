@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Variables para guardar datos
-@export var steps_before_encounter: int = 40  # Número promedio de pasos antes de un encuentro
-@export var encounter_chance: float = 0.25  # Probabilidad de encuentro por paso extra
+@export var steps_before_encounter: int = 60  # Número promedio de pasos antes de un encuentro
+@export var encounter_chance: float = 0.15  # Probabilidad de encuentro por paso extra
 @export var encounter_scene_path: String = "res://Escenas/Combate.tscn"  # Ruta de la escena de combate
 
 var save_file_path = "res://DatosGuardados/"
@@ -59,9 +59,9 @@ func save():
 	#escena = get_tree().current_scene.filename 
 	
 func _process(_delta):
-	if not is_position_restored:  # Solo restaura si no se ha hecho antes
-		load_data()
-		is_position_restored = true  # Marca como restaurado
+	#if not is_position_restored:  # Solo restaura si no se ha hecho antes
+		#load_data()
+		#is_position_restored = true  # Marca como restaurado
 	if Input.is_action_just_pressed("save"):
 		save()
 	if Input.is_action_just_pressed("load"):

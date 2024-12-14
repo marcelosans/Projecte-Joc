@@ -311,6 +311,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TransicionAnimacion" parent="." instance=ExtResource("7_1ocsx")]
+visible = false
 
 [connection signal="pressed" from="Player2/VBoxContainer/btnFight" to="." method="_on_btn_fight_pressed"]
 [connection signal="pressed" from="Player2/VBoxContainer/btnItem" to="." method="_on_btn_item_pressed"]
