@@ -10,7 +10,6 @@ var save_file_name = "PlayerSave.tres"
 var save_file_position = "res://DatosGuardados/PlayerPosition.tres"
 
 
-
 var playerData = PlayerData.new()
 
 var playerPos = PlayerPositionCombat.new()
@@ -28,8 +27,9 @@ var steps_taken: int = 0  # Contador de pasos
 func _ready():
 	verify_save_directory(save_file_path)
 	# Inicializar inventario si no está configurado
-	animated_sprite.play("walk_down")
 	
+	steps_taken = 0
+	$AnimatedSprite2D.play("walk_down")
 
 
 var area : String = "":
@@ -55,7 +55,7 @@ func save():
 	ResourceSaver.save(playerData, save_file_path + save_file_name)
 	print("guardado")
 	playerData.UpdatePos(self.position)
-	escena = get_tree().current_scene.filename 
+	#escena = get_tree().current_scene.filename 
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("save"):
@@ -63,10 +63,32 @@ func _process(_delta):
 	if Input.is_action_just_pressed("load"):
 		load_data()
 
+func handle_step():
+	steps_taken += 1
+
+	# Verificar si se supera el número de pasos promedio
+	if steps_taken >= steps_before_encounter:
+		var random_chance = randf()  # Número aleatorio entre 0 y 1
+		if random_chance < encounter_chance:
+			trigger_encounter()
+			return  # Reinicia los pasos después del encuentro
+		else:
+			steps_taken = 0  # Reinicia el contador si no hubo encuentro
+
+func trigger_encounter():
+	print("¡Encuentro aleatorio!")
+	save()
+	steps_taken = 0  # Reiniciar contador de pasos
+	if encounter_scene_path != "":
+		GameState.previous_scene_path = get_tree().current_scene.scene_file_path # Guarda la ruta de la escena
+		get_tree().change_scene_to_file(encounter_scene_path)
+
 	
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
+	if input_direction != Vector2.ZERO:
+		handle_step()
 
 func player_sprite_animation():
 	if (Input.is_action_pressed("down")):

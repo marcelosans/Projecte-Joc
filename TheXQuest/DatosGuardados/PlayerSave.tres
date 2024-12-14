@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Scripts/PlayerData.gd" id="1_fvdai"]
+[ext_resource type="Script" path="res://Scripts/PlayerData.gd" id="1_vyaea"]
 
 [resource]
-script = ExtResource("1_fvdai")
+script = ExtResource("1_vyaea")
 speed = 500.0
 health = 100
 SavePos = Vector2(0, 0)

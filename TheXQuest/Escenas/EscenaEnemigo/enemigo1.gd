@@ -8,8 +8,9 @@ var defensa: int = 5
 
 
 func _ready():
-	pass
-	
+	vida = 75
+	ataque = 20
+	defensa = 5
 
 func recibir_daño(cantidad):
 	vida -= cantidad

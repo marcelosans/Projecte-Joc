@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://cok5sx7en54fw"]
 
 [ext_resource type="Script" path="res://Escenas/pato_magico.gd" id="1_5rhdf"]
-[ext_resource type="Texture2D" uid="uid://dpcwb6adjrreo" path="res://Assets/Sprites/patoMagico.png" id="2_nbroe"]
+[ext_resource type="Texture2D" uid="uid://bvf2fe6bpiqet" path="res://Assets/Sprites/patoMagico.png" id="2_nbroe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qtqo"]
-radius = 23.0
+radius = 25.02
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2ij1"]
 radius = 18.0
