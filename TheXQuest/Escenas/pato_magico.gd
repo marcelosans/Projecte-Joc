@@ -19,7 +19,7 @@ func _on_body_exited(body: Node2D) -> void:
 		print("Jugador ha salido del área")
 
 
-func _process(delta):
+func _process(_delta):
 	if can_interact and Input.is_action_just_pressed("interact"):
 		PlayerStats.health = PlayerStats.maxHealth
 		print("Interacción registrada, salud restaurada")

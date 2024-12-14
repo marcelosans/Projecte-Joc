@@ -1,6 +1,5 @@
 extends Control
-signal resume
-signal back_to_main_pressed
+ 
 
 @onready var content: VBoxContainer = $%Container
 @onready var options_menu: Control = $%OptionsMenu

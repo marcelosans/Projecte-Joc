@@ -6,11 +6,20 @@ extends Control
 @onready var inventario_vbox = $Inventario/VBoxContainer  # Referencia al VBoxContainer del inventario
 @export var inventario: Inv  # Recurso que contiene los ítems del inventario
 
+@onready var sceneTransitionAnimation = $TransicionAnimacion/AnimationPlayer
+@onready var MainTrans = $TransicionAnimacion
+
 var enemigo: Node
 
 var vidaInicial = Enemigo1.vida
 
 func _ready():
+	MainTrans.show()
+	sceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 255
+	sceneTransitionAnimation.play("fade_in")
+	await get_tree().create_timer(0.5).timeout
+	MainTrans.hide()
+	
 	# Instanciar el enemigo
 	Enemigo1._ready()
 	print(GameState.player_x)
@@ -36,6 +45,13 @@ func atacar_enemigo():
 		PlayerStats.add_exp(Enemigo1.vida/3)
 		apareceDialogo("Has ganado" +" "+str(vidaInicial/3)+"exp")
 		await get_tree().create_timer(2.5).timeout
+		
+		MainTrans.show()
+		sceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 0
+		sceneTransitionAnimation.play("fade_out")
+		await get_tree().create_timer(0.5).timeout
+		MainTrans.hide()
+		
 		get_tree().change_scene_to_file(GameState.previous_scene_path)  # Regresa a la escena previa
 		 # Restaura la posición
 	else:
@@ -68,8 +84,18 @@ func _on_btn_run_pressed() -> void:
 	apareceDialogo("Has huido del combate")
 	$Jugador/AnimatedSprite2D.play("runAway")
 	await get_tree().create_timer(2).timeout
+	
+	MainTrans.show()
+	sceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 0
+	sceneTransitionAnimation.play("fade_out")
+	await get_tree().create_timer(0.5).timeout
+	MainTrans.hide()
+	
+	# Regresa a la escena previa
 	get_tree().change_scene_to_file(GameState.previous_scene_path)
-	  # Regresa a la escena previa
+	  
+	
+	
 	
 
 # Método que se llama cuando el temporizador termina

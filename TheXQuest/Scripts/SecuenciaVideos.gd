@@ -53,4 +53,4 @@ func _input(event):
 
 func _go_to_menu():
 	print("Cambiando a la escena del menú...")
-	get_tree().change_scene_to_file("res://Escenas/Test.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Menu/MenuInicio.tscn")
