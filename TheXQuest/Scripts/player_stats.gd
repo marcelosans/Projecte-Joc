@@ -27,6 +27,9 @@ func recibir_daño(damage):
 	health -= damage
 	health = max(health, 0) 
 	
+	if health <= 0:
+		get_tree().change_scene_to_file("res://Escenas/GameOver.tscn")
+	
 
 func add_exp(newExp):
 	exp  += newExp
