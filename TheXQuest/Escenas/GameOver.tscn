@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://c1agqf75s43hb"]
 
-[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_4a1qr"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_oxfda"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_4a1qr")
+script = ExtResource("1_oxfda")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -25,6 +25,7 @@ theme_override_font_sizes/font_size = 125
 text = "GAME OVER"
 
 [node name="RetryButton2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 678.0
 offset_top = 427.0
 offset_right = 924.0
@@ -40,6 +41,7 @@ offset_bottom = 609.0
 text = "Volver Al Menu"
 
 [node name="SalirJuego" type="Button" parent="."]
+layout_mode = 0
 offset_left = 673.0
 offset_top = 648.0
 offset_right = 919.0
