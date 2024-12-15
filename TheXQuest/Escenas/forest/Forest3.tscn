@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://83v4r4se40r0"]
+[gd_scene load_steps=23 format=4 uid="uid://83v4r4se40r0"]
 
 [ext_resource type="Texture2D" uid="uid://daepwluninrvt" path="res://Assets/tileMaps/forest3.png" id="1_qkjva"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_vaxx0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="4_sg7ai"]
 [ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="6_q8c2w"]
 [ext_resource type="PackedScene" uid="uid://ba1mwaae2rug0" path="res://Escenas/Menu/MenuPausa.tscn" id="7_2rebq"]
+[ext_resource type="Script" path="res://Scripts/Teleports/teleportForest3.gd" id="8_ghgvy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1ji0"]
 texture = ExtResource("1_qkjva")
@@ -2238,6 +2239,24 @@ size = Vector2(47, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w1ss"]
 size = Vector2(48, 2.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbns1"]
+size = Vector2(36, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klgrb"]
+size = Vector2(57, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3f7uu"]
+size = Vector2(3, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6jk0"]
+size = Vector2(2, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y47b4"]
+size = Vector2(44, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aehu8"]
+size = Vector2(34, 2)
+
 [node name="Forest3" type="Node2D"]
 script = ExtResource("1_vaxx0")
 
@@ -2281,7 +2300,7 @@ position = Vector2(328, 316)
 shape = SubResource("RectangleShape2D_3w1ss")
 
 [node name="Player" parent="." instance=ExtResource("2_q1p63")]
-position = Vector2(377, 192)
+position = Vector2(349, 21)
 steps_before_encounter = null
 encounter_chance = null
 encounter_scene_path = null
@@ -2307,5 +2326,51 @@ z_index = 5
 
 [node name="MenuPausa" parent="." instance=ExtResource("7_2rebq")]
 visible = false
+
+[node name="teleports" type="Node2D" parent="."]
+script = ExtResource("8_ghgvy")
+
+[node name="teleportFirstUp" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstUp"]
+position = Vector2(233, 1.5)
+shape = SubResource("RectangleShape2D_fbns1")
+
+[node name="teleportSecondUp" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportSecondUp"]
+position = Vector2(352.5, 1)
+shape = SubResource("RectangleShape2D_klgrb")
+
+[node name="teleportSecondRight" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportSecondRight"]
+position = Vector2(510.5, 94.5)
+shape = SubResource("RectangleShape2D_3f7uu")
+
+[node name="teleportFirstRight" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstRight"]
+position = Vector2(511, 200)
+shape = SubResource("RectangleShape2D_g6jk0")
+
+[node name="teleportSecondDown" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportSecondDown"]
+position = Vector2(442, 511)
+shape = SubResource("RectangleShape2D_y47b4")
+
+[node name="teleportFirstDown" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstDown"]
+position = Vector2(328, 511)
+shape = SubResource("RectangleShape2D_aehu8")
+
+[connection signal="body_entered" from="teleports/teleportFirstUp" to="teleports" method="_on_teleport_first_up_body_entered"]
+[connection signal="body_entered" from="teleports/teleportSecondUp" to="teleports" method="_on_teleport_second_up_body_entered"]
+[connection signal="body_entered" from="teleports/teleportSecondRight" to="teleports" method="_on_teleport_second_right_body_entered"]
+[connection signal="body_entered" from="teleports/teleportFirstRight" to="teleports" method="_on_teleport_first_right_body_entered"]
+[connection signal="body_entered" from="teleports/teleportSecondDown" to="teleports" method="_on_teleport_second_down_body_entered"]
+[connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]
 
 [editable path="TransicionAnimacion"]

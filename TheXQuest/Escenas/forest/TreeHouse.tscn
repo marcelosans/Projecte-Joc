@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://r5jgllk5h6n4"]
+[gd_scene load_steps=12 format=4 uid="uid://r5jgllk5h6n4"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_4mebd"]
 [ext_resource type="Texture2D" uid="uid://cpl1ovom780c6" path="res://Assets/tileMaps/treeHouse.png" id="1_85g2a"]
 [ext_resource type="PackedScene" uid="uid://bh0fvmle13y04" path="res://Escenas/Player.tscn" id="2_lhxl8"]
 [ext_resource type="PackedScene" uid="uid://ba1mwaae2rug0" path="res://Escenas/Menu/MenuPausa.tscn" id="4_33eoh"]
 [ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="4_pciiw"]
+[ext_resource type="Script" path="res://Scripts/Teleports/teleportTreeHouse.gd" id="6_nufug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kii0k"]
 texture = ExtResource("1_85g2a")
@@ -1072,6 +1073,9 @@ texture = ExtResource("1_85g2a")
 [sub_resource type="TileSet" id="TileSet_mtvbv"]
 sources/0 = SubResource("TileSetAtlasSource_ca122")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxy7g"]
+size = Vector2(57, 2)
+
 [node name="TreeHouse" type="Node2D"]
 script = ExtResource("1_4mebd")
 
@@ -1108,7 +1112,7 @@ polygon = PackedVector2Array(255, 302, 242, 302, 238, 309, 238, 323, 229, 334, 2
 
 [node name="Player" parent="." instance=ExtResource("2_lhxl8")]
 z_index = 2
-position = Vector2(128, 489)
+position = Vector2(128, 486)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(5, 5)
@@ -1140,5 +1144,16 @@ offset_left = 128.0
 offset_top = 489.0
 offset_right = 128.0
 offset_bottom = 489.0
+
+[node name="teleports" type="Node2D" parent="."]
+script = ExtResource("6_nufug")
+
+[node name="teleportFirstDown" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstDown"]
+position = Vector2(129.5, 511)
+shape = SubResource("RectangleShape2D_yxy7g")
+
+[connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]
 
 [editable path="TransicionAnimacion"]

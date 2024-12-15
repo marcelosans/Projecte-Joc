@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://m0f1yeev1dyd"]
+[gd_scene load_steps=18 format=4 uid="uid://m0f1yeev1dyd"]
 
 [ext_resource type="Texture2D" uid="uid://m315w731w24i" path="res://Assets/tileMaps/forest4.png" id="1_28lvh"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_daxsk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lrs1lbdik0ol" path="res://Escenas/forest/down.tscn" id="4_a41a6"]
 [ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="6_hl7yj"]
 [ext_resource type="PackedScene" uid="uid://ba1mwaae2rug0" path="res://Escenas/Menu/MenuPausa.tscn" id="7_5ilqd"]
+[ext_resource type="Script" path="res://Scripts/Teleports/teleportForest4.gd" id="8_exs85"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rn2i"]
 texture = ExtResource("1_28lvh")
@@ -4486,6 +4487,15 @@ texture = ExtResource("1_28lvh")
 [sub_resource type="TileSet" id="TileSet_7db1g"]
 sources/0 = SubResource("TileSetAtlasSource_j8jpt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cnc4"]
+size = Vector2(3, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua58q"]
+size = Vector2(46.5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1hp1"]
+size = Vector2(3, 41)
+
 [node name="Forest4" type="Node2D"]
 script = ExtResource("1_daxsk")
 
@@ -4510,7 +4520,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAiAAEAAAAAAAEAAAAiAAIAAAAAAAIAAAAiAAM
 tile_set = SubResource("TileSet_7db1g")
 
 [node name="Player" parent="." instance=ExtResource("2_aydpt")]
-position = Vector2(23, 379)
+position = Vector2(18, 376)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -4555,5 +4565,30 @@ offset_left = 23.0
 offset_top = 379.0
 offset_right = 23.0
 offset_bottom = 379.0
+
+[node name="teleports" type="Node2D" parent="."]
+script = ExtResource("8_exs85")
+
+[node name="teleportSecondLeft" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportSecondLeft"]
+position = Vector2(1.5, 377.5)
+shape = SubResource("RectangleShape2D_2cnc4")
+
+[node name="teleportFirstDown" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstDown"]
+position = Vector2(310.75, 1004.5)
+shape = SubResource("RectangleShape2D_ua58q")
+
+[node name="teleportEnd" type="Area2D" parent="teleports"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportEnd"]
+position = Vector2(510.5, 249.5)
+shape = SubResource("RectangleShape2D_a1hp1")
+
+[connection signal="body_entered" from="teleports/teleportSecondLeft" to="teleports" method="_on_teleport_second_left_body_entered"]
+[connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]
+[connection signal="body_entered" from="teleports/teleportEnd" to="teleports" method="_on_teleport_end_body_entered"]
 
 [editable path="TransicionAnimacion"]
