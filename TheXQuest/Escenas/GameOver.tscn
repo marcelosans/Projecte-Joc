@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1agqf75s43hb"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_4a1qr"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4a1qr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -33.0
+offset_top = -29.0
+offset_right = 1643.0
+offset_bottom = 950.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 147.0
+offset_right = 1147.0
+offset_bottom = 318.0
+theme_override_font_sizes/font_size = 125
+text = "GAME OVER"
+
+[node name="RetryButton2" type="Button" parent="."]
+offset_left = 678.0
+offset_top = 427.0
+offset_right = 924.0
+offset_bottom = 501.0
+text = "Cargar ultima Partida"
+
+[node name="VolverMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 535.0
+offset_right = 916.0
+offset_bottom = 609.0
+text = "Volver Al Menu"
+
+[node name="SalirJuego" type="Button" parent="."]
+offset_left = 673.0
+offset_top = 648.0
+offset_right = 919.0
+offset_bottom = 722.0
+text = "Salir del Juego"
+
+[connection signal="pressed" from="RetryButton2" to="." method="_on_retry_button_2_pressed"]
+[connection signal="pressed" from="VolverMenu" to="." method="_on_volver_menu_pressed"]
+[connection signal="pressed" from="SalirJuego" to="." method="_on_salir_juego_pressed"]
