@@ -119,11 +119,17 @@ func enemigo_decision_combate():
 		get_tree().change_scene_to_file("res://Escenas/Test.tscn")
 	else:
 		apareceDialogo("El enemigo ha usado Ataque")
-		PlayerStats.recibir_daño(Enemigo1.defensa)
+		PlayerStats.recibir_daño(Enemigo1.ataque)
+		
+		
 
 	# Esperar a que el diálogo del enemigo se muestre
 	await get_tree().create_timer(1).timeout  # Esperar a que el diálogo se muestre
 	ocultarDialogo()  # Ocultar el diálogo del enemigo
+	
+	if PlayerStats.health <= 0:
+		get_tree().change_scene_to_file("res://Escenas/GameOver.tscn")
+	
 
 func actualizar_label_enemigo():
 	$Enemigo1/LabelEnemigo.text = str(Enemigo1.vida)

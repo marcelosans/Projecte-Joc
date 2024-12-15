@@ -27,6 +27,8 @@ func recibir_daño(damage):
 	health -= damage
 	health = max(health, 0) 
 	
+	
+	
 
 func add_exp(newExp):
 	exp  += newExp
