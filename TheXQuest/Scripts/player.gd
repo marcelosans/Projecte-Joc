@@ -5,9 +5,9 @@ extends CharacterBody2D
 @export var encounter_chance: float = 0.15  # Probabilidad de encuentro por paso extra
 @export var encounter_scene_path: String = "res://Escenas/Combate.tscn"  # Ruta de la escena de combate
 
-var save_file_path = "res://DatosGuardados/"
-var save_file_name = "PlayerSave.tres"
-var save_file_position = "res://DatosGuardados/PlayerPosition.tres"
+#var save_file_path = "res://DatosGuardados/"
+#var save_file_name = "PlayerSave.tres"
+#var save_file_position = "res://DatosGuardados/PlayerPosition.tres"
 
 var is_position_restored: bool = false
 var playerData = PlayerData.new()
@@ -25,7 +25,7 @@ var steps_taken: int = 0  # Contador de pasos
 # Funciones guardar datos
 # me quedé aqui mientras pasaba codigo
 func _ready():
-	verify_save_directory(save_file_path)
+	#verify_save_directory(save_file_path)
 	steps_taken = 0
 	$AnimatedSprite2D.play("walk_down")
 	#if GameState.player_return_position != null:
@@ -41,19 +41,19 @@ var area : String = "":
 func verify_save_directory(path : String):
 	DirAccess.make_dir_absolute(path)
 	
-func load_data():
-	var loaded_data = ResourceLoader.load(save_file_path + save_file_name)
-	if loaded_data:
-		playerData = loaded_data.duplicate(true)
-		print("Cargando datos...")
-		print("Escena guardada:", playerData.CurrentArea)
-		print("Posición guardada:", playerData.SavePos)
-		
-		# Cambia de escena si es diferente a la actual
-		if playerData.CurrentArea != get_tree().current_scene.scene_file_path:
-			print("Cambiando a la escena guardada...")
-			get_tree().change_scene_to_file(playerData.CurrentArea)
-			return
+#func load_data():
+	#var loaded_data = ResourceLoader.load(save_file_path + save_file_name)
+	#if loaded_data:
+		#playerData = loaded_data.duplicate(true)
+		#print("Cargando datos...")
+		#print("Escena guardada:", playerData.CurrentArea)
+		#print("Posición guardada:", playerData.SavePos)
+		#
+		## Cambia de escena si es diferente a la actual
+		#if playerData.CurrentArea != get_tree().current_scene.scene_file_path:
+			#print("Cambiando a la escena guardada...")
+			#get_tree().change_scene_to_file(playerData.CurrentArea)
+			#return
 			
 		# Guardar las capas y máscaras originales
 		
@@ -79,16 +79,16 @@ func load_data():
 		#
 		#set_physics_process(true)
 		#print("Posición restaurada correctamente:", self.position)
-	else:
-		print("No se encontraron datos guardados")
+	#else:
+		#print("No se encontraron datos guardados")
 
-func on_start_load():
-	set_physics_process(false)  # Desactiva la física temporalmente
-	self.position = playerData.SavePos
-	print("Posición restaurada:", self.position)
-	await get_tree().process_frame  # Espera un frame para aplicar la posición
-	set_physics_process(true)  # Reactiva la física
-	
+#func on_start_load():
+	#set_physics_process(false)  # Desactiva la física temporalmente
+	#self.position = playerData.SavePos
+	#print("Posición restaurada:", self.position)
+	#await get_tree().process_frame  # Espera un frame para aplicar la posición
+	#set_physics_process(true)  # Reactiva la física
+	#
 
 
 #func save():
@@ -106,12 +106,12 @@ func _process(_delta):
 	if not is_position_restored:  # Solo restaura si no se ha hecho antes
 		#load_data()
 		is_position_restored = true  # Marca como restaurado
-	if Input.is_action_just_pressed("save"):
+	#if Input.is_action_just_pressed("save"):
 		#save()
-		pass
-	if Input.is_action_just_pressed("load"):
+		#pass
+	#if Input.is_action_just_pressed("load"):
 		#load_data()
-		pass
+		#pass
 		
 	#if GameState.player_return_position != null:
 		#self.set_position(GameState.player_return_position)

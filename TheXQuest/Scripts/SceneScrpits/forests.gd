@@ -8,7 +8,6 @@ var paused = false
 
 #Called when the node enters the scene tree for the first time.
 func _process(_delta):
-
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 
@@ -21,11 +20,10 @@ func pauseMenu():
 		pause_menu.show()
 		get_tree().paused = true
 		Engine.time_scale = 0
-
 	paused = !paused
 
-func _ready():
 
+func _ready():
 	AudioPlayer.play_music_forest(get_tree().current_scene.scene_file_path)
 	var player = $Player
 	player.position = PlayerPosition.spawn_position
