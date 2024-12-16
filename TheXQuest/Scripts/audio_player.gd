@@ -11,15 +11,22 @@ func _play_music(music: AudioStream, volume = 0.0):
 	volume_db = volume
 	play()
 	
-func play_music_forest():
+func play_music_forest(scene):
 	_play_music(forest_music)
-	#if (scene not in PlayerPosition.FOREST_SCENES):
-		#stop()
-	#else:
-		#_play_music(forest_music)
-		#if !playing:
-			#play()
+	if (scene not in PlayerPosition.FOREST_SCENES):
+		stop()
+	else:
+		_play_music(forest_music)
+		if !playing:
+			play()
 			
 	
-func play_music_battle():
+func play_music_battle(scene):
 	_play_music(battle_music)
+	if (scene != "res://Escenas/combate.tscn"):
+		stop()
+	else:
+		_play_music(battle_music)
+		if !playing:
+			play()
+			

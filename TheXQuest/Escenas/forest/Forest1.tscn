@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bgtohsdnyx1rn"]
+[gd_scene load_steps=29 format=4 uid="uid://bgtohsdnyx1rn"]
 
 [ext_resource type="Texture2D" uid="uid://cbwmkvu4nbn0o" path="res://Assets/tileMaps/forest1.png" id="1_n4j7b"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_qltx8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Teleports/teleportsForest1.gd" id="5_txo1n"]
 [ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="7_bi647"]
 [ext_resource type="PackedScene" uid="uid://ba1mwaae2rug0" path="res://Escenas/Menu/MenuPausa.tscn" id="8_wnrku"]
+[ext_resource type="PackedScene" uid="uid://cok5sx7en54fw" path="res://Escenas/PatoMagico.tscn" id="9_xooex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52d7i"]
 resource_name = "1"
@@ -2234,7 +2235,7 @@ tile_map_data = PackedByteArray("AADx//v/AAAgAAsAAADx//z/AAAgAAwAAADx//3/AAAgAA0
 tile_set = SubResource("TileSet_2tiu8")
 
 [node name="Player" parent="." instance=ExtResource("2_64t46")]
-position = Vector2(275, 243)
+position = Vector2(257, 267)
 collision_layer = 3
 collision_mask = 1
 
@@ -2485,6 +2486,9 @@ shape = SubResource("RectangleShape2D_isavw")
 [node name="TransicionAnimacion" parent="." instance=ExtResource("7_bi647")]
 visible = false
 z_index = 4
+
+[node name="PatoMagico" parent="." instance=ExtResource("9_xooex")]
+position = Vector2(253, 218)
 
 [connection signal="body_entered" from="teleports/teleportSecondRight" to="teleports" method="_on_teleport_second_right_body_entered"]
 [connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]

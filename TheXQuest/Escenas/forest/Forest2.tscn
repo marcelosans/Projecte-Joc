@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dx25bkgc1qrab"]
+[gd_scene load_steps=24 format=4 uid="uid://dx25bkgc1qrab"]
 
 [ext_resource type="Texture2D" uid="uid://c7d8kv4d3ari8" path="res://Assets/tileMaps/forest2.png" id="1_u5cx6"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_wgttg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Teleports/teleportsForest2.gd" id="6_iwbpe"]
 [ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="7_uucdd"]
 [ext_resource type="PackedScene" uid="uid://ba1mwaae2rug0" path="res://Escenas/Menu/MenuPausa.tscn" id="8_ux8mu"]
+[ext_resource type="PackedScene" uid="uid://cok5sx7en54fw" path="res://Escenas/PatoMagico.tscn" id="9_i874h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1iv7k"]
 texture = ExtResource("1_u5cx6")
@@ -2458,6 +2459,9 @@ shape = SubResource("RectangleShape2D_8ixfg")
 [node name="TransicionAnimacion" parent="." instance=ExtResource("7_uucdd")]
 visible = false
 z_index = 5
+
+[node name="PatoMagico" parent="." instance=ExtResource("9_i874h")]
+position = Vector2(273, 212)
 
 [connection signal="body_entered" from="teleports/teleportFirstUp" to="teleports" method="_on_teleport_first_up_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondUp" to="teleports" method="_on_teleport_second_up_body_entered"]

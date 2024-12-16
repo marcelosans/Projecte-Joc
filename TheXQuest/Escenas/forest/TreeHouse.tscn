@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://r5jgllk5h6n4"]
+[gd_scene load_steps=13 format=4 uid="uid://r5jgllk5h6n4"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_4mebd"]
 [ext_resource type="Texture2D" uid="uid://cpl1ovom780c6" path="res://Assets/tileMaps/treeHouse.png" id="1_85g2a"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ba1mwaae2rug0" path="res://Escenas/Menu/MenuPausa.tscn" id="4_33eoh"]
 [ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="4_pciiw"]
 [ext_resource type="Script" path="res://Scripts/Teleports/teleportTreeHouse.gd" id="6_nufug"]
+[ext_resource type="PackedScene" uid="uid://cok5sx7en54fw" path="res://Escenas/PatoMagico.tscn" id="7_owa28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kii0k"]
 texture = ExtResource("1_85g2a")
@@ -1159,6 +1160,9 @@ script = ExtResource("6_nufug")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstDown"]
 position = Vector2(129.5, 511)
 shape = SubResource("RectangleShape2D_yxy7g")
+
+[node name="PatoMagico" parent="." instance=ExtResource("7_owa28")]
+position = Vector2(129, 261)
 
 [connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]
 

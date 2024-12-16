@@ -13,12 +13,15 @@ var enemigo: Node
 
 var vidaInicial = Enemigo1.vida
 
+const scene_path = "res://Escenas/combate.tscn"
+
 func _ready():
 	MainTrans.show()
 	sceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 255
 	sceneTransitionAnimation.play("fade_in")
 	await get_tree().create_timer(0.5).timeout
 	MainTrans.hide()
+	AudioPlayer.play_music_battle(scene_path)
 	
 	# Instanciar el enemigo
 	Enemigo1._ready()
@@ -34,6 +37,19 @@ func _ready():
 	await get_tree().create_timer(2).timeout  # Esperar a que se muestre el diálogo
 	ocultarDialogo()
 
+func _process(delta: float) -> void:
+	if $Jugador/AnimatedSprite2D.animation=="idle":
+		$Jugador/AnimatedSprite2D.position=Vector2(823,608)
+		
+	elif $Jugador/AnimatedSprite2D.animation=="attack":
+		$Jugador/AnimatedSprite2D.position=Vector2(823,585)
+		
+	elif $Jugador/AnimatedSprite2D.animation=="runAway":
+		$Jugador/AnimatedSprite2D.position=Vector2(823,604)
+		
+	elif $Jugador/AnimatedSprite2D.animation=="victory":
+		$Jugador/AnimatedSprite2D.position=Vector2(823,566)
+		
 # Función para atacar al enemigo
 func atacar_enemigo():
 	Enemigo1.recibir_daño(15)

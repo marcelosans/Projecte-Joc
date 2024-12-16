@@ -269,11 +269,10 @@ wait_time = 1.5
 [node name="Jugador" type="CharacterBody2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jugador"]
-position = Vector2(811, 561)
-scale = Vector2(4.633, 2.86493)
+position = Vector2(823, 608)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6p7fn")
-animation = &"victory"
-frame_progress = 0.298809
+animation = &"idle"
 
 [node name="SalirTImeOut" type="Timer" parent="."]
 wait_time = 2.0

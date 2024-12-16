@@ -26,7 +26,7 @@ func pauseMenu():
 
 func _ready():
 
-	AudioPlayer.play_music_forest()
+	AudioPlayer.play_music_forest(get_tree().current_scene.scene_file_path)
 	var player = $Player
 	player.position = PlayerPosition.spawn_position
 	if (PlayerPosition.firstCollisionLayer != true && PlayerPosition.firstCollisionMask != true):
@@ -43,3 +43,7 @@ func _ready():
 	sceneTransitionAnimation.play("fade_in")
 	await get_tree().create_timer(0.5).timeout
 	MainTrans.hide()
+
+
+func _on_teleport_end_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

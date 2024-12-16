@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Variables para guardar datos
 @export var steps_before_encounter: int = 60  # Número promedio de pasos antes de un encuentro
-@export var encounter_chance: float = 0.15  # Probabilidad de encuentro por paso extra
+@export var encounter_chance: float = 0.15 # Probabilidad de encuentro por paso extra
 @export var encounter_scene_path: String = "res://Escenas/Combate.tscn"  # Ruta de la escena de combate
 
 var save_file_path = "res://DatosGuardados/"

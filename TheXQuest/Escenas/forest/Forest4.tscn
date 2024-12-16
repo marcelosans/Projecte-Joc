@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://m0f1yeev1dyd"]
+[gd_scene load_steps=19 format=4 uid="uid://m0f1yeev1dyd"]
 
 [ext_resource type="Texture2D" uid="uid://m315w731w24i" path="res://Assets/tileMaps/forest4.png" id="1_28lvh"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_daxsk"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://csgbje8n0q7jy" path="res://Escenas/AnimacionTransicion.tscn" id="6_hl7yj"]
 [ext_resource type="PackedScene" uid="uid://ba1mwaae2rug0" path="res://Escenas/Menu/MenuPausa.tscn" id="7_5ilqd"]
 [ext_resource type="Script" path="res://Scripts/Teleports/teleportForest4.gd" id="8_exs85"]
+[ext_resource type="PackedScene" uid="uid://cok5sx7en54fw" path="res://Escenas/PatoMagico.tscn" id="9_cvpta"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rn2i"]
 texture = ExtResource("1_28lvh")
@@ -4595,10 +4596,18 @@ position = Vector2(310.75, 1004.5)
 shape = SubResource("RectangleShape2D_ua58q")
 
 [node name="teleportEnd" type="Area2D" parent="teleports"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportEnd"]
 position = Vector2(510.5, 249.5)
 shape = SubResource("RectangleShape2D_a1hp1")
+
+[node name="PatoMagico" parent="." instance=ExtResource("9_cvpta")]
+position = Vector2(204, 186)
+
+[node name="PatoMagico2" parent="." instance=ExtResource("9_cvpta")]
+position = Vector2(166, 836)
 
 [connection signal="body_entered" from="teleports/teleportSecondLeft" to="teleports" method="_on_teleport_second_left_body_entered"]
 [connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnyfqqa4fdkf2"]
+
+[ext_resource type="Script" path="res://Scripts/win_screen.gd" id="1_wu56t"]
+[ext_resource type="AudioStream" uid="uid://b7awinhbkr2cj" path="res://Assets/Musica/youWin.wav" id="2_qy5q4"]
+[ext_resource type="Texture2D" uid="uid://dndtqh0ojg13n" path="res://Assets/tileMaps/TheXQuestTransparent.png" id="3_bpypu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np0bo"]
+atlas = ExtResource("3_bpypu")
+region = Rect2(67, 243, 56, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph4a1"]
+atlas = ExtResource("3_bpypu")
+region = Rect2(123, 243, 56, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2e12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np0bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph4a1")
+}],
+"loop": true,
+"name": &"endDemoAnim",
+"speed": 3.0
+}]
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu56t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -33.0
+offset_top = -29.0
+offset_right = 1643.0
+offset_bottom = 950.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+offset_left = 526.0
+offset_top = 291.0
+offset_right = 1243.0
+offset_bottom = 462.0
+theme_override_font_sizes/font_size = 125
+text = "DEMO END!"
+
+[node name="music_end" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qy5q4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(882, 668)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_o2e12")
+animation = &"endDemoAnim"
+frame_progress = 0.344611
+
+[connection signal="finished" from="music_end" to="." method="_on_music_end_finished"]
