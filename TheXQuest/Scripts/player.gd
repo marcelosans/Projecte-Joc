@@ -91,25 +91,27 @@ func on_start_load():
 	
 
 
-func save():
-	playerData.EscenaActual(get_tree().current_scene.scene_file_path)
-	playerData.guardarCapas(collision_mask,collision_layer)
-	playerData.zindex = self.z_index 
-	print(playerData.CurrentArea)
-	playerData.UpdatePos(self.position)
-	print(self.position)
-	ResourceSaver.save(playerData, save_file_path + save_file_name)
-	print("guardado")
-	#escena = get_tree().current_scene.filename 
+#func save():
+	#playerData.EscenaActual(get_tree().current_scene.scene_file_path)
+	#playerData.guardarCapas(collision_mask,collision_layer)
+	#playerData.zindex = self.z_index 
+	#print(playerData.CurrentArea)
+	#playerData.UpdatePos(self.position)
+	#print(self.position)
+	#ResourceSaver.save(playerData, save_file_path + save_file_name)
+	#print("guardado")
+	##escena = get_tree().current_scene.filename 
 	
 func _process(_delta):
 	if not is_position_restored:  # Solo restaura si no se ha hecho antes
 		#load_data()
 		is_position_restored = true  # Marca como restaurado
 	if Input.is_action_just_pressed("save"):
-		save()
+		#save()
+		pass
 	if Input.is_action_just_pressed("load"):
-		load_data()
+		#load_data()
+		pass
 		
 	#if GameState.player_return_position != null:
 		#self.set_position(GameState.player_return_position)
@@ -138,7 +140,7 @@ func handle_step():
 
 func trigger_encounter():
 	print("¡Encuentro aleatorio!")
-	save()
+	#save()
 	steps_taken = 0  # Reiniciar contador de pasos
 	if encounter_scene_path != "":
 		get_tree().change_scene_to_file(encounter_scene_path)
