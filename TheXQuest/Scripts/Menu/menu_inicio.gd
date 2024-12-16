@@ -38,5 +38,5 @@ func close_options():
 func _on_start_game_button_pressed():
 	#playerData.SavePos = Vector2(250, 200)
 	#playerData.CurrentArea = "res://Escenas/forest/Test.tscn"
-	get_tree().change_scene_to_file("res://Escenas/forest/Test.tscn")
+	get_tree().change_scene_to_file(PlayerPosition.currentScene)
 	

@@ -117,6 +117,7 @@ func _process(_delta):
 		#self.set_position(GameState.player_return_position)
 		
 		#self.global_position = GameState.player_return_position
+	PlayerPosition.player_position=position
 
 func handle_step():
 	steps_taken += 1

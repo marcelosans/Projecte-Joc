@@ -26,7 +26,12 @@ func pauseMenu():
 func _ready():
 	AudioPlayer.play_music_forest(get_tree().current_scene.scene_file_path)
 	var player = $Player
-	player.position = PlayerPosition.spawn_position
+	if PlayerPosition.touchedColision==true:
+		player.position = PlayerPosition.spawn_position
+		PlayerPosition.touchedColision=false
+	else:
+		player.position = PlayerPosition.player_position
+
 	if (PlayerPosition.firstCollisionLayer != true && PlayerPosition.firstCollisionMask != true):
 		player.set_collision_mask_value(2,true)
 		player.set_collision_mask_value(1,false)
@@ -35,7 +40,7 @@ func _ready():
 		player.set_collision_mask_value(1,true)
 		player.set_collision_mask_value(2,false)
 		player.z_index = 0
-
+	PlayerPosition.currentScene=get_tree().current_scene.scene_file_path
 	MainTrans.show()
 	sceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 255
 	sceneTransitionAnimation.play("fade_in")

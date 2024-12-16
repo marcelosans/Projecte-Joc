@@ -1,8 +1,13 @@
 extends Node
 
 var spawn_position: Vector2 = Vector2(254,240)
-var firstCollisionMask = true;
-var firstCollisionLayer = true;
+var player_position: Vector2 = Vector2.ZERO
+
+var firstCollisionMask = true
+var firstCollisionLayer = true
+var touchedColision=true
+
+var currentScene="res://Escenas/forest/Test.tscn"
 
 const FOREST_SCENES = [
 	"res://Escenas/forest/Test.tscn",

@@ -11,6 +11,7 @@ func teleportPlace(x,y, layer, mask, fileName):
 	ResourceSaver.save(playerData, save_file_path + save_file_name)
 	PlayerPosition.firstCollisionLayer = layer
 	PlayerPosition.firstCollisionMask = mask
+	PlayerPosition.touchedColision=true
 	get_tree().change_scene_to_file(fileName)
 
 func _on_teleport_second_left_body_entered(body: CharacterBody2D) -> void:
