@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://83v4r4se40r0"]
+[gd_scene load_steps=23 format=4 uid="uid://jm4k5iispqwv"]
 
 [ext_resource type="Texture2D" uid="uid://daepwluninrvt" path="res://Assets/tileMaps/forest3.png" id="1_qkjva"]
 [ext_resource type="Script" path="res://Scripts/SceneScrpits/forests.gd" id="1_vaxx0"]
@@ -2314,6 +2314,19 @@ limit_right = 512
 limit_bottom = 512
 editor_draw_limits = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+layer = 6
+scale = Vector2(3.2, 3.2)
+transform = Transform2D(3.2, 0, 0, 3.2, 0, 0)
+
+[node name="MenuPausa" parent="Player/CanvasLayer" instance=ExtResource("7_2rebq")]
+process_mode = 2
+visible = false
+offset_left = -0.3125
+offset_top = -0.625
+offset_right = -0.3125
+offset_bottom = -0.625
+
 [node name="up" parent="." instance=ExtResource("3_50lo3")]
 position = Vector2(160, -32)
 
@@ -2323,9 +2336,6 @@ position = Vector2(160, -40)
 [node name="TransicionAnimacion" parent="." instance=ExtResource("6_q8c2w")]
 visible = false
 z_index = 5
-
-[node name="MenuPausa" parent="." instance=ExtResource("7_2rebq")]
-visible = false
 
 [node name="teleports" type="Node2D" parent="."]
 script = ExtResource("8_ghgvy")

@@ -61,23 +61,17 @@ limit_left = 0
 limit_top = 0
 limit_right = 510
 limit_bottom = 510
-limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 editor_draw_limits = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-layer = 6
-scale = Vector2(3.2, 3.2)
-transform = Transform2D(3.2, 0, 0, 3.2, 0, 0)
-
-[node name="MenuPausa" parent="Player/CanvasLayer" instance=ExtResource("6_0xlv4")]
+[node name="MenuPausa" parent="Player/Camera2D" instance=ExtResource("6_0xlv4")]
 process_mode = 2
+process_priority = 2
 visible = false
-offset_left = -0.3125
-offset_top = -0.625
-offset_right = -0.3125
-offset_bottom = -0.625
+offset_left = -1.0
+offset_top = -9.0
+offset_right = -1.0
+offset_bottom = -9.0
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(273, 112)
@@ -104,7 +98,7 @@ visible = false
 z_index = 4
 
 [node name="PatoMagico" parent="." instance=ExtResource("7_xafye")]
-position = Vector2(88, 301)
+position = Vector2(82, 301)
 
 [connection signal="body_entered" from="teleport" to="teleport" method="_on_body_entered"]
 

@@ -2375,6 +2375,19 @@ limit_right = 512
 limit_bottom = 512
 editor_draw_limits = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+layer = 6
+scale = Vector2(3.2, 3.2)
+transform = Transform2D(3.2, 0, 0, 3.2, 0, 0)
+
+[node name="MenuPausa" parent="Player/CanvasLayer" instance=ExtResource("8_ux8mu")]
+process_mode = 2
+visible = false
+offset_left = -0.3125
+offset_top = -0.625
+offset_right = -0.3125
+offset_bottom = -0.625
+
 [node name="down" parent="." instance=ExtResource("3_5jbhe")]
 position = Vector2(-64, 49)
 collision_layer = 3
@@ -2445,9 +2458,6 @@ shape = SubResource("RectangleShape2D_8ixfg")
 [node name="TransicionAnimacion" parent="." instance=ExtResource("7_uucdd")]
 visible = false
 z_index = 5
-
-[node name="MenuPausa" parent="." instance=ExtResource("8_ux8mu")]
-visible = false
 
 [connection signal="body_entered" from="teleports/teleportFirstUp" to="teleports" method="_on_teleport_first_up_body_entered"]
 [connection signal="body_entered" from="teleports/teleportSecondUp" to="teleports" method="_on_teleport_second_up_body_entered"]

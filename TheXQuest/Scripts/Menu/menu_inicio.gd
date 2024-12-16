@@ -6,6 +6,15 @@ extends Control
 @onready var Numeros: Control = $ContainerNum
 @onready var Info: Control = $ContainerInfoPlayer
 
+
+var playerData = PlayerData.new()
+var save_file_path = "res://DatosGuardados/"
+var save_file_name = "PlayerSave.tres"
+
+
+
+var contador = 0
+
 func _ready():
 	start_game_button.grab_focus()
 
@@ -27,4 +36,5 @@ func close_options():
 	options_menu.hide()
 
 func _on_start_game_button_pressed():
+
 	get_tree().change_scene_to_file("res://Escenas/forest/Test.tscn")

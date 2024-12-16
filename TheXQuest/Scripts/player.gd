@@ -58,8 +58,8 @@ func load_data():
 		print("Posición restaurada:", self.position)
 	else:
 		print("No se encontraron datos guardados")
-	
-	
+
+
 func on_start_load():
 	self.position = playerData.SavePos
 	print(self.position)
@@ -131,6 +131,8 @@ func player_sprite_animation():
 		animated_sprite.frame = 1
 		
 func _physics_process(_delta):
+	if not is_inside_tree():
+		return  # No ejecutar si el nodo no está en el árbol de la escena
 	get_input()
 	player_sprite_animation()
 	move_and_slide()

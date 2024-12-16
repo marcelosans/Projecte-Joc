@@ -4530,6 +4530,19 @@ limit_right = 512
 limit_bottom = 1024
 editor_draw_limits = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+layer = 6
+scale = Vector2(3.2, 3.2)
+transform = Transform2D(3.2, 0, 0, 3.2, 0, 0)
+
+[node name="MenuPausa" parent="Player/CanvasLayer" instance=ExtResource("7_5ilqd")]
+process_mode = 2
+visible = false
+offset_left = -0.3125
+offset_top = -0.625
+offset_right = -0.3125
+offset_bottom = -0.625
+
 [node name="up" parent="." instance=ExtResource("3_ftjw3")]
 position = Vector2(192, 19)
 

@@ -1,11 +1,32 @@
 extends Node2D
 
+
+@onready var pause_menu = $Player/CanvasLayer/MenuPausa
 @onready var sceneTransitionAnimation = $TransicionAnimacion/AnimationPlayer
 @onready var MainTrans = $TransicionAnimacion
+var paused = false
 
-# Called when the node enters the scene tree for the first time.
+#Called when the node enters the scene tree for the first time.
+func _process(_delta):
+
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
+
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		get_tree().paused = false
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		get_tree().paused = true
+		Engine.time_scale = 0
+
+	paused = !paused
+
 func _ready():
-	AudioPlayer.play_music_forest(get_tree().current_scene.scene_file_path)
+
+	AudioPlayer.play_music_forest()
 	var player = $Player
 	player.position = PlayerPosition.spawn_position
 	if (PlayerPosition.firstCollisionLayer != true && PlayerPosition.firstCollisionMask != true):
@@ -16,9 +37,9 @@ func _ready():
 		player.set_collision_mask_value(1,true)
 		player.set_collision_mask_value(2,false)
 		player.z_index = 0
+
 	MainTrans.show()
 	sceneTransitionAnimation.get_parent().get_node("ColorRect").color.a = 255
 	sceneTransitionAnimation.play("fade_in")
 	await get_tree().create_timer(0.5).timeout
 	MainTrans.hide()
-	

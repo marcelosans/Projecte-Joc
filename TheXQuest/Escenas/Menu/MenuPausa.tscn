@@ -13,16 +13,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.306529, 0.30253)
 script = ExtResource("1_lawdm")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.03
-anchor_top = -0.0333333
-anchor_right = 1.09438
-anchor_bottom = 1.15333
-metadata/_edit_use_anchors_ = true
+anchor_right = 1.044
+anchor_bottom = 1.095
+offset_right = -1551.4
+offset_bottom = -844.5
+scale = Vector2(14.0326, 6.98773)
+color = Color(0, 0, 0, 0.313726)
 
 [node name="Container" type="VBoxContainer" parent="."]
 unique_name_in_owner = true

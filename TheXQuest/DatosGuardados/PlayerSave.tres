@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Scripts/PlayerData.gd" id="1_bkk2x"]
+[ext_resource type="Script" path="res://Scripts/PlayerData.gd" id="1_t4hhx"]
 
 [resource]
-script = ExtResource("1_bkk2x")
+script = ExtResource("1_t4hhx")
 speed = 500.0
 health = 100
-SavePos = Vector2(217.797, 358.528)
+SavePos = Vector2(33, 367)
 CurrentArea = "res://Escenas/forest/Test.tscn"

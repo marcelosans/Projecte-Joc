@@ -2234,7 +2234,7 @@ tile_map_data = PackedByteArray("AADx//v/AAAgAAsAAADx//z/AAAgAAwAAADx//3/AAAgAA0
 tile_set = SubResource("TileSet_2tiu8")
 
 [node name="Player" parent="." instance=ExtResource("2_64t46")]
-position = Vector2(295, 25)
+position = Vector2(275, 243)
 collision_layer = 3
 collision_mask = 1
 
@@ -2245,6 +2245,19 @@ limit_top = 0
 limit_right = 512
 limit_bottom = 512
 editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+layer = 6
+scale = Vector2(3.2, 3.2)
+transform = Transform2D(3.2, 0, 0, 3.2, 0, 0)
+
+[node name="MenuPausa" parent="Player/CanvasLayer" instance=ExtResource("8_wnrku")]
+process_mode = 2
+visible = false
+offset_left = -0.3125
+offset_top = -0.625
+offset_right = -0.3125
+offset_bottom = -0.625
 
 [node name="Bridge1" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -2472,9 +2485,6 @@ shape = SubResource("RectangleShape2D_isavw")
 [node name="TransicionAnimacion" parent="." instance=ExtResource("7_bi647")]
 visible = false
 z_index = 4
-
-[node name="MenuPausa" parent="." instance=ExtResource("8_wnrku")]
-visible = false
 
 [connection signal="body_entered" from="teleports/teleportSecondRight" to="teleports" method="_on_teleport_second_right_body_entered"]
 [connection signal="body_entered" from="teleports/teleportFirstDown" to="teleports" method="_on_teleport_first_down_body_entered"]
