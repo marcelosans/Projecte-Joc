@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Variables para guardar datos
-@export var steps_before_encounter: int = 60  # Número promedio de pasos antes de un encuentro
-@export var encounter_chance: float = 0.15 # Probabilidad de encuentro por paso extra
+@export var steps_before_encounter: int = 70  # Número promedio de pasos antes de un encuentro
+@export var encounter_chance: float = 0.15  # Probabilidad de encuentro por paso extra
 @export var encounter_scene_path: String = "res://Escenas/Combate.tscn"  # Ruta de la escena de combate
 
 var save_file_path = "res://DatosGuardados/"
@@ -28,6 +28,8 @@ func _ready():
 	verify_save_directory(save_file_path)
 	steps_taken = 0
 	$AnimatedSprite2D.play("walk_down")
+	#if GameState.player_return_position != null:
+		#set_global_position(GameState.player_return_position)
 	
 
 
@@ -42,7 +44,7 @@ func verify_save_directory(path : String):
 func load_data():
 	var loaded_data = ResourceLoader.load(save_file_path + save_file_name)
 	if loaded_data:
-		playerData = loaded_data.duplicate(true)  # Duplica los datos para evitar modificar el archivo original
+		playerData = loaded_data.duplicate(true)
 		print("Cargando datos...")
 		print("Escena guardada:", playerData.CurrentArea)
 		print("Posición guardada:", playerData.SavePos)
@@ -51,23 +53,48 @@ func load_data():
 		if playerData.CurrentArea != get_tree().current_scene.scene_file_path:
 			print("Cambiando a la escena guardada...")
 			get_tree().change_scene_to_file(playerData.CurrentArea)
-			return  # Salir porque la escena cambiará
+			return
+			
+		# Guardar las capas y máscaras originales
 		
-		# Si ya estás en la escena correcta, restaura la posición
-		self.position = playerData.SavePos
-		print("Posición restaurada:", self.position)
+		
+		
+		# Si estás en la escena correcta, restaura la posición
+		#set_physics_process(false)  # Desactiva la física temporalmente
+		#collision_layer = 0  # Desactiva todas las capas
+		#collision_mask = 0   # Desactiva todas las máscaras  # Desactiva las colisiones del jugador temporalmente
+		#self.position = playerData.SavePos  # Asigna la posición guardada
+		#await get_tree().process_frame  # Espera un frame para aplicar la posición
+		#if playerData.original_collision_layer == 1 and playerData.original_collision_mask == 1:
+			#set_collision_layer_value(2,false)
+			#set_collision_mask_value(2,false)
+			#set_collision_layer_value(playerData.original_collision_layer,true)
+			#set_collision_mask_value(playerData.original_collision_mask,true)
+		#elif playerData.original_collision_layer == 2 and playerData.original_collision_mask == 2:
+			#set_collision_layer_value(1,false)
+			#set_collision_mask_value(1,false)
+			#set_collision_layer_value(playerData.original_collision_layer,true)
+			#set_collision_mask_value(playerData.original_collision_mask,true)
+		#self.z_index = playerData.zindex
+		#
+		#set_physics_process(true)
+		#print("Posición restaurada correctamente:", self.position)
 	else:
 		print("No se encontraron datos guardados")
 
-
 func on_start_load():
+	set_physics_process(false)  # Desactiva la física temporalmente
 	self.position = playerData.SavePos
-	print(self.position)
+	print("Posición restaurada:", self.position)
+	await get_tree().process_frame  # Espera un frame para aplicar la posición
+	set_physics_process(true)  # Reactiva la física
 	
 
 
 func save():
 	playerData.EscenaActual(get_tree().current_scene.scene_file_path)
+	playerData.guardarCapas(collision_mask,collision_layer)
+	playerData.zindex = self.z_index 
 	print(playerData.CurrentArea)
 	playerData.UpdatePos(self.position)
 	print(self.position)
@@ -77,12 +104,17 @@ func save():
 	
 func _process(_delta):
 	if not is_position_restored:  # Solo restaura si no se ha hecho antes
-		load_data()
+		#load_data()
 		is_position_restored = true  # Marca como restaurado
 	if Input.is_action_just_pressed("save"):
 		save()
 	if Input.is_action_just_pressed("load"):
 		load_data()
+		
+	#if GameState.player_return_position != null:
+		#self.set_position(GameState.player_return_position)
+		
+		#self.global_position = GameState.player_return_position
 
 func handle_step():
 	steps_taken += 1
@@ -95,7 +127,8 @@ func handle_step():
 
 		var random_chance = randf()  # Número aleatorio entre 0 y 1
 		if random_chance < adjusted_chance:
-			save()
+			#save()
+			GameState.player_return_position = self.position
 			playerData.EscenaActual(get_tree().current_scene.scene_file_path)
 			GameState.previous_scene_path = get_tree().current_scene.scene_file_path  # Guarda la ruta de la escena
 			trigger_encounter()
@@ -113,6 +146,7 @@ func trigger_encounter():
 	
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
+	speed = 100
 	velocity = input_direction * speed
 	if input_direction != Vector2.ZERO:
 		handle_step()
