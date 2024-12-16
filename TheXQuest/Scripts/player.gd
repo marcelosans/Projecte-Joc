@@ -100,7 +100,7 @@ func on_start_load():
 	#print(self.position)
 	#ResourceSaver.save(playerData, save_file_path + save_file_name)
 	#print("guardado")
-	##escena = get_tree().current_scene.filename 
+	#escena = get_tree().current_scene.filename 
 	
 func _process(_delta):
 	if not is_position_restored:  # Solo restaura si no se ha hecho antes

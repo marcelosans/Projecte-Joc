@@ -7,9 +7,9 @@ extends Control
 @onready var Info: Control = $ContainerInfoPlayer
 
 
-var playerData = PlayerData.new()
-var save_file_path = "res://DatosGuardados/"
-var save_file_name = "PlayerSave.tres"
+#var playerData = PlayerData.new()
+#var save_file_path = "res://DatosGuardados/"
+#var save_file_name = "PlayerSave.tres"
 
 
 
@@ -36,5 +36,7 @@ func close_options():
 	options_menu.hide()
 
 func _on_start_game_button_pressed():
-
+	#playerData.SavePos = Vector2(250, 200)
+	#playerData.CurrentArea = "res://Escenas/forest/Test.tscn"
 	get_tree().change_scene_to_file("res://Escenas/forest/Test.tscn")
+	

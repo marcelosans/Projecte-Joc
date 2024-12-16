@@ -4521,7 +4521,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAiAAEAAAAAAAEAAAAiAAIAAAAAAAIAAAAiAAM
 tile_set = SubResource("TileSet_7db1g")
 
 [node name="Player" parent="." instance=ExtResource("2_aydpt")]
-position = Vector2(18, 376)
+position = Vector2(38, 394)
+scale = Vector2(1.0023, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -4546,21 +4547,33 @@ offset_bottom = -0.625
 
 [node name="up" parent="." instance=ExtResource("3_ftjw3")]
 position = Vector2(192, 19)
+collision_layer = 3
+collision_mask = 3
 
 [node name="up2" parent="." instance=ExtResource("3_ftjw3")]
 position = Vector2(112, 434)
+collision_layer = 3
+collision_mask = 3
 
 [node name="up3" parent="." instance=ExtResource("3_ftjw3")]
 position = Vector2(17, 610)
+collision_layer = 3
+collision_mask = 3
 
 [node name="down" parent="." instance=ExtResource("4_a41a6")]
 position = Vector2(192, 1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="down2" parent="." instance=ExtResource("4_a41a6")]
 position = Vector2(113, 418)
+collision_layer = 3
+collision_mask = 3
 
 [node name="down3" parent="." instance=ExtResource("4_a41a6")]
 position = Vector2(17, 591)
+collision_layer = 3
+collision_mask = 3
 
 [node name="border" type="StaticBody2D" parent="."]
 collision_layer = 3
