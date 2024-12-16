@@ -36,6 +36,7 @@ grow_vertical = 2
 script = ExtResource("1_wu56t")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -33.0
 offset_top = -29.0
 offset_right = 1643.0
@@ -43,6 +44,7 @@ offset_bottom = 950.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 526.0
 offset_top = 291.0
 offset_right = 1243.0

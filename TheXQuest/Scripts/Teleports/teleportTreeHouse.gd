@@ -15,4 +15,4 @@ func teleportPlace(x,y, layer, mask, fileName):
 
 
 func _on_teleport_first_down_body_entered(body: CharacterBody2D) -> void:
-	teleportPlace(349,21,true,true,"res://Escenas/forest/TreeHouse.tscn")
+	teleportPlace(350,21,false,false,"res://Escenas/forest/Forest3.tscn")

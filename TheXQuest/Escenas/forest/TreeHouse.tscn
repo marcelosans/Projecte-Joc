@@ -1075,7 +1075,7 @@ texture = ExtResource("1_85g2a")
 sources/0 = SubResource("TileSetAtlasSource_ca122")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxy7g"]
-size = Vector2(57, 2)
+size = Vector2(57, 3)
 
 [node name="TreeHouse" type="Node2D"]
 script = ExtResource("1_4mebd")
@@ -1156,9 +1156,11 @@ z_index = 6
 script = ExtResource("6_nufug")
 
 [node name="teleportFirstDown" type="Area2D" parent="teleports"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstDown"]
-position = Vector2(129.5, 511)
+position = Vector2(129.5, 510.5)
 shape = SubResource("RectangleShape2D_yxy7g")
 
 [node name="PatoMagico" parent="." instance=ExtResource("7_owa28")]
