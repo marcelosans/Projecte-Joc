@@ -103,9 +103,9 @@ func verify_save_directory(path : String):
 	#escena = get_tree().current_scene.filename 
 	
 func _process(_delta):
-	if not is_position_restored:  # Solo restaura si no se ha hecho antes
+	#if not is_position_restored:  # Solo restaura si no se ha hecho antes
 		#load_data()
-		is_position_restored = true  # Marca como restaurado
+	#	is_position_restored = true  # Marca como restaurado
 	#if Input.is_action_just_pressed("save"):
 		#save()
 		#pass

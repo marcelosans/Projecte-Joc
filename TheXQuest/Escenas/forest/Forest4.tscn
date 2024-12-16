@@ -4521,7 +4521,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAiAAEAAAAAAAEAAAAiAAIAAAAAAAIAAAAiAAM
 tile_set = SubResource("TileSet_7db1g")
 
 [node name="Player" parent="." instance=ExtResource("2_aydpt")]
-position = Vector2(38, 394)
+position = Vector2(17, 371)
 scale = Vector2(1.0023, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -4597,12 +4597,16 @@ offset_bottom = 379.0
 script = ExtResource("8_exs85")
 
 [node name="teleportSecondLeft" type="Area2D" parent="teleports"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportSecondLeft"]
 position = Vector2(1.5, 377.5)
 shape = SubResource("RectangleShape2D_2cnc4")
 
 [node name="teleportFirstDown" type="Area2D" parent="teleports"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleports/teleportFirstDown"]
 position = Vector2(310.75, 1004.5)

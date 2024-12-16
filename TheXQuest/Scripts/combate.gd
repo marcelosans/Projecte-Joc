@@ -108,7 +108,7 @@ func _on_btn_run_pressed() -> void:
 	MainTrans.hide()
 	
 	# Regresa a la escena previa
-	get_tree().change_scene_to_file(GameState.previous_scene_path)
+	get_tree().change_scene_to_file(PlayerPosition.currentScene)
 	  
 	
 	

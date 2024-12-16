@@ -6,16 +6,16 @@ var save_file_name = "PlayerSave.tres"
 
 func teleportPlace(x,y, layer, mask, fileName):
 	PlayerPosition.spawn_position = Vector2(x, y)
-	playerData.UpdatePos(PlayerPosition.spawn_position)
-	playerData.EscenaActual(fileName)
-	ResourceSaver.save(playerData, save_file_path + save_file_name)
+	#playerData.UpdatePos(PlayerPosition.spawn_position)
+	#playerData.EscenaActual(fileName)
+	#ResourceSaver.save(playerData, save_file_path + save_file_name)
 	PlayerPosition.firstCollisionLayer = layer
 	PlayerPosition.firstCollisionMask = mask
 	PlayerPosition.touchedColision=true
 	get_tree().change_scene_to_file(fileName)
 
 func _on_teleport_second_left_body_entered(body: CharacterBody2D) -> void:
-	teleportPlace(497,369,false,false,"res://Escenas/forest/Forest2.tscn")
+	teleportPlace(490,370,false,false,"res://Escenas/forest/Forest2.tscn")
 
 
 func _on_teleport_first_down_body_entered(body: CharacterBody2D) -> void:
@@ -23,4 +23,4 @@ func _on_teleport_first_down_body_entered(body: CharacterBody2D) -> void:
 
 
 func _on_teleport_end_body_entered(body: CharacterBody2D) -> void:
-	get_tree().change_scene_to_file("res://Escenas/GameOver.tscn")
+	get_tree().change_scene_to_file("res://Escenas/winScreen.tscn")
