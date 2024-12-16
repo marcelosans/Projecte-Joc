@@ -31,7 +31,7 @@ func _on_teleport_second_down_body_entered(body: CharacterBody2D) -> void:
 
 
 func _on_teleport_second_right_body_entered(body: CharacterBody2D) -> void:
-	teleportPlace(23,379,true,true,"res://Escenas/forest/Forest4.tscn")
+	teleportPlace(23,379,false,false,"res://Escenas/forest/Forest4.tscn")
 
 
 func _on_teleport_second_left_body_entered(body: CharacterBody2D) -> void:
